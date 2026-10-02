@@ -1,5 +1,146 @@
 {
   "repository": "nhattruong0204/wallet-observer",
-  "publication_status": "not_published",
-  "issues": []
+  "publication_status": "published",
+  "issues": [
+    {
+      "id": "WO-001",
+      "number": 1,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/1"
+    },
+    {
+      "id": "WO-002",
+      "number": 2,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/2"
+    },
+    {
+      "id": "WO-003",
+      "number": 3,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/3"
+    },
+    {
+      "id": "WO-004",
+      "number": 4,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/4"
+    },
+    {
+      "id": "WO-005",
+      "number": 5,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/5"
+    },
+    {
+      "id": "WO-006",
+      "number": 6,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/6"
+    },
+    {
+      "id": "WO-007",
+      "number": 7,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/7"
+    },
+    {
+      "id": "WO-008",
+      "number": 8,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/8"
+    },
+    {
+      "id": "WO-009",
+      "number": 9,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/9"
+    },
+    {
+      "id": "WO-010",
+      "number": 10,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/10"
+    },
+    {
+      "id": "WO-011",
+      "number": 11,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/11"
+    },
+    {
+      "id": "WO-012",
+      "number": 12,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/12"
+    },
+    {
+      "id": "WO-013",
+      "number": 13,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/13"
+    },
+    {
+      "id": "WO-014",
+      "number": 14,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/14"
+    },
+    {
+      "id": "WO-015",
+      "number": 15,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/15"
+    },
+    {
+      "id": "WO-016",
+      "number": 16,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/16"
+    },
+    {
+      "id": "WO-017",
+      "number": 17,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/17"
+    },
+    {
+      "id": "WO-018",
+      "number": 18,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/18"
+    },
+    {
+      "id": "WO-019",
+      "number": 19,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/19"
+    },
+    {
+      "id": "WO-020",
+      "number": 20,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/20"
+    },
+    {
+      "id": "WO-021",
+      "number": 21,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/21"
+    },
+    {
+      "id": "WO-022",
+      "number": 22,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/22"
+    },
+    {
+      "id": "WO-023",
+      "number": 23,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/23"
+    },
+    {
+      "id": "WO-024",
+      "number": 24,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/24"
+    },
+    {
+      "id": "WO-025",
+      "number": 25,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/25"
+    },
+    {
+      "id": "WO-026",
+      "number": 26,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/26"
+    },
+    {
+      "id": "WO-027",
+      "number": 27,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/27"
+    },
+    {
+      "id": "WO-028",
+      "number": 28,
+      "url": "https://github.com/nhattruong0204/wallet-observer/issues/28"
+    }
+  ]
 }

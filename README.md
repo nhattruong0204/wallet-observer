@@ -2,7 +2,7 @@
 
 Personal, read-only Solana wallet monitoring with a path to source-backed FOMO research.
 
-**Current status: planning package; application not implemented; GitHub publication pending.**
+**Current status: planning package published; application not implemented.**
 
 ## Start here
 
@@ -15,10 +15,10 @@ Personal, read-only Solana wallet monitoring with a path to source-backed FOMO r
 ## Included
 
 - A full build plan covering scope, architecture, schema, APIs, recovery, UI, deployment, acceptance, and costs.
-- 28 detailed issue drafts with why, what, how, expected files, dependencies, and definition of done.
+- 28 published issues with why, what, how, expected files, dependencies, and definition of done.
 - [AGENTS.md](AGENTS.md) for bounded AI-assisted implementation.
 - [PUBLISHING.md](PUBLISHING.md) for creating the GitHub project and recording real issue links.
-- [backlog/issues.json](backlog/issues.json) containing ready-to-publish issue payloads.
+- [backlog/issues.json](backlog/issues.json) containing the published issue titles, bodies, and dependencies.
 
 ## Planned stack
 
@@ -40,3 +40,9 @@ Planning targets: first useful private deployment in roughly 5–10 focused work
 
 This is an independent implementation plan, not Wind source code or a claim about its private backend.
 
+
+## GitHub
+
+Repository: [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) (public, as created by the owner).
+
+All [28 implementation issues](https://github.com/nhattruong0204/wallet-observer/issues) are published and open. Start with [WO-001 / #1](https://github.com/nhattruong0204/wallet-observer/issues/1). The [backlog index](backlog/INDEX.md) links every issue; [github-issues.json](backlog/github-issues.json) records the actual issue numbers and URLs.
