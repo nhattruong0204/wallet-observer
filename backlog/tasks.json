@@ -1,0 +1,1000 @@
+[
+  {
+    "id": "WO-001",
+    "title": "Create the devcontainer and reproducible development toolchain",
+    "phase": "First live",
+    "dependencies": [],
+    "why": "A consistent environment lets you and Astra reproduce the same install, database connection, lint results, and debugging behavior across Windows/WSL and Linux.",
+    "what": [
+      "Create a devcontainer with Python, Node, Git, PostgreSQL client tools, and a non-root development user.",
+      "Define a development Compose setup and documented task commands; keep production configuration separate."
+    ],
+    "how": [
+      "Use a supported Python release and Node LTS; pin the chosen versions and lock dependency resolutions. Record selections in docs/development.md.",
+      "Configure .devcontainer/devcontainer.json, a development Dockerfile, and a PostgreSQL service with a named volume and healthcheck. Forward only development ports.",
+      "Install dependencies through uv and the selected JavaScript package manager. Add Python/TypeScript formatting, linting, and editor debug configurations.",
+      "Provide placeholder environment variables and an explicit setup command. Do not put API keys or personal watchlists in images, tracked files, or lifecycle-hook output."
+    ],
+    "done": [
+      "A clean clone opens in the devcontainer and the non-root user can edit files.",
+      "Python, Node, package managers, and PostgreSQL client versions are documented and reproducible.",
+      "The database healthcheck succeeds and survives a container restart.",
+      "Setup commands succeed without paid credentials; provider-dependent commands report what is missing.",
+      "Documented Windows/WSL and Linux startup instructions contain no unimplemented success claims."
+    ],
+    "files": [
+      ".devcontainer/devcontainer.json",
+      ".devcontainer/Dockerfile",
+      "compose.dev.yml",
+      ".env.example",
+      "docs/development.md"
+    ]
+  },
+  {
+    "id": "WO-002",
+    "title": "Qualify the Solana data source and capture representative fixtures",
+    "phase": "First live",
+    "dependencies": [
+      "WO-001"
+    ],
+    "why": "First-live estimates depend on a feed that actually covers the watched wallets, supported swap routes, and reconnect recovery. Writing the UI before proving this can leave a convincing but unusable application.",
+    "what": [
+      "Evaluate one primary Solana provider and its decoded stream plus historical lookup capabilities.",
+      "Define the supported execution types, coverage limits, rate/credit budget, and recovery strategy before implementing the collector."
+    ],
+    "how": [
+      "Start with Helius Parsed Streams and its current official documentation; verify account filtering, supported programs, credentials, and confirmation fields against real payloads. Treat decoded instructions as inputs, not automatic proof of a buy.",
+      "Use a small user-supplied wallet list. Capture sanitized examples of a buy, sell, ordinary transfer, failed transaction, multi-leg swap, wrapped SOL flow, duplicate delivery, and unsupported route.",
+      "Prove how to recover events after disconnects. If the stream lacks replay, qualify a history endpoint and a bounded overlap/backfill strategy.",
+      "Measure delivery delay and credit usage for an explicitly recorded sample interval. Document unavailable FOMO-specific fields separately; do not use Wind endpoints as the backend."
+    ],
+    "done": [
+      "docs/data-source-contract.md names the chosen feed, credential mechanism, supported programs, commitment, rate limits, costs, and failure responses.",
+      "Every fixture has provenance and an expected classification, including unknown cases.",
+      "A documented disconnect experiment identifies the available recovery path and its coverage limits.",
+      "No credential, private watchlist, or unsolicited personal identity information is committed.",
+      "A go/no-go decision permits the wallet-first path or lists the exact blocked capability."
+    ],
+    "files": [
+      "docs/data-source-contract.md",
+      "docs/decisions/0001-solana-source.md",
+      "tests/fixtures/solana/"
+    ]
+  },
+  {
+    "id": "WO-003",
+    "title": "Bootstrap the API, worker, frontend, and configuration contract",
+    "phase": "First live",
+    "dependencies": [
+      "WO-001"
+    ],
+    "why": "One codebase with explicit service boundaries keeps a personal deployment manageable while allowing collection to run independently of browser requests.",
+    "what": [
+      "Create a Python backend package with API and worker entrypoints, plus a React/TypeScript frontend.",
+      "Define typed settings, health endpoints, structured logs, dependency locks, and a local development command surface."
+    ],
+    "how": [
+      "Use FastAPI for HTTP/WebSocket, an asynchronous worker process, and a conventional React build. Avoid microservices or a mandatory Redis dependency.",
+      "Validate configuration on startup. Distinguish required database configuration from optional provider/Telegram credentials and enabled feature flags.",
+      "Provide liveness and readiness endpoints; readiness should reflect the service's actual dependencies. Serve a minimal frontend with explicit empty and offline states.",
+      "Keep any commands added to README executable. Provide a fixture mode so ordinary development and CI do not require external API calls."
+    ],
+    "done": [
+      "API, worker, and frontend start using the documented commands.",
+      "Invalid settings fail with useful, redacted errors.",
+      "Fixture mode runs without provider or Telegram credentials.",
+      "Logs contain service/event identifiers but no secret values or credential-bearing URLs.",
+      "Pinned dependency files and a concise directory map are committed."
+    ],
+    "files": [
+      "backend/pyproject.toml",
+      "backend/src/wallet_observer/",
+      "frontend/package.json",
+      "frontend/src/",
+      "docs/development.md"
+    ]
+  },
+  {
+    "id": "WO-004",
+    "title": "Implement PostgreSQL migrations, canonical identities, and durable jobs",
+    "phase": "First live",
+    "dependencies": [
+      "WO-002",
+      "WO-003"
+    ],
+    "why": "Stable identities and transactional persistence prevent duplicated trades, mismatched tokens, and lost work when the collector or API restarts.",
+    "what": [
+      "Create the initial relational schema and migrations for watches, identities, source records, events, executions, quotes, checkpoints, jobs, and notifications.",
+      "Define uniqueness constraints, precision, event revisions, and a committed delivery sequence."
+    ],
+    "how": [
+      "Use chain plus canonical address for wallets/tokens; preserve Solana case. Separate human labels from evidence-bearing account-wallet links.",
+      "Deduplicate raw source IDs and economic executions with chain/signature/instruction identity where available. Store raw payloads with bounded retention.",
+      "Use integer/high-precision numeric quantities and decimal values; store UTC timestamps and explicit unknown/missing states.",
+      "Write canonical mutations and an outbox row in the same transaction. A single ordered dispatcher must assign/persist a committed delivery sequence; do not use a pre-commit sequence as the replay watermark.",
+      "Implement migrations and indexed access paths. Keep jobs claimable with a lease and bounded retries; one process may still crash mid-job."
+    ],
+    "done": [
+      "Migrations apply to an empty database and an upgrade path is documented.",
+      "Duplicate fixture ingestion does not create extra executions.",
+      "Two distinct same-amount swaps remain distinct.",
+      "A rollback does not advance the safe source checkpoint or emit a phantom committed event.",
+      "Precision, address case, and chain separation survive a database round-trip.",
+      "No user, billing, entitlement, quota, or session tables are introduced."
+    ],
+    "files": [
+      "backend/migrations/",
+      "backend/src/wallet_observer/db/",
+      "docs/data-model.md",
+      "tests/integration/test_persistence.py"
+    ]
+  },
+  {
+    "id": "WO-005",
+    "title": "Implement personal watchlists, aliases, groups, and bulk import",
+    "phase": "First live",
+    "dependencies": [
+      "WO-004"
+    ],
+    "why": "The collector needs one unambiguous watch scope, and you need to adjust it without editing source code or creating a product account.",
+    "what": [
+      "Provide add/list/edit/pause/remove operations for wallet watches, notes, aliases, and groups.",
+      "Add a small bulk import/export contract with per-row validation and an explicit initial list of 10–25 wallets."
+    ],
+    "how": [
+      "Validate addresses by chain and reject malformed inputs without case-folding Solana addresses.",
+      "Separate removing a watch from deleting its historical records. Record monitoring states such as resolving, active, paused, unsupported, and error.",
+      "Make repeated additions idempotent. Preview imports and return valid, duplicate, and invalid rows without silent partial success.",
+      "Store manual identity labels as manual. Use group membership for filters and later signals; do not call a wallet label a verified person."
+    ],
+    "done": [
+      "Single and bulk operations work through the API with clear error responses.",
+      "Duplicate entries do not create duplicate source subscriptions.",
+      "Pausing a watch changes collection/subscription intent while preserving history.",
+      "Group rename/delete behavior is specified and covered by representative integration checks.",
+      "No login, commercial quota, public account directory, or exclusive resource flow is added."
+    ],
+    "files": [
+      "backend/src/wallet_observer/watches/",
+      "tests/integration/test_watches.py",
+      "docs/watchlist-format.md"
+    ]
+  },
+  {
+    "id": "WO-006",
+    "title": "Build the provider adapter and live collection worker",
+    "phase": "First live",
+    "dependencies": [
+      "WO-002",
+      "WO-004",
+      "WO-005"
+    ],
+    "why": "Always-on ingestion is the source of the live feed. The browser must not be responsible for keeping collection running.",
+    "what": [
+      "Implement the qualified outbound stream adapter and persist raw source events.",
+      "Manage watch-filter changes, reconnect/backoff, bounded processing, and source health."
+    ],
+    "how": [
+      "Hide provider payloads behind a small adapter interface: capabilities, subscription updates, event envelope, history lookup, and health.",
+      "Prefer the qualified outbound WebSocket path so the private dashboard needs no public webhook endpoint. If an approved provider requires callbacks, expose only a separately authenticated ingestion route.",
+      "Persist accepted source records and durable processing work before advancing a safe source checkpoint.",
+      "Handle disconnects, subscription rejection, rate limiting, malformed payloads, and provider-schema changes. Quarantine unrecognized payloads instead of discarding them silently.",
+      "Bound queues and retries. On watch changes, avoid overlapping subscriptions causing unbounded duplicate delivery."
+    ],
+    "done": [
+      "A real qualified wallet produces persisted source events without an open browser.",
+      "Duplicate source notifications are harmless.",
+      "A restart restores watch intent and initiates gap recovery.",
+      "Rate-limit responses trigger backoff and a visible degraded state.",
+      "Captured sensitive query parameters are redacted from logs.",
+      "No trade-signing, execution, or private-key handling code exists."
+    ],
+    "files": [
+      "backend/src/wallet_observer/providers/",
+      "backend/src/wallet_observer/worker/",
+      "tests/integration/test_collector.py"
+    ]
+  },
+  {
+    "id": "WO-007",
+    "title": "Normalize swaps and reconcile transaction confirmation",
+    "phase": "First live",
+    "dependencies": [
+      "WO-004",
+      "WO-006"
+    ],
+    "why": "A decoded instruction or incoming transfer does not necessarily mean the watched wallet bought a token. Incorrect attribution would contaminate every downstream view and alert.",
+    "what": [
+      "Convert supported source records into canonical economic executions and explicit unknown/unsupported events.",
+      "Separate trade execution outcome from chain confirmation and preserve revisions."
+    ],
+    "how": [
+      "Attribute balance changes and execution legs to the watched wallet; account for fees, wrapped SOL, token-account creation/rent, and routed swaps.",
+      "Merge legs only with sufficient transaction/instruction evidence. Keep two independent orders or swaps separate even if time and amount match.",
+      "Use fixture-driven route handlers for programs proved in WO-002. Unsupported routes remain visible with a reason and source link.",
+      "Track observed/confirmed/finalized/corrected chain facts without inventing off-chain FOMO order states. Failed transactions cannot contribute to confirmed trade totals.",
+      "Apply later status changes idempotently; publish revisions and reverse any now-invalid derived contributions."
+    ],
+    "done": [
+      "Representative buy, sell, transfer, failed, routed, and wrapped-SOL fixtures classify correctly.",
+      "Amounts retain raw precision and fees are distinguished from acquired/sold quantity.",
+      "Transfer-only records do not trigger buy/sell alerts.",
+      "Duplicate delivery creates one appropriate execution; distinct swaps are not collapsed.",
+      "Confirmation/status corrections are reflected in history with provenance."
+    ],
+    "files": [
+      "backend/src/wallet_observer/trades/",
+      "tests/unit/test_trade_normalization.py",
+      "tests/integration/test_reconciliation.py"
+    ]
+  },
+  {
+    "id": "WO-008",
+    "title": "Implement durable recovery, bounded backfill, and gap reporting",
+    "phase": "First live",
+    "dependencies": [
+      "WO-004",
+      "WO-006",
+      "WO-007"
+    ],
+    "why": "A tracker that loses activity whenever the VPS or provider disconnects cannot support dependable histories or signals.",
+    "what": [
+      "Recover missed source activity using persisted checkpoints and the qualified history endpoint.",
+      "Separate live delivery from historical replay and expose unrecoverable coverage gaps."
+    ],
+    "how": [
+      "Persist a per-source/per-watch recovery boundary supported by the provider. Use an overlap window and stable deduplication rather than assuming a perfect replay cursor.",
+      "Process backfill through the same normalization code as live events, tagged with replay provenance and alert eligibility.",
+      "Bound backfill depth, page count, concurrency, and credits. Persist job progress and retry leases so interruption is resumable.",
+      "Define the source-history limit and record a gap if it prevents complete recovery. Never advance a checkpoint over failed unpersisted work.",
+      "Maintain event occurrence order separately from the ordered delivery log; late source events are valid."
+    ],
+    "done": [
+      "An outage-and-restart exercise recovers known missing fixtures without duplicates.",
+      "Live ingestion can continue while a bounded backfill runs.",
+      "Historical imports do not flood Telegram.",
+      "A second interruption resumes rather than restarting an unlimited scan.",
+      "Coverage gaps are returned by the API and visible to the user.",
+      "A database transaction rollback does not falsely move the recovery boundary."
+    ],
+    "files": [
+      "backend/src/wallet_observer/recovery/",
+      "tests/integration/test_recovery.py",
+      "docs/recovery.md"
+    ]
+  },
+  {
+    "id": "WO-009",
+    "title": "Add token metadata, quote caching, and market-data provenance",
+    "phase": "First live",
+    "dependencies": [
+      "WO-002",
+      "WO-004",
+      "WO-007"
+    ],
+    "why": "Useful trade cards need decimals, names, and available market context, but stale or missing prices must not become fabricated execution values.",
+    "what": [
+      "Resolve token metadata and cache current quotes for tokens in the watch scope.",
+      "Keep execution valuation separate from current market valuation."
+    ],
+    "how": [
+      "Use chain/address keys and timestamped provider adapters. Request only observed or opened tokens, with bounded TTL refresh and concurrency.",
+      "Retain raw execution quantities; compute historical USD values only from a sufficiently contemporaneous and attributable price source.",
+      "Expose price source, observation time, stale/missing state, and available market fields. Do not treat missing market cap or liquidity as zero.",
+      "Reject late stale updates overwriting newer quotes. Handle duplicate symbols, multiple pools, decimal corrections, and token-not-found responses.",
+      "Batch requests where the provider supports it and surface usage against the configured monthly budget."
+    ],
+    "done": [
+      "A newer quote survives a later-arriving older response.",
+      "Missing prices remain null and do not enter USD rankings as zero.",
+      "Exact chain/address lookup cannot mix tokens with the same ticker.",
+      "Price outages leave raw trade quantities and explorer links usable.",
+      "Refresh demand remains within documented rate limits in the small-watchlist trial."
+    ],
+    "files": [
+      "backend/src/wallet_observer/market/",
+      "tests/unit/test_quotes.py",
+      "docs/market-data.md"
+    ]
+  },
+  {
+    "id": "WO-010",
+    "title": "Build feed, history, wallet/token queries, and search APIs",
+    "phase": "First live",
+    "dependencies": [
+      "WO-004",
+      "WO-005",
+      "WO-007",
+      "WO-009"
+    ],
+    "why": "One consistent read contract keeps feed, detail pages, and future analytics aligned and prevents duplicated business rules in the frontend.",
+    "what": [
+      "Expose read APIs for event history, wallets, tokens, source health, and exact/alias search.",
+      "Implement cursor pagination and personal filters without entitlement gates."
+    ],
+    "how": [
+      "Define response DTOs for event revision, chain, wallet, token, status, quantities, valuation provenance, and coverage.",
+      "Use stable composite ordering for history pagination; specify occurrence-time versus delivery-time views and late-event behavior.",
+      "Implement wallet/group, token, direction, amount, time-window, and supported-state filters with indexed SQL.",
+      "Use exact address/signature lookup before text search. Limit result sizes and return useful invalid-cursor errors.",
+      "Document endpoints in generated OpenAPI plus short request/response examples; keep raw credentials and excessive provider payloads out of responses."
+    ],
+    "done": [
+      "Initial page and subsequent pages contain no duplicate records for a stable snapshot.",
+      "Filters have the same meaning on feed and detail queries.",
+      "Missing prices and partial coverage remain explicit in responses.",
+      "Queries on the measured pilot dataset meet a recorded latency target.",
+      "Address search preserves Solana case and includes chain identity."
+    ],
+    "files": [
+      "backend/src/wallet_observer/api/",
+      "docs/api-contract.md",
+      "tests/integration/test_read_api.py"
+    ]
+  },
+  {
+    "id": "WO-011",
+    "title": "Implement live updates with a committed replay cursor",
+    "phase": "First live",
+    "dependencies": [
+      "WO-004",
+      "WO-008",
+      "WO-010"
+    ],
+    "why": "Network changes and browser suspension must not create missing cards, duplicate rows, or stale event states.",
+    "what": [
+      "Add WebSocket delivery of new events, revisions, source status, and reconnect catch-up.",
+      "Use the committed dispatch log as the live cursor and define its retention behavior."
+    ],
+    "how": [
+      "Assign delivery positions through one transactionally ordered dispatcher after canonical commits; use the outbox to bridge API/worker failures.",
+      "Define hello/cursor, event, event_update, status, heartbeat, resync-required, and error messages with versioned schemas.",
+      "Coordinate catch-up and live attachment around a committed watermark. Resume without a race between the history response and live stream.",
+      "If a cursor predates retained delivery history, request a bounded resnapshot and show that transition; do not silently claim full recovery.",
+      "Bound client buffers and apply backpressure/disconnect behavior. Browser reconnects use jitter and do not retrigger old notifications."
+    ],
+    "done": [
+      "Disconnecting while new events arrive restores all retained events once.",
+      "An update modifies the existing card identity rather than inserting a duplicate.",
+      "Out-of-order source timestamps do not break the delivery cursor.",
+      "Expired cursors produce an explicit resync path.",
+      "A concurrent-commit regression demonstrates that the watermark cannot skip a later commit with an earlier allocated database ID."
+    ],
+    "files": [
+      "backend/src/wallet_observer/live/",
+      "frontend/src/lib/live.ts",
+      "tests/integration/test_live_replay.py",
+      "docs/live-protocol.md"
+    ]
+  },
+  {
+    "id": "WO-012",
+    "title": "Build the responsive live feed and watchlist interface",
+    "phase": "First live",
+    "dependencies": [
+      "WO-005",
+      "WO-010",
+      "WO-011"
+    ],
+    "why": "The first release should let you follow activity in one place without the complexity of Wind's commercial workspace.",
+    "what": [
+      "Build fixed Feed, Watchlist, and Settings navigation with responsive trade cards.",
+      "Add watch editing, filters, connection/coverage states, and stable reading behavior."
+    ],
+    "how": [
+      "Use reusable typed components and a small state layer. Render the API's data rather than recomputing trade semantics in the browser.",
+      "Implement a virtualized or otherwise bounded feed, cursor loading, a new-event counter, and jump-to-latest while preserving the user's scroll position.",
+      "Support copy wallet/token address, explorer links, group/direction/amount filters, and visible unknown/stale fields.",
+      "Provide accessible controls, keyboard focus, mobile-width layouts, and explicit loading, empty, partial, offline, and error states.",
+      "Use original styling and assets. No audio, account login, Pro upsell, or drag/resize workspace is required."
+    ],
+    "done": [
+      "A real subscribed event appears, updates in place, and remains in history after reload.",
+      "Adding/pausing a wallet changes the backend watch state and shows the result.",
+      "New events do not repeatedly pull the reader away from older cards.",
+      "Core flows work at desktop and approximately 390px mobile width.",
+      "No source keys or Telegram token appear in the browser bundle or network responses."
+    ],
+    "files": [
+      "frontend/src/pages/",
+      "frontend/src/components/",
+      "frontend/src/lib/",
+      "tests/e2e/feed.spec.ts"
+    ]
+  },
+  {
+    "id": "WO-013",
+    "title": "Add wallet and token drill-down views",
+    "phase": "First live",
+    "dependencies": [
+      "WO-009",
+      "WO-010",
+      "WO-012"
+    ],
+    "why": "An alert becomes useful when you can immediately see the observed wallet/token history and the limits of the available evidence.",
+    "what": [
+      "Build wallet detail and token detail using the shared read contracts.",
+      "Show filtered trade history, available quote fields, exact identities, and source links."
+    ],
+    "how": [
+      "Add wallet-to-token and token-to-wallet navigation while keeping the selected filters and chain context.",
+      "Display observed buy/sell totals only from eligible executions. Show sample start, last update, missing USD values, and coverage gaps.",
+      "Use wallet aliases as labels and preserve full addresses. Keep FOMO identity fields absent until their evidence-bearing integration exists.",
+      "Load expensive histories incrementally and reuse quote/cache state without silently substituting latest prices for execution prices."
+    ],
+    "done": [
+      "Opening a feed event reaches the correct chain/address detail page.",
+      "Wallet-token queries agree with the same filtered events in the feed.",
+      "Incomplete history is labelled and no complete P&L or platform-wide holdings claim appears.",
+      "Empty and unavailable token data produce useful states.",
+      "A link can be refreshed or opened directly without losing its identity."
+    ],
+    "files": [
+      "frontend/src/pages/WalletDetail.tsx",
+      "frontend/src/pages/TokenDetail.tsx",
+      "tests/e2e/details.spec.ts"
+    ]
+  },
+  {
+    "id": "WO-014",
+    "title": "Deliver alerts to one Telegram chat with durable retries",
+    "phase": "First live",
+    "dependencies": [
+      "WO-004",
+      "WO-007",
+      "WO-009"
+    ],
+    "why": "One outbound channel lets you use the tracker without keeping its dashboard open. Reliability requires more than a direct send inside the collector.",
+    "what": [
+      "Implement one server-configured bot token and destination chat.",
+      "Queue eligible new trades for delivery with filtering, retries, deduplication, and stale-event expiry."
+    ],
+    "how": [
+      "Write notification intent transactionally and process sends in the worker. Keep bot tokens in server-side secrets and use a manual test-message action.",
+      "Define direction, wallet/group, amount, and optional token filters with a versioned rule snapshot. Recheck mutable rules before delayed sends.",
+      "Use canonical event ID plus destination as the notification identity; store Telegram message IDs for supported corrections.",
+      "Respect retry-after responses and backoff. Distinguish definite failures from uncertain acknowledgment timeouts; document the chosen resend tradeoff.",
+      "Suppress historical replay and stale alerts; keep operational delivery errors separate from successful trade events."
+    ],
+    "done": [
+      "A qualifying real event reaches the configured chat with token, wallet, amount, time, and explorer link.",
+      "Duplicate ingestion does not normally create a second notification.",
+      "Rate-limit/transient failures retry without blocking ingestion.",
+      "Backfill and database restore do not resend the entire history.",
+      "The UI never receives the bot token, and no Bark/audio/multi-customer binding system is introduced.",
+      "The runbook explicitly avoids an exactly-once delivery guarantee."
+    ],
+    "files": [
+      "backend/src/wallet_observer/notifications/",
+      "tests/integration/test_telegram_outbox.py",
+      "docs/telegram.md"
+    ]
+  },
+  {
+    "id": "WO-015",
+    "title": "Add CI and meaningful fixture-based regression gates",
+    "phase": "First live",
+    "dependencies": [
+      "WO-003",
+      "WO-004"
+    ],
+    "why": "Fast AI-assisted iteration needs executable checks for data correctness and recovery, without making every CI run dependent on paid providers.",
+    "what": [
+      "Set up GitHub Actions for Python/TypeScript checks, builds, migrations, and targeted integration tests.",
+      "Make later feature PRs extend the fixture suite as their behavior is implemented."
+    ],
+    "how": [
+      "Run formatting/linting, type checks where configured, unit tests, PostgreSQL integration tests, and frontend production build.",
+      "Use sanitized fixtures and deterministic time for normalization, deduplication, quote ordering, replay, and notification retry tests.",
+      "Start with minimal working gates and extend them in WO-007 through WO-014. Do not wait for all later work to create CI.",
+      "Keep external live probes manual/opt-in with explicit budget limits. Never expose provider credentials to untrusted pull requests.",
+      "Add a PR checklist describing the issue, behavior, verification evidence, migrations, and known limitations."
+    ],
+    "done": [
+      "A clean CI run passes without private keys, provider accounts, or Telegram access.",
+      "A deliberate supported-trade regression and a duplicate/replay regression fail the appropriate tests.",
+      "Database migrations are exercised on disposable PostgreSQL.",
+      "Frontend builds and representative browser flows are checked.",
+      "Workflow permissions are minimal and failed checks are not hidden by unconditional success."
+    ],
+    "files": [
+      ".github/workflows/ci.yml",
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      "tests/",
+      "docs/testing.md"
+    ]
+  },
+  {
+    "id": "WO-016",
+    "title": "Expose source health, usage budgets, and retention controls",
+    "phase": "First live",
+    "dependencies": [
+      "WO-006",
+      "WO-008",
+      "WO-009",
+      "WO-014"
+    ],
+    "why": "A low-cost personal system must show when its data is stale or its provider/storage usage is growing unexpectedly.",
+    "what": [
+      "Add health/status APIs and a compact dashboard status view.",
+      "Track collection lag, recovery gaps, queue age, provider requests/credits where available, and retention jobs."
+    ],
+    "how": [
+      "Separate source occurrence-to-ingestion lag from browser RTT and API query time. Record unknown timing rather than manufacturing a latency number.",
+      "Show last successful source contact, watched-wallet count, parser errors, oldest queued job, notification failures, and history coverage.",
+      "Add monthly usage settings and application-side thresholds for optional backfill/quote work. Do not claim these settings are an absolute vendor spending cap.",
+      "Implement bounded deletion/compaction for raw payloads and delivery history; preserve deduplication and declared coverage semantics.",
+      "Document baseline server disk/RAM and provider usage from the pilot, plus alerts for stopped collection and a full disk."
+    ],
+    "done": [
+      "Disconnecting the source produces a visible stale/degraded state.",
+      "Budget thresholds stop or reduce optional work while preserving recorded gaps.",
+      "Retention does not break live replay silently; expired cursors request resync.",
+      "A small metrics/status page answers whether collection and delivery are healthy.",
+      "Storage growth and measured usage are recorded in the pilot report."
+    ],
+    "files": [
+      "backend/src/wallet_observer/operations/",
+      "frontend/src/pages/Settings.tsx",
+      "docs/operations.md",
+      "docs/costs.md"
+    ]
+  },
+  {
+    "id": "WO-017",
+    "title": "Prepare private VPS deployment, backups, and rollback",
+    "phase": "First live",
+    "dependencies": [
+      "WO-003",
+      "WO-004",
+      "WO-012",
+      "WO-014",
+      "WO-015",
+      "WO-016"
+    ],
+    "why": "The first live release needs an always-on deployment that can restart and recover without exposing a personal control panel.",
+    "what": [
+      "Create a small production Compose deployment for API/frontend, worker, and PostgreSQL.",
+      "Document private access, secret provisioning, restart behavior, backup/restore, and version rollback."
+    ],
+    "how": [
+      "Use reproducible container builds and explicit image/version tags. Build frontend assets in a build stage and serve them through the application or a small proxy.",
+      "Bind the dashboard to loopback/private networking and use an existing trusted tunnel/VPN or SSH forwarding. Do not add a product login system or publish PostgreSQL.",
+      "Provision only the selected provider and Telegram credentials on the host; do not place them in GitHub issues, image layers, or logs.",
+      "Back up PostgreSQL plus non-secret configuration to an off-machine destination. Write restore and collector-resume steps that preserve delivery state.",
+      "Run migrations as a deliberate deployment step. Document schema-compatible rollback and a restore path when a migration cannot be rolled back safely."
+    ],
+    "done": [
+      "The documented deployment works on the selected VPS and restarts after a reboot.",
+      "An unauthorized public request cannot reach control APIs or the database.",
+      "One backup is restored into a separate disposable database and verified.",
+      "A restored worker resumes without historical alert flooding.",
+      "Release version, deploy procedure, rollback procedure, and expected monthly infrastructure cost are documented.",
+      "No new purchase is made merely because it appears in the plan."
+    ],
+    "files": [
+      "compose.prod.yml",
+      "backend/Dockerfile",
+      "frontend/Dockerfile",
+      "scripts/backup.sh",
+      "scripts/restore.sh",
+      "docs/deployment.md",
+      "docs/runbook.md"
+    ]
+  },
+  {
+    "id": "WO-018",
+    "title": "Validate real traffic and release the first personal beta",
+    "phase": "First live",
+    "dependencies": [
+      "WO-002",
+      "WO-005",
+      "WO-007",
+      "WO-008",
+      "WO-009",
+      "WO-010",
+      "WO-011",
+      "WO-012",
+      "WO-013",
+      "WO-014",
+      "WO-015",
+      "WO-016",
+      "WO-017"
+    ],
+    "why": "The first-live milestone should be based on observed operation and correctness, not only a successful build or a screenshot.",
+    "what": [
+      "Run the deployed tool with 10–25 selected wallets and publish a concise acceptance report.",
+      "Release a tagged first beta after the launch gate passes; keep unsupported features visibly disabled."
+    ],
+    "how": [
+      "Observe at least 24 hours of operation, extending the interval if insufficient representative activity occurs. Record event counts, source coverage, errors, lag, and provider usage.",
+      "Verify a sample of supported buys/sells against source transactions. Use recorded fixtures for edge cases not observed during the trial.",
+      "Exercise source disconnect, worker restart, browser reconnect, provider throttling, quote outage, duplicate delivery, and backup restore.",
+      "Confirm private access and inspect frontend artifacts/logs for accidental credentials. Review notification volume with the user.",
+      "Document limitations and remaining defects; do not mark partial-history positions, FOMO metadata, or unsupported routes complete."
+    ],
+    "done": [
+      "All first-live dependencies are complete and CI passes.",
+      "Feed, history, watch management, details, and Telegram work with real data.",
+      "Critical duplicate, missing-event recovery, and transfer-as-buy defects are resolved.",
+      "A written acceptance report distinguishes measured results from assumptions.",
+      "The repository contains a release tag and a runnable operator guide.",
+      "The user can stop/start the host and understand resulting recovery/coverage behavior."
+    ],
+    "files": [
+      "docs/acceptance/first-live.md",
+      "docs/runbook.md",
+      "CHANGELOG.md"
+    ]
+  },
+  {
+    "id": "WO-019",
+    "title": "Add observed positions and first/add/re-entry/exit semantics",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-007",
+      "WO-008",
+      "WO-013",
+      "WO-018"
+    ],
+    "why": "Position context makes wallet activity easier to understand, but incomplete history must not produce false first-buy, exit, or P&L claims.",
+    "what": [
+      "Build a per-wallet/token observed quantity ledger with explicit opening-balance provenance and coverage.",
+      "Derive first observed buy, add, re-entry, trim, and exit only when available evidence supports them."
+    ],
+    "how": [
+      "Choose a reproducible ledger order using chain facts and stable tie-breakers. Preserve adjustments and corrections rather than rewriting unknown history.",
+      "Handle transfers, missing opening balances, unsupported routes, token-decimal changes, and partial backfill by downgrading completeness.",
+      "Separate observed quantity, current market value, executed amounts, and realized P&L. Do not introduce accounting-grade P&L in this task.",
+      "Implement sell-share only when the prior quantity is known; mark unknown instead of dividing by an invented balance.",
+      "Rebuild a sample ledger from stored executions and compare it with incremental processing."
+    ],
+    "done": [
+      "An unknown opening balance produces partial/unknown position labels.",
+      "First buy is labelled first observed unless prior-history completeness is demonstrated.",
+      "Transfer-in/out and failed/refunded/corrected events do not masquerade as profitable executions.",
+      "Full exit requires supported evidence of the remaining balance.",
+      "Incremental and replayed ledgers agree on representative fixtures.",
+      "The UI exposes the coverage and estimation method."
+    ],
+    "files": [
+      "backend/src/wallet_observer/positions/",
+      "tests/unit/test_positions.py",
+      "docs/position-semantics.md"
+    ]
+  },
+  {
+    "id": "WO-020",
+    "title": "Implement personal multi-wallet consensus signals",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-007",
+      "WO-008",
+      "WO-014",
+      "WO-016",
+      "WO-018"
+    ],
+    "why": "Aggregating eligible trades can reduce alert noise and show several watched wallets acting on the same token.",
+    "what": [
+      "Add one versioned configurable signal engine over the personal watch scope.",
+      "Support direction, window, minimum participants, amount threshold, exclusions, cooldown, and alert expiry."
+    ],
+    "how": [
+      "Define net_usd as eligible confirmed buy USD minus sell USD; define gross-directional metrics separately.",
+      "Count distinct wallets unless verified identity links justify person-level aggregation. Store the participating executions and identity basis.",
+      "Persist rule versions and signal contributions so late/corrected events can update or invalidate a signal reproducibly.",
+      "Specify occurrence-time windows, allowed lateness, insufficient-price behavior, cooldown scope, and maximum notification rate.",
+      "Feed signals through the shared canonical live/history and notification paths. Recheck rules for queued delivery and expire stale trading alerts."
+    ],
+    "done": [
+      "A fixture with repeated buys from one wallet cannot satisfy a multi-wallet threshold by repetition alone.",
+      "A qualifying fixture triggers one signal with inspectable members and totals.",
+      "Failed/invalidated executions are excluded and corrections reverse their contributions.",
+      "Replay rebuilds signal state without an alert storm.",
+      "Token/account filters do not accidentally hide every account-free aggregate signal.",
+      "Thresholds are personal settings, not claims of exact Wind algorithm parity."
+    ],
+    "files": [
+      "backend/src/wallet_observer/signals/",
+      "tests/unit/test_signals.py",
+      "frontend/src/components/SignalCard.tsx",
+      "docs/signal-rules.md"
+    ]
+  },
+  {
+    "id": "WO-021",
+    "title": "Build local rankings, mover history, and research summaries",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-009",
+      "WO-010",
+      "WO-018",
+      "WO-020"
+    ],
+    "why": "Stored trade history can show concentration of activity without paying for a separate global ranking product.",
+    "what": [
+      "Add local token heat, unique-buyer/seller boards, directional volumes, net flow, and mover history.",
+      "Provide 24h/7d/30d windows only where collection/retention supports them."
+    ],
+    "how": [
+      "Write metric definitions with event eligibility, USD-price coverage, window boundaries, and distinct-wallet/person semantics.",
+      "Start with indexed SQL and bounded materialized rollups only if measurement requires them; no separate analytics database.",
+      "Keep any heat formula transparent and versioned. Do not present a proposed formula as Wind's unpublished score.",
+      "Allow drill-down from each score or mover to its source executions and participant list.",
+      "For incomplete windows, show partial coverage. Add FOMO-thesis counts only after the thesis adapter exists."
+    ],
+    "done": [
+      "Rankings are reproducible from their visible contributing events.",
+      "Gross directional volume and net flow cannot be confused.",
+      "Missing prices, duplicate identities, and unsupported trades are handled according to the metric contract.",
+      "Users can inspect participants and historical windows without unbounded queries.",
+      "The interface labels the monitored universe and collection start."
+    ],
+    "files": [
+      "backend/src/wallet_observer/analytics/",
+      "frontend/src/pages/Research.tsx",
+      "docs/metrics.md",
+      "tests/integration/test_rollups.py"
+    ]
+  },
+  {
+    "id": "WO-022",
+    "title": "Add personal settings, saved views, and configuration portability",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-005",
+      "WO-012",
+      "WO-016",
+      "WO-018"
+    ],
+    "why": "Personal convenience should not require the account, subscription, and multi-device synchronization systems removed from scope.",
+    "what": [
+      "Provide single-user filter and threshold settings, saved views, pins/ignore with undo, and configuration export/import.",
+      "Support useful display preferences without reproducing the commercial workspace."
+    ],
+    "how": [
+      "Version the configuration schema and separate server settings from browser-local presentation choices.",
+      "Export watches, aliases, groups, settings, and signal definitions; exclude credentials, device secrets, and private source payloads.",
+      "Preview imports with duplicate/conflict decisions, validate references, and apply changes transactionally where practical.",
+      "Implement saved account/group/chain filters and bounded pin/ignore state. Preserve reading continuity across view changes.",
+      "Treat drag/resize layouts and additional language/theme variants as optional follow-up refinements; do not block the personal acceptance gate on them."
+    ],
+    "done": [
+      "A configuration export/import round-trip preserves non-secret settings.",
+      "Exports contain no bot token, provider key, or infrastructure credential.",
+      "Invalid imports report specific errors without corrupting the existing configuration.",
+      "Saved views use the same backend filter semantics as the feed.",
+      "Ignore has an undo path and pins have an explicit retention policy.",
+      "No login, cross-user settings merge, or membership logic is introduced."
+    ],
+    "files": [
+      "backend/src/wallet_observer/settings/",
+      "frontend/src/pages/Settings.tsx",
+      "docs/configuration.md",
+      "tests/integration/test_config_import.py"
+    ]
+  },
+  {
+    "id": "WO-023",
+    "title": "Qualify FOMO identity, thesis, clan, and order data access",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-002",
+      "WO-018"
+    ],
+    "why": "FOMO-specific behavior cannot be reconstructed solely from blockchain transactions. This gate prevents fake identity mappings or nonfunctional feature promises.",
+    "what": [
+      "Identify a documented/authorized acquisition path for each needed FOMO capability.",
+      "Produce a capability matrix and go/no-go decision before enabling dependent adapters."
+    ],
+    "how": [
+      "Evaluate stable user IDs, wallet mappings, thesis IDs/text/token mentions, clan membership/size, and off-chain order state as separate capabilities.",
+      "Record source provenance, permission requirements, rate limits, historical coverage, monthly costs, replay/edit semantics, and representative sanitized payloads.",
+      "Verify an identity link against explicit source evidence; a similar name or shared funding is not enough.",
+      "Document unsupported data as blocked. Keep manual wallet labels and wallet-only monitoring available.",
+      "Do not scrape private endpoints without access, bypass sign-in, reuse Wind's backend, or assume a trading SDK exposes social metadata."
+    ],
+    "done": [
+      "Each capability is marked verified, partial, unavailable, or unresolved with evidence.",
+      "Pricing and access requirements are recorded or explicitly unknown.",
+      "A viable source has representative fixtures and a recovery strategy.",
+      "Dependent issues specify which verified capabilities they require.",
+      "If no source is available, the blocked state is documented and the wallet-only release remains usable."
+    ],
+    "files": [
+      "docs/fomo-capabilities.md",
+      "docs/decisions/0002-fomo-access.md",
+      "tests/fixtures/fomo/"
+    ]
+  },
+  {
+    "id": "WO-024",
+    "title": "Integrate verified FOMO identities and token theses",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-005",
+      "WO-010",
+      "WO-013",
+      "WO-023"
+    ],
+    "why": "FOMO account and thesis context is valuable only when source identities and token references remain attributable and up to date.",
+    "what": [
+      "Implement the verified identity and thesis capabilities from the source qualification gate.",
+      "Extend profile/token/search views with FOMO-specific evidence, without restoring excluded social platforms."
+    ],
+    "how": [
+      "Use immutable source user IDs, mutable aliases, and evidence-bearing wallet links. Keep manual labels distinguishable from source-confirmed identity.",
+      "Persist thesis IDs, text, edits/deletions where supported, token mentions, timestamps, and provenance.",
+      "Validate token mentions by chain/address. Distinguish commentary from an actual buy; do not infer a purchase from a thesis.",
+      "Process thesis revisions through canonical updates and source checkpoint recovery. Use bounded retention and a stated collection start.",
+      "Show grouped author commentary and optional on-demand cached translation only after its provider and budget are explicitly configured."
+    ],
+    "done": [
+      "Account rename preserves history and correct wallet links.",
+      "Two similar names never merge without evidence.",
+      "Theses appear on the appropriate token/profile pages with source/time labels.",
+      "A thesis without an execution cannot create a buy or position.",
+      "Unsupported edits/deletions and historical gaps are declared.",
+      "If source access is absent, the feature remains disabled and this issue is blocked rather than falsely completed."
+    ],
+    "files": [
+      "backend/src/wallet_observer/providers/fomo/",
+      "backend/src/wallet_observer/theses/",
+      "frontend/src/components/ThesisCard.tsx",
+      "tests/integration/test_fomo_identity.py"
+    ]
+  },
+  {
+    "id": "WO-025",
+    "title": "Reconcile FOMO order attempts with on-chain executions",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-007",
+      "WO-008",
+      "WO-023",
+      "WO-024"
+    ],
+    "why": "Preview, pending, refund, failure, and revocation describe source order state; they are not interchangeable with blockchain confirmation.",
+    "what": [
+      "Implement a source-evidenced order lifecycle only for capabilities proved in WO-023.",
+      "Link orders and execution legs conservatively, preserving uncertain matches and corrections."
+    ],
+    "how": [
+      "Keep off-chain order status and chain confirmation in separate fields and state machines.",
+      "Match by stable source order ID or transaction references. Use explicit confidence/evidence for weaker associations; never merge solely on similar time/amount.",
+      "Handle partial fills, refunds, revocations, and source corrections with reversible contributions to positions and signals.",
+      "Display attempted orders distinctly and make failed attempts ineligible for confirmed volume/consensus.",
+      "For multi-chain orders, retain separate legs until the selected chain adapters can establish the final economic outcome."
+    ],
+    "done": [
+      "Fixtures cover successful, failed, refunded, revoked, unmatched, and duplicate order updates where the source supports them.",
+      "A failed attempt that never reached the chain is shown only from an actual upstream record.",
+      "Execution finality does not automatically imply the intended off-chain order succeeded.",
+      "Corrections update existing cards and derived totals rather than adding duplicate economic events.",
+      "Unavailable lifecycle states stay disabled or unknown."
+    ],
+    "files": [
+      "backend/src/wallet_observer/orders/",
+      "tests/integration/test_fomo_orders.py",
+      "docs/order-state-machine.md"
+    ]
+  },
+  {
+    "id": "WO-026",
+    "title": "Implement clan membership snapshots and resonance",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-020",
+      "WO-023",
+      "WO-024"
+    ],
+    "why": "Clan participation is meaningful only with a known membership denominator and historical membership context.",
+    "what": [
+      "Persist source-backed clan membership snapshots and calculate versioned participation signals.",
+      "Expose monitored-member coverage separately from authoritative clan size."
+    ],
+    "how": [
+      "Gate the feature on qualified membership and effective-time data; otherwise use clearly labelled personal watch groups.",
+      "Choose written participation/window/amount/tier rules and record the membership snapshot used for each calculation.",
+      "Deduplicate identities with evidence, use eligible executions, and apply the same corrections/cooldowns/expiry mechanisms as other signals.",
+      "Show the actual participating members, total authoritative members where available, and number of monitored members.",
+      "Deliver through the existing feed/Telegram path; no independent audio or wake system."
+    ],
+    "done": [
+      "A membership change produces a new effective snapshot rather than silently rewriting old denominators.",
+      "Monitored subset size is never presented as total clan size.",
+      "Signal participants and thresholds are inspectable and reproducible.",
+      "Missing membership data disables the ratio-based signal with a clear reason.",
+      "Duplicate/corrected trades do not inflate participation."
+    ],
+    "files": [
+      "backend/src/wallet_observer/clans/",
+      "tests/unit/test_clan_signals.py",
+      "frontend/src/components/ClanSignalCard.tsx"
+    ]
+  },
+  {
+    "id": "WO-027",
+    "title": "Extend to selected additional chains through qualified adapters",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-002",
+      "WO-007",
+      "WO-008",
+      "WO-009",
+      "WO-018"
+    ],
+    "why": "Multi-chain support should reuse the product model while acknowledging that receipts, routes, confirmation, and provider coverage differ by network.",
+    "what": [
+      "Select the next genuinely needed network and document a per-chain capability/cost decision.",
+      "Implement and validate adapters one chain at a time rather than enabling every chain label seen in Wind."
+    ],
+    "how": [
+      "For each candidate, verify network ID, environment, official RPC/indexer source, transaction decoding, history, quote coverage, and usage cost. Create a chain-specific checklist before coding.",
+      "Implement the shared adapter contract using receipts/logs or qualified decoded transactions; define token identity, address normalization, finality, and reorg behavior.",
+      "Reuse recovery, canonical revisions, filters, notification rules, and exact chain/address search.",
+      "Treat bridge transfers and cross-chain order legs explicitly; do not turn every bridge receipt into a purchase.",
+      "Keep unsupported networks behind disabled capabilities. Record actual coverage instead of claiming generic EVM support automatically works everywhere."
+    ],
+    "done": [
+      "Each enabled network has a published capability matrix and representative real/sanitized fixtures.",
+      "Same-address tokens on different chains remain distinct.",
+      "Reorg/failure/correction and restart recovery scenarios behave correctly.",
+      "Trade attribution and market values are verified against the chosen chain source.",
+      "Cost and latency are measured before increasing the watch universe.",
+      "Networks without a qualified source remain out of the enabled configuration."
+    ],
+    "files": [
+      "backend/src/wallet_observer/providers/",
+      "docs/chains/",
+      "tests/fixtures/chains/",
+      "tests/integration/test_multichain.py"
+    ]
+  },
+  {
+    "id": "WO-028",
+    "title": "Verify the expanded personal release and complete the operator guide",
+    "phase": "Personal expansion",
+    "dependencies": [
+      "WO-018",
+      "WO-019",
+      "WO-020",
+      "WO-021",
+      "WO-022",
+      "WO-023"
+    ],
+    "why": "The expanded release should have an honest feature/capability report and remain maintainable by one person.",
+    "what": [
+      "Run a final acceptance pass over all enabled personal features and publish a release/runbook update.",
+      "Resolve or explicitly defer source-blocked capabilities without pretending they shipped."
+    ],
+    "how": [
+      "Review every retained feature against the scope checklist; distinguish implemented, source-blocked, deliberately deferred, and excluded features.",
+      "Re-run meaningful correctness, correction, replay, notification, restore, and private-access checks across enabled adapters.",
+      "Measure 25–100 watched accounts only if actual usage justifies expansion; record provider costs, storage growth, lag, query performance, and gaps.",
+      "Document routine provider-key rotation, stopped-host recovery, data retention, backup restore, and monthly usage review.",
+      "Tag the release and link all completed issues and known limitations. No arbitrary algorithm is called an exact Wind reproduction."
+    ],
+    "done": [
+      "All enabled features have source-backed behavior and recorded validation evidence.",
+      "Each unavailable FOMO/chain capability has an explicit documented decision; blocked issues are not marked implemented.",
+      "Recovery and restore are tested with the enabled feature set.",
+      "README and runbook commands match the actual application.",
+      "The actual recurring cost is recorded separately from the initial estimate.",
+      "A single operator can deploy, inspect, recover, and maintain the tool."
+    ],
+    "files": [
+      "docs/acceptance/personal-release.md",
+      "docs/runbook.md",
+      "docs/costs.md",
+      "README.md",
+      "CHANGELOG.md"
+    ],
+    "conditionalDependencies": [
+      "WO-024",
+      "WO-025",
+      "WO-026",
+      "WO-027"
+    ]
+  }
+]
