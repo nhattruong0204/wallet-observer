@@ -1,4 +1,4 @@
-# Development only. No application services or host database port yet.
+# Development only. API/frontend ports bind to host loopback; no host database port.
 services:
   dev:
     build:
@@ -10,6 +10,9 @@ services:
     init: true
     volumes:
       - .:/workspaces/wallet-observer
+    ports:
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:5173:5173"
     environment:
       PGHOST: db
       PGPORT: "5432"

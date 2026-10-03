@@ -15,4 +15,5 @@ secrets/
 local-data/
 backups/
 watchlist.local.*
-
+test-results/
+playwright-report/
