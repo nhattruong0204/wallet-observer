@@ -80,7 +80,8 @@ The development Compose file binds the repository at `/workspaces/wallet-observe
 | `make db-shell`          | Connect with psql using container-local development credentials                                                                |
 | `make dev`, `make build` | Exit 2 explaining the application is not implemented; foundation belongs to WO-003                                             |
 | `make migrate`           | Exit 2; schema migrations belong to WO-004                                                                                     |
-| `make fixtures`          | Exit 2; sanitized real fixtures require WO-002 source qualification                                                            |
+| `make fixtures`          | Verify sanitized real Solana captures and reviewed balance evidence offline                                                    |
+| `make qualify-solana`    | Explicit bounded live Helius qualification probe; consumes provider credits; see the source contract                           |
 
 The Python debugger runs the current file with the project's `.venv` interpreter. A browser debugger launch configuration is prepared for the future frontend and clearly marked as requiring WO-003. Python/TypeScript formatters, ESLint, debugger, and task settings are committed in `.vscode/`.
 

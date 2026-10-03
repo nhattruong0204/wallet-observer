@@ -1,0 +1,3224 @@
+{
+  "provenance": {
+    "provider": "Helius",
+    "network": "solana-mainnet-beta",
+    "endpoint": "parsedTransactionSubscribe + /v1/parsed-events/transaction-history",
+    "captured_at": "2026-10-03T04:17:38.615792+00:00",
+    "private_capture": "http-009.json",
+    "row_index": 0,
+    "private_stream_capture": "stream-0001.json",
+    "original_record_sha256": "db913c257f7332ef747829b6732f1f0cc550cdd0a4254a8f93b1b3359589b44b",
+    "original_stream_sha256": "16c671c0d811b878c17d441a7fbd39937c72908ed0df69dd5464028922391157",
+    "sanitization": "aliases-v1; shared mapping for actual overlapping deliveries"
+  },
+  "expected": {
+    "classification": "duplicate_delivery",
+    "transaction_status": "OK",
+    "chain_confirmation": "confirmed",
+    "unique_signature_count": 1,
+    "reason": "The same signature was received once on the stream and again from bounded history after reconnect. A consumer must upsert one transaction and suppress duplicate downstream alerts. No spontaneous duplicate on the live connection was observed."
+  },
+  "payload": {
+    "signature": "redacted-0001",
+    "parserStatus": "OK",
+    "parsed": {
+      "slot": 452822602,
+      "blockTime": 1791000933,
+      "fee": 27250,
+      "feePayer": "redacted-0002",
+      "transactionStatus": "OK",
+      "error": null,
+      "decodedError": null,
+      "nativeTransfers": [
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0004",
+          "amount": 1559560
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0005",
+          "amount": 1559560
+        }
+      ],
+      "tokenTransfers": [
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0006",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0008",
+          "rawTokenAmount": 11181,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0010",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0011",
+          "rawTokenAmount": 3756,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0012",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0004",
+          "rawTokenAmount": 105756,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0013",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0014",
+          "rawTokenAmount": 3180,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0015",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0016",
+          "rawTokenAmount": 8015,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0017",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0018",
+          "rawTokenAmount": 65422,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0019",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0005",
+          "rawTokenAmount": 52878,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0020",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0021",
+          "rawTokenAmount": 4750,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0022",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0023",
+          "rawTokenAmount": 22013,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0024",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0025",
+          "rawTokenAmount": 60542,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0026",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0027",
+          "rawTokenAmount": 10319,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0028",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0029",
+          "rawTokenAmount": 51405,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0030",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0031",
+          "rawTokenAmount": 11332,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0032",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0033",
+          "rawTokenAmount": 8263,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0009"
+        }
+      ],
+      "summary": {
+        "type": "transfer",
+        "description": null,
+        "parsedData": null
+      },
+      "instructions": [
+        {
+          "instructionIndex": 0,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "rawAccounts": [],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "compute_budget",
+          "instructionName": "set_compute_unit_limit",
+          "decoded": {
+            "args": {
+              "units": "345000"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 1,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "rawAccounts": [],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "compute_budget",
+          "instructionName": "set_compute_unit_price",
+          "decoded": {
+            "args": {
+              "micro_lamports": "50000"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0008",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "11181",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0008",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 3,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0011",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "3756",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0011",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 4,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+          "rawAccounts": [
+            "redacted-0003",
+            "redacted-0004",
+            "redacted-0012",
+            "redacted-0009",
+            "11111111111111111111111111111111",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_token_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "associated_token_account",
+          "instructionName": "create_idempotent",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "associated_token_account",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "wallet_owner",
+                "pubkey": "redacted-0012",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "system_program",
+                "pubkey": "11111111111111111111111111111111",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_program",
+                "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 4,
+          "innerInstructionIndex": 0,
+          "stackHeight": 2,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0009"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token_2022",
+          "instructionName": "get_account_data_size",
+          "decoded": {
+            "args": {
+              "extension_types": [
+                "immutableOwner"
+              ]
+            },
+            "accounts": [
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 4,
+          "innerInstructionIndex": 1,
+          "stackHeight": 2,
+          "programId": "11111111111111111111111111111111",
+          "rawAccounts": [
+            "redacted-0003",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "system",
+          "instructionName": "create_account",
+          "decoded": {
+            "args": {
+              "lamports": "1559560",
+              "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "space": "179"
+            },
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "new_account",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 4,
+          "innerInstructionIndex": 2,
+          "stackHeight": 2,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token_2022",
+          "instructionName": "initialize_immutable_owner",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 4,
+          "innerInstructionIndex": 3,
+          "stackHeight": 2,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0004",
+            "redacted-0009"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token_2022",
+          "instructionName": "initialize_account_3",
+          "decoded": {
+            "args": {
+              "owner": "redacted-0012"
+            },
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 5,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0004",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "105756",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 6,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0014",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "3180",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0014",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 7,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0016",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "8015",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 8,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0018",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "65422",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0018",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 9,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+          "rawAccounts": [
+            "redacted-0003",
+            "redacted-0005",
+            "redacted-0019",
+            "redacted-0009",
+            "11111111111111111111111111111111",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_token_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "associated_token_account",
+          "instructionName": "create_idempotent",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "associated_token_account",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "wallet_owner",
+                "pubkey": "redacted-0019",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "system_program",
+                "pubkey": "11111111111111111111111111111111",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_program",
+                "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 9,
+          "innerInstructionIndex": 0,
+          "stackHeight": 2,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0009"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token_2022",
+          "instructionName": "get_account_data_size",
+          "decoded": {
+            "args": {
+              "extension_types": [
+                "immutableOwner"
+              ]
+            },
+            "accounts": [
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 9,
+          "innerInstructionIndex": 1,
+          "stackHeight": 2,
+          "programId": "11111111111111111111111111111111",
+          "rawAccounts": [
+            "redacted-0003",
+            "redacted-0005"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "system",
+          "instructionName": "create_account",
+          "decoded": {
+            "args": {
+              "lamports": "1559560",
+              "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "space": "179"
+            },
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "new_account",
+                "pubkey": "redacted-0005",
+                "isSigner": true,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 9,
+          "innerInstructionIndex": 2,
+          "stackHeight": 2,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0005"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token_2022",
+          "instructionName": "initialize_immutable_owner",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 9,
+          "innerInstructionIndex": 3,
+          "stackHeight": 2,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0005",
+            "redacted-0009"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token_2022",
+          "instructionName": "initialize_account_3",
+          "decoded": {
+            "args": {
+              "owner": "redacted-0019"
+            },
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 10,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0005",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "52878",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 11,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0021",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "4750",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0021",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 12,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0023",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "22013",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0023",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 13,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0025",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "60542",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0025",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 14,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0027",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "10319",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0027",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 15,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0029",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "51405",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0029",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 16,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0031",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "11332",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0031",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 17,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0009",
+            "redacted-0033",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "8263",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0009",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0033",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "rawTransaction": {
+      "blockTime": 1791000933,
+      "meta": {
+        "computeUnitsConsumed": 92408,
+        "costUnits": 99355,
+        "err": null,
+        "fee": 27250,
+        "innerInstructions": [
+          {
+            "index": 4,
+            "instructions": [
+              {
+                "accounts": [
+                  22
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 23,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  1,
+                  7
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 17,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  7
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 23,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  7,
+                  22
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 23,
+                "stackHeight": 2
+              }
+            ]
+          },
+          {
+            "index": 9,
+            "instructions": [
+              {
+                "accounts": [
+                  22
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 23,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  1,
+                  4
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 17,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  4
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 23,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  4,
+                  22
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 23,
+                "stackHeight": 2
+              }
+            ]
+          }
+        ],
+        "loadedAddresses": {
+          "readonly": [],
+          "writable": []
+        },
+        "logMessages": null,
+        "postBalances": [
+          16676854250,
+          14889271080,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1,
+          8109478005,
+          890880,
+          3388612899,
+          1,
+          5790720,
+          70228638
+        ],
+        "postTokenBalances": [
+          {
+            "accountIndex": 2,
+            "mint": "redacted-0009",
+            "owner": "redacted-0024",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "748352",
+              "decimals": 6,
+              "uiAmount": 0.748352,
+              "uiAmountString": "0.748352"
+            }
+          },
+          {
+            "accountIndex": 3,
+            "mint": "redacted-0009",
+            "owner": "redacted-0032",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "77857",
+              "decimals": 6,
+              "uiAmount": 0.077857,
+              "uiAmountString": "0.077857"
+            }
+          },
+          {
+            "accountIndex": 4,
+            "mint": "redacted-0009",
+            "owner": "redacted-0019",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "52878",
+              "decimals": 6,
+              "uiAmount": 0.052878,
+              "uiAmountString": "0.052878"
+            }
+          },
+          {
+            "accountIndex": 5,
+            "mint": "redacted-0009",
+            "owner": "redacted-0013",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "38196",
+              "decimals": 6,
+              "uiAmount": 0.038196,
+              "uiAmountString": "0.038196"
+            }
+          },
+          {
+            "accountIndex": 6,
+            "mint": "redacted-0009",
+            "owner": "redacted-0026",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "67129",
+              "decimals": 6,
+              "uiAmount": 0.067129,
+              "uiAmountString": "0.067129"
+            }
+          },
+          {
+            "accountIndex": 7,
+            "mint": "redacted-0009",
+            "owner": "redacted-0012",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "105756",
+              "decimals": 6,
+              "uiAmount": 0.105756,
+              "uiAmountString": "0.105756"
+            }
+          },
+          {
+            "accountIndex": 8,
+            "mint": "redacted-0009",
+            "owner": "redacted-0030",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "48479",
+              "decimals": 6,
+              "uiAmount": 0.048479,
+              "uiAmountString": "0.048479"
+            }
+          },
+          {
+            "accountIndex": 9,
+            "mint": "redacted-0009",
+            "owner": "redacted-0017",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "892837",
+              "decimals": 6,
+              "uiAmount": 0.892837,
+              "uiAmountString": "0.892837"
+            }
+          },
+          {
+            "accountIndex": 10,
+            "mint": "redacted-0009",
+            "owner": "redacted-0006",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "20041",
+              "decimals": 6,
+              "uiAmount": 0.020041,
+              "uiAmountString": "0.020041"
+            }
+          },
+          {
+            "accountIndex": 11,
+            "mint": "redacted-0009",
+            "owner": "redacted-0010",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "136260",
+              "decimals": 6,
+              "uiAmount": 0.13626,
+              "uiAmountString": "0.13626"
+            }
+          },
+          {
+            "accountIndex": 12,
+            "mint": "redacted-0009",
+            "owner": "redacted-0003",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "762687",
+              "decimals": 6,
+              "uiAmount": 0.762687,
+              "uiAmountString": "0.762687"
+            }
+          },
+          {
+            "accountIndex": 13,
+            "mint": "redacted-0009",
+            "owner": "redacted-0015",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "210014",
+              "decimals": 6,
+              "uiAmount": 0.210014,
+              "uiAmountString": "0.210014"
+            }
+          },
+          {
+            "accountIndex": 14,
+            "mint": "redacted-0009",
+            "owner": "redacted-0020",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "64818",
+              "decimals": 6,
+              "uiAmount": 0.064818,
+              "uiAmountString": "0.064818"
+            }
+          },
+          {
+            "accountIndex": 15,
+            "mint": "redacted-0009",
+            "owner": "redacted-0022",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "39455",
+              "decimals": 6,
+              "uiAmount": 0.039455,
+              "uiAmountString": "0.039455"
+            }
+          },
+          {
+            "accountIndex": 16,
+            "mint": "redacted-0009",
+            "owner": "redacted-0028",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "170211",
+              "decimals": 6,
+              "uiAmount": 0.170211,
+              "uiAmountString": "0.170211"
+            }
+          }
+        ],
+        "preBalances": [
+          16676881500,
+          14892390200,
+          1559560,
+          1559560,
+          0,
+          1559560,
+          1559560,
+          0,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1559560,
+          1,
+          8109478005,
+          890880,
+          3388612899,
+          1,
+          5790720,
+          70228638
+        ],
+        "preTokenBalances": [
+          {
+            "accountIndex": 2,
+            "mint": "redacted-0009",
+            "owner": "redacted-0024",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "687810",
+              "decimals": 6,
+              "uiAmount": 0.68781,
+              "uiAmountString": "0.68781"
+            }
+          },
+          {
+            "accountIndex": 3,
+            "mint": "redacted-0009",
+            "owner": "redacted-0032",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "69594",
+              "decimals": 6,
+              "uiAmount": 0.069594,
+              "uiAmountString": "0.069594"
+            }
+          },
+          {
+            "accountIndex": 5,
+            "mint": "redacted-0009",
+            "owner": "redacted-0013",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "35016",
+              "decimals": 6,
+              "uiAmount": 0.035016,
+              "uiAmountString": "0.035016"
+            }
+          },
+          {
+            "accountIndex": 6,
+            "mint": "redacted-0009",
+            "owner": "redacted-0026",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "56810",
+              "decimals": 6,
+              "uiAmount": 0.05681,
+              "uiAmountString": "0.05681"
+            }
+          },
+          {
+            "accountIndex": 8,
+            "mint": "redacted-0009",
+            "owner": "redacted-0030",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "37147",
+              "decimals": 6,
+              "uiAmount": 0.037147,
+              "uiAmountString": "0.037147"
+            }
+          },
+          {
+            "accountIndex": 9,
+            "mint": "redacted-0009",
+            "owner": "redacted-0017",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "827415",
+              "decimals": 6,
+              "uiAmount": 0.827415,
+              "uiAmountString": "0.827415"
+            }
+          },
+          {
+            "accountIndex": 10,
+            "mint": "redacted-0009",
+            "owner": "redacted-0006",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "8860",
+              "decimals": 6,
+              "uiAmount": 0.00886,
+              "uiAmountString": "0.00886"
+            }
+          },
+          {
+            "accountIndex": 11,
+            "mint": "redacted-0009",
+            "owner": "redacted-0010",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "132504",
+              "decimals": 6,
+              "uiAmount": 0.132504,
+              "uiAmountString": "0.132504"
+            }
+          },
+          {
+            "accountIndex": 12,
+            "mint": "redacted-0009",
+            "owner": "redacted-0003",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "1181499",
+              "decimals": 6,
+              "uiAmount": 1.181499,
+              "uiAmountString": "1.181499"
+            }
+          },
+          {
+            "accountIndex": 13,
+            "mint": "redacted-0009",
+            "owner": "redacted-0015",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "201999",
+              "decimals": 6,
+              "uiAmount": 0.201999,
+              "uiAmountString": "0.201999"
+            }
+          },
+          {
+            "accountIndex": 14,
+            "mint": "redacted-0009",
+            "owner": "redacted-0020",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "60068",
+              "decimals": 6,
+              "uiAmount": 0.060068,
+              "uiAmountString": "0.060068"
+            }
+          },
+          {
+            "accountIndex": 15,
+            "mint": "redacted-0009",
+            "owner": "redacted-0022",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "17442",
+              "decimals": 6,
+              "uiAmount": 0.017442,
+              "uiAmountString": "0.017442"
+            }
+          },
+          {
+            "accountIndex": 16,
+            "mint": "redacted-0009",
+            "owner": "redacted-0028",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "118806",
+              "decimals": 6,
+              "uiAmount": 0.118806,
+              "uiAmountString": "0.118806"
+            }
+          }
+        ],
+        "rewards": [],
+        "status": {
+          "Ok": null
+        }
+      },
+      "slot": 452822602,
+      "transaction": {
+        "message": {
+          "accountKeys": [
+            "redacted-0002",
+            "redacted-0003",
+            "redacted-0025",
+            "redacted-0033",
+            "redacted-0005",
+            "redacted-0014",
+            "redacted-0027",
+            "redacted-0004",
+            "redacted-0031",
+            "redacted-0018",
+            "redacted-0008",
+            "redacted-0011",
+            "redacted-0007",
+            "redacted-0016",
+            "redacted-0021",
+            "redacted-0023",
+            "redacted-0029",
+            "11111111111111111111111111111111",
+            "redacted-0019",
+            "redacted-0012",
+            "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+            "ComputeBudget111111111111111111111111111111",
+            "redacted-0009",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+          ],
+          "header": {
+            "numReadonlySignedAccounts": 0,
+            "numReadonlyUnsignedAccounts": 7,
+            "numRequiredSignatures": 2
+          },
+          "instructions": [
+            {
+              "accounts": [],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 21,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 21,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                10,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                11,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                1,
+                7,
+                19,
+                22,
+                17,
+                23
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 20,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                7,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                5,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                13,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                9,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                1,
+                4,
+                18,
+                22,
+                17,
+                23
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 20,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                4,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                14,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                15,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                2,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                6,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                16,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                8,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                22,
+                3,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 23,
+              "stackHeight": 1
+            }
+          ],
+          "recentBlockhash": "redacted-0034"
+        },
+        "signatures": [
+          "redacted-0001",
+          "redacted-0035"
+        ]
+      },
+      "transactionIndex": 997
+    }
+  },
+  "stream_payload": {
+    "jsonrpc": "2.0",
+    "method": "parsedTransactionNotification",
+    "params": {
+      "subscription": 1,
+      "result": {
+        "context": {
+          "slot": 452822602
+        },
+        "value": {
+          "transaction": {
+            "signature": "redacted-0001",
+            "slot": 452822602,
+            "blockTime": null,
+            "feePayer": "redacted-0002",
+            "fee": 27250,
+            "accountKeys": [
+              "redacted-0002",
+              "redacted-0003",
+              "redacted-0025",
+              "redacted-0033",
+              "redacted-0005",
+              "redacted-0014",
+              "redacted-0027",
+              "redacted-0004",
+              "redacted-0031",
+              "redacted-0018",
+              "redacted-0008",
+              "redacted-0011",
+              "redacted-0007",
+              "redacted-0016",
+              "redacted-0021",
+              "redacted-0023",
+              "redacted-0029",
+              "11111111111111111111111111111111",
+              "redacted-0019",
+              "redacted-0012",
+              "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "ComputeBudget111111111111111111111111111111",
+              "redacted-0009",
+              "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+            ],
+            "status": "ok",
+            "error": null,
+            "summary": {
+              "type": "transfer",
+              "description": null,
+              "parsedData": null
+            },
+            "nativeTransfers": [
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0004",
+                "amount": 1559560
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0005",
+                "amount": 1559560
+              }
+            ],
+            "tokenTransfers": [
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0006",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0008",
+                "rawTokenAmount": 11181,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0010",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0011",
+                "rawTokenAmount": 3756,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0012",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0004",
+                "rawTokenAmount": 105756,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0013",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0014",
+                "rawTokenAmount": 3180,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0015",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0016",
+                "rawTokenAmount": 8015,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0017",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0018",
+                "rawTokenAmount": 65422,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0019",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0005",
+                "rawTokenAmount": 52878,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0020",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0021",
+                "rawTokenAmount": 4750,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0022",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0023",
+                "rawTokenAmount": 22013,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0024",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0025",
+                "rawTokenAmount": 60542,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0026",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0027",
+                "rawTokenAmount": 10319,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0028",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0029",
+                "rawTokenAmount": 51405,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0030",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0031",
+                "rawTokenAmount": 11332,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              },
+              {
+                "fromUserAccount": "redacted-0003",
+                "toUserAccount": "redacted-0032",
+                "fromTokenAccount": "redacted-0007",
+                "toTokenAccount": "redacted-0033",
+                "rawTokenAmount": 8263,
+                "decimals": 6,
+                "tokenStandard": "Fungible",
+                "mint": "redacted-0009"
+              }
+            ]
+          },
+          "instructions": [
+            {
+              "instructionIndex": 0,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "ComputeBudget111111111111111111111111111111",
+              "programName": "compute_budget",
+              "instructionName": "set_compute_unit_limit",
+              "decoded": {
+                "args": {
+                  "units": "345000"
+                },
+                "accounts": []
+              }
+            },
+            {
+              "instructionIndex": 1,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "ComputeBudget111111111111111111111111111111",
+              "programName": "compute_budget",
+              "instructionName": "set_compute_unit_price",
+              "decoded": {
+                "args": {
+                  "micro_lamports": "50000"
+                },
+                "accounts": []
+              }
+            },
+            {
+              "instructionIndex": 2,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "11181",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0008",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 3,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "3756",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0011",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 4,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "programName": "associated_token_account",
+              "instructionName": "create_idempotent",
+              "summary": {
+                "type": "create_token_account",
+                "description": null
+              },
+              "decoded": {
+                "args": {},
+                "accounts": [
+                  {
+                    "name": "funding_account",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "associated_token_account",
+                    "pubkey": "redacted-0004",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "wallet_owner",
+                    "pubkey": "redacted-0012",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "token_mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "system_program",
+                    "pubkey": "11111111111111111111111111111111",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "token_program",
+                    "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                    "isSigner": false,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 4,
+              "innerInstructionIndex": 0,
+              "stackHeight": 2,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "get_account_data_size",
+              "decoded": {
+                "args": {
+                  "extension_types": [
+                    "immutableOwner"
+                  ]
+                },
+                "accounts": [
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 4,
+              "innerInstructionIndex": 1,
+              "stackHeight": 2,
+              "programId": "11111111111111111111111111111111",
+              "programName": "system",
+              "instructionName": "create_account",
+              "summary": {
+                "type": "create_account",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "lamports": "1559560",
+                  "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                  "space": "179"
+                },
+                "accounts": [
+                  {
+                    "name": "funding_account",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "new_account",
+                    "pubkey": "redacted-0004",
+                    "isSigner": true,
+                    "isWritable": true
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 4,
+              "innerInstructionIndex": 2,
+              "stackHeight": 2,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "initialize_immutable_owner",
+              "decoded": {
+                "args": {},
+                "accounts": [
+                  {
+                    "name": "account",
+                    "pubkey": "redacted-0004",
+                    "isSigner": false,
+                    "isWritable": true
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 4,
+              "innerInstructionIndex": 3,
+              "stackHeight": 2,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "initialize_account_3",
+              "decoded": {
+                "args": {
+                  "owner": "redacted-0012"
+                },
+                "accounts": [
+                  {
+                    "name": "account",
+                    "pubkey": "redacted-0004",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 5,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "105756",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0004",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 6,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "3180",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0014",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 7,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "8015",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0016",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 8,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "65422",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0018",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 9,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+              "programName": "associated_token_account",
+              "instructionName": "create_idempotent",
+              "summary": {
+                "type": "create_token_account",
+                "description": null
+              },
+              "decoded": {
+                "args": {},
+                "accounts": [
+                  {
+                    "name": "funding_account",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "associated_token_account",
+                    "pubkey": "redacted-0005",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "wallet_owner",
+                    "pubkey": "redacted-0019",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "token_mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "system_program",
+                    "pubkey": "11111111111111111111111111111111",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "token_program",
+                    "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                    "isSigner": false,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 9,
+              "innerInstructionIndex": 0,
+              "stackHeight": 2,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "get_account_data_size",
+              "decoded": {
+                "args": {
+                  "extension_types": [
+                    "immutableOwner"
+                  ]
+                },
+                "accounts": [
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 9,
+              "innerInstructionIndex": 1,
+              "stackHeight": 2,
+              "programId": "11111111111111111111111111111111",
+              "programName": "system",
+              "instructionName": "create_account",
+              "summary": {
+                "type": "create_account",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "lamports": "1559560",
+                  "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                  "space": "179"
+                },
+                "accounts": [
+                  {
+                    "name": "funding_account",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "new_account",
+                    "pubkey": "redacted-0005",
+                    "isSigner": true,
+                    "isWritable": true
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 9,
+              "innerInstructionIndex": 2,
+              "stackHeight": 2,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "initialize_immutable_owner",
+              "decoded": {
+                "args": {},
+                "accounts": [
+                  {
+                    "name": "account",
+                    "pubkey": "redacted-0005",
+                    "isSigner": false,
+                    "isWritable": true
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 9,
+              "innerInstructionIndex": 3,
+              "stackHeight": 2,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "initialize_account_3",
+              "decoded": {
+                "args": {
+                  "owner": "redacted-0019"
+                },
+                "accounts": [
+                  {
+                    "name": "account",
+                    "pubkey": "redacted-0005",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 10,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "52878",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0005",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 11,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "4750",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0021",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 12,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "22013",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0023",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 13,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "60542",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0025",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 14,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "10319",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0027",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 15,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "51405",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0029",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 16,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "11332",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0031",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            },
+            {
+              "instructionIndex": 17,
+              "innerInstructionIndex": null,
+              "stackHeight": 1,
+              "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+              "programName": "token_2022",
+              "instructionName": "transfer_checked",
+              "summary": {
+                "type": "transfer",
+                "description": null
+              },
+              "decoded": {
+                "args": {
+                  "amount": "8263",
+                  "decimals": 6
+                },
+                "accounts": [
+                  {
+                    "name": "source_account",
+                    "pubkey": "redacted-0007",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "mint",
+                    "pubkey": "redacted-0009",
+                    "isSigner": false,
+                    "isWritable": false
+                  },
+                  {
+                    "name": "destination_account",
+                    "pubkey": "redacted-0033",
+                    "isSigner": false,
+                    "isWritable": true
+                  },
+                  {
+                    "name": "owner_or_delegate",
+                    "pubkey": "redacted-0003",
+                    "isSigner": true,
+                    "isWritable": false
+                  }
+                ]
+              }
+            }
+          ],
+          "matchedIndexes": [
+            13
+          ]
+        }
+      }
+    }
+  }
+}

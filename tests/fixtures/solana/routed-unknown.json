@@ -1,0 +1,3690 @@
+{
+  "provenance": {
+    "provider": "Helius",
+    "network": "solana-mainnet-beta",
+    "endpoint": "/v1/parsed-events/transaction-history",
+    "captured_at": "2026-10-03T04:14:27.688450+00:00",
+    "private_capture": "http-001.json",
+    "row_index": 6,
+    "original_record_sha256": "4f87468b0ee36d871e74e6b8a2b4a329362f1b4c85fb86f94f4cca397059eddc",
+    "sanitization": "aliases-v1; free text and encoded instruction data removed"
+  },
+  "expected": {
+    "classification": "unknown.swap",
+    "transaction_status": "OK",
+    "chain_confirmation": "confirmed",
+    "order_status": null,
+    "actor": "redacted-0004",
+    "watched_account": "redacted-0004",
+    "watched_account_is_actor": true,
+    "reason": "A three-leg DFlow route includes an undecoded bison_fi instruction. A temporary WSOL account is initialized, used, then closed. The watched owner spends 7500000000 raw input units and gains 544053084455 output units; the summary input is only 7467384113. Preserve all legs and mark the economic interpretation unsupported until the adapter accounts for fees and unknown instructions.",
+    "balance_checks": [
+      {
+        "account_index": 3,
+        "pre_raw": "8051141394172",
+        "post_raw": "8595194478627"
+      },
+      {
+        "account_index": 32,
+        "pre_raw": "65389662302",
+        "post_raw": "57889662302"
+      }
+    ]
+  },
+  "payload": {
+    "signature": "redacted-0001",
+    "parserStatus": "OK",
+    "parsed": {
+      "slot": 452776492,
+      "blockTime": 1790988630,
+      "fee": 2380824,
+      "feePayer": "redacted-0002",
+      "transactionStatus": "OK",
+      "error": null,
+      "decodedError": null,
+      "nativeTransfers": [
+        {
+          "fromUserAccount": "redacted-0002",
+          "toUserAccount": "redacted-0003",
+          "amount": 1488440
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0002",
+          "amount": 1488440
+        },
+        {
+          "fromUserAccount": "redacted-0003",
+          "toUserAccount": "redacted-0004",
+          "amount": 1488440
+        }
+      ],
+      "tokenTransfers": [
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0005",
+          "fromTokenAccount": "redacted-0006",
+          "toTokenAccount": "redacted-0007",
+          "rawTokenAmount": 2240887,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0008"
+        },
+        {
+          "fromUserAccount": "redacted-0005",
+          "toUserAccount": "redacted-0009",
+          "fromTokenAccount": "redacted-0007",
+          "toTokenAccount": "redacted-0010",
+          "rawTokenAmount": 2240887,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0008"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0011",
+          "fromTokenAccount": "redacted-0006",
+          "toTokenAccount": "redacted-0012",
+          "rawTokenAmount": 7467384113,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0008"
+        },
+        {
+          "fromUserAccount": "redacted-0011",
+          "toUserAccount": "redacted-0004",
+          "fromTokenAccount": "redacted-0013",
+          "toTokenAccount": "redacted-0003",
+          "rawTokenAmount": 62698703649,
+          "decimals": 9,
+          "tokenStandard": "Fungible",
+          "mint": "So11111111111111111111111111111111111111112"
+        },
+        {
+          "fromUserAccount": "redacted-0014",
+          "toUserAccount": "redacted-0004",
+          "fromTokenAccount": "redacted-0015",
+          "toTokenAccount": "redacted-0016",
+          "rawTokenAmount": 284542947298,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0017"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0014",
+          "fromTokenAccount": "redacted-0003",
+          "toTokenAccount": "redacted-0018",
+          "rawTokenAmount": 32713121017,
+          "decimals": 9,
+          "tokenStandard": "Fungible",
+          "mint": "So11111111111111111111111111111111111111112"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0019",
+          "fromTokenAccount": "redacted-0003",
+          "toTokenAccount": "redacted-0020",
+          "rawTokenAmount": 8161957,
+          "decimals": 9,
+          "tokenStandard": "Fungible",
+          "mint": "So11111111111111111111111111111111111111112"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0021",
+          "fromTokenAccount": "redacted-0003",
+          "toTokenAccount": "redacted-0022",
+          "rawTokenAmount": 16323913,
+          "decimals": 9,
+          "tokenStandard": "Fungible",
+          "mint": "So11111111111111111111111111111111111111112"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0023",
+          "fromTokenAccount": "redacted-0003",
+          "toTokenAccount": "redacted-0024",
+          "rawTokenAmount": 8161956,
+          "decimals": 9,
+          "tokenStandard": "Fungible",
+          "mint": "So11111111111111111111111111111111111111112"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0025",
+          "fromTokenAccount": "redacted-0003",
+          "toTokenAccount": "redacted-0026",
+          "rawTokenAmount": 29952934806,
+          "decimals": 9,
+          "tokenStandard": "Fungible",
+          "mint": "So11111111111111111111111111111111111111112"
+        },
+        {
+          "fromUserAccount": "redacted-0025",
+          "toUserAccount": "redacted-0004",
+          "fromTokenAccount": "redacted-0027",
+          "toTokenAccount": "redacted-0016",
+          "rawTokenAmount": 259510137157,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0017"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0028",
+          "fromTokenAccount": "redacted-0006",
+          "toTokenAccount": "redacted-0029",
+          "rawTokenAmount": 16875000,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0008"
+        },
+        {
+          "fromUserAccount": "redacted-0004",
+          "toUserAccount": "redacted-0030",
+          "fromTokenAccount": "redacted-0006",
+          "toTokenAccount": "redacted-0031",
+          "rawTokenAmount": 13500000,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0008"
+        }
+      ],
+      "summary": {
+        "type": "swap",
+        "description": null,
+        "parsedData": {
+          "type": "swap",
+          "protocol": "dflow",
+          "kind": "swap",
+          "in_amount": "7467384113",
+          "actual_out_amount": "544053084455",
+          "input_mint": "redacted-0008",
+          "output_mint": "redacted-0017",
+          "inner_swaps": [
+            {
+              "amm_program_id": "redacted-0032",
+              "amm_program_name": "bison_fi",
+              "input_amount": "7467384113",
+              "output_amount": "62698703649",
+              "input_mint": "redacted-0008",
+              "output_mint": "So11111111111111111111111111111111111111112"
+            },
+            {
+              "amm_program_id": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+              "amm_program_name": "pump_amm",
+              "input_amount": "32745768843",
+              "output_amount": "284542947298",
+              "input_mint": "So11111111111111111111111111111111111111112",
+              "output_mint": "redacted-0017"
+            },
+            {
+              "amm_program_id": "redacted-0033",
+              "amm_program_name": "lb_clmm",
+              "input_amount": "29952934806",
+              "output_amount": "259510137157",
+              "input_mint": "So11111111111111111111111111111111111111112",
+              "output_mint": "redacted-0017"
+            }
+          ]
+        }
+      },
+      "instructions": [
+        {
+          "instructionIndex": 0,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "rawAccounts": [
+            "redacted-0034"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "compute_budget",
+          "instructionName": "set_compute_unit_limit",
+          "decoded": {
+            "args": {
+              "units": "708413"
+            },
+            "accounts": [
+              {
+                "name": "account_1",
+                "pubkey": "redacted-0034",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 1,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "rawAccounts": [],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "compute_budget",
+          "instructionName": "set_compute_unit_price",
+          "decoded": {
+            "args": {
+              "micro_lamports": "3346668"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "redacted-0035",
+          "rawAccounts": [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+            "11111111111111111111111111111111",
+            "redacted-0004",
+            "redacted-0036",
+            "redacted-0035",
+            "redacted-0005",
+            "redacted-0037",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "redacted-0035",
+            "redacted-0017",
+            "redacted-0002",
+            "redacted-0006",
+            "redacted-0010",
+            "redacted-0004",
+            "redacted-0007",
+            "redacted-0004",
+            "redacted-0006",
+            "redacted-0003",
+            "redacted-0008",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0037",
+            "redacted-0032",
+            "redacted-0011",
+            "redacted-0013",
+            "redacted-0012",
+            "redacted-0038",
+            "redacted-0039",
+            "redacted-0040",
+            "redacted-0041",
+            "redacted-0042",
+            "redacted-0043",
+            "redacted-0044",
+            "redacted-0038",
+            "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+            "redacted-0014",
+            "redacted-0004",
+            "redacted-0045",
+            "redacted-0017",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0016",
+            "redacted-0003",
+            "redacted-0015",
+            "redacted-0018",
+            "redacted-0019",
+            "redacted-0020",
+            "redacted-0046",
+            "redacted-0022",
+            "redacted-0021",
+            "redacted-0047",
+            "redacted-0048",
+            "redacted-0049",
+            "redacted-0050",
+            "redacted-0051",
+            "redacted-0023",
+            "redacted-0024",
+            "redacted-0025",
+            "redacted-0052",
+            "redacted-0027",
+            "redacted-0026",
+            "redacted-0003",
+            "redacted-0016",
+            "redacted-0017",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0053",
+            "redacted-0033",
+            "redacted-0004",
+            "redacted-0054",
+            "redacted-0055",
+            "redacted-0033",
+            "redacted-0056",
+            "redacted-0057",
+            "redacted-0058"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "swap",
+            "description": null,
+            "parsedData": {
+              "type": "swap",
+              "protocol": "dflow",
+              "kind": "swap",
+              "in_amount": "7467384113",
+              "actual_out_amount": "544053084455",
+              "input_mint": "redacted-0008",
+              "output_mint": "redacted-0017",
+              "inner_swaps": [
+                {
+                  "amm_program_id": "redacted-0032",
+                  "amm_program_name": "bison_fi",
+                  "input_amount": "7467384113",
+                  "output_amount": "62698703649",
+                  "input_mint": "redacted-0008",
+                  "output_mint": "So11111111111111111111111111111111111111112"
+                },
+                {
+                  "amm_program_id": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+                  "amm_program_name": "pump_amm",
+                  "input_amount": "32745768843",
+                  "output_amount": "284542947298",
+                  "input_mint": "So11111111111111111111111111111111111111112",
+                  "output_mint": "redacted-0017"
+                },
+                {
+                  "amm_program_id": "redacted-0033",
+                  "amm_program_name": "lb_clmm",
+                  "input_amount": "29952934806",
+                  "output_amount": "259510137157",
+                  "input_mint": "So11111111111111111111111111111111111111112",
+                  "output_mint": "redacted-0017"
+                }
+              ]
+            }
+          },
+          "programName": "swap_orchestrator",
+          "instructionName": "swap",
+          "decoded": {
+            "args": {
+              "params": {
+                "actions": [
+                  {
+                    "RecordId": [
+                      {
+                        "id": [
+                          200,
+                          27,
+                          137,
+                          197,
+                          66,
+                          212,
+                          4,
+                          51,
+                          222,
+                          250,
+                          238,
+                          155,
+                          10,
+                          63,
+                          245,
+                          243,
+                          245,
+                          46,
+                          106,
+                          59,
+                          74,
+                          223,
+                          194,
+                          24,
+                          33,
+                          113,
+                          158,
+                          152,
+                          208,
+                          175,
+                          35,
+                          127,
+                          9,
+                          24,
+                          222,
+                          182,
+                          231,
+                          47,
+                          17,
+                          141,
+                          125,
+                          127,
+                          133,
+                          252,
+                          200,
+                          44,
+                          243,
+                          13,
+                          192,
+                          99,
+                          158,
+                          169,
+                          208,
+                          45,
+                          66,
+                          212,
+                          70,
+                          65,
+                          172,
+                          204,
+                          52,
+                          235,
+                          87,
+                          3,
+                          190,
+                          210,
+                          252,
+                          26,
+                          0,
+                          0,
+                          108,
+                          25,
+                          154,
+                          0,
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "SetSponsor",
+                  {
+                    "TransferFeeV2": [
+                      {
+                        "amount": "2240887"
+                      }
+                    ]
+                  },
+                  {
+                    "SetMinimumLegPrices": [
+                      {
+                        "minimum_prices": [
+                          {
+                            "input_mint_decimals": 6,
+                            "output_atoms_per_input_token": "8328667"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "DFlowDynamicRouteV1": [
+                      {
+                        "amount": "7467384113",
+                        "candidate_actions": [
+                          {
+                            "BisonFi": [
+                              {}
+                            ]
+                          },
+                          {
+                            "TesseraV": [
+                              {}
+                            ]
+                          }
+                        ],
+                        "orchestrator_flags": {
+                          "flags": 1
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "PumpFunAmmBuy": [
+                      {
+                        "amount": "32745768843",
+                        "orchestrator_flags": {
+                          "flags": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "MeteoraDlmmSwapV2": [
+                      {
+                        "amount": "29949185695",
+                        "num_bin_arrays": 3,
+                        "orchestrator_flags": {
+                          "flags": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "platform_fee_bps": 0,
+                "quoted_out_amount": "544020564217",
+                "slippage_bps": 947
+              }
+            },
+            "accounts": [
+              {
+                "name": "token_program",
+                "pubkey": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "associated_token_program",
+                "pubkey": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "system_program",
+                "pubkey": "11111111111111111111111111111111",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "user_token_authority",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              },
+              {
+                "name": "event_authority",
+                "pubkey": "redacted-0036",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "program",
+                "pubkey": "redacted-0035",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount1",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount2",
+                "pubkey": "redacted-0037",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount3",
+                "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount4",
+                "pubkey": "redacted-0035",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount5",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount6",
+                "pubkey": "redacted-0002",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount7",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount8",
+                "pubkey": "redacted-0010",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount9",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount10",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount11",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount12",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount13",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount14",
+                "pubkey": "redacted-0008",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount15",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount16",
+                "pubkey": "redacted-0037",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount17",
+                "pubkey": "redacted-0032",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount18",
+                "pubkey": "redacted-0011",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount19",
+                "pubkey": "redacted-0013",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount20",
+                "pubkey": "redacted-0012",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount21",
+                "pubkey": "redacted-0038",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount22",
+                "pubkey": "redacted-0039",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount23",
+                "pubkey": "redacted-0040",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount24",
+                "pubkey": "redacted-0041",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount25",
+                "pubkey": "redacted-0042",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount26",
+                "pubkey": "redacted-0043",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount27",
+                "pubkey": "redacted-0044",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount28",
+                "pubkey": "redacted-0038",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount29",
+                "pubkey": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount30",
+                "pubkey": "redacted-0014",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount31",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount32",
+                "pubkey": "redacted-0045",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount33",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount34",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount35",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount36",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount37",
+                "pubkey": "redacted-0015",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount38",
+                "pubkey": "redacted-0018",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount39",
+                "pubkey": "redacted-0019",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount40",
+                "pubkey": "redacted-0020",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount41",
+                "pubkey": "redacted-0046",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount42",
+                "pubkey": "redacted-0022",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount43",
+                "pubkey": "redacted-0021",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount44",
+                "pubkey": "redacted-0047",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount45",
+                "pubkey": "redacted-0048",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount46",
+                "pubkey": "redacted-0049",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount47",
+                "pubkey": "redacted-0050",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount48",
+                "pubkey": "redacted-0051",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount49",
+                "pubkey": "redacted-0023",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount50",
+                "pubkey": "redacted-0024",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount51",
+                "pubkey": "redacted-0025",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount52",
+                "pubkey": "redacted-0052",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount53",
+                "pubkey": "redacted-0027",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount54",
+                "pubkey": "redacted-0026",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount55",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount56",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount57",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount58",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount59",
+                "pubkey": "redacted-0053",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount60",
+                "pubkey": "redacted-0033",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount61",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount62",
+                "pubkey": "redacted-0054",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount63",
+                "pubkey": "redacted-0055",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount64",
+                "pubkey": "redacted-0033",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount65",
+                "pubkey": "redacted-0056",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount66",
+                "pubkey": "redacted-0057",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount67",
+                "pubkey": "redacted-0058",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 0,
+          "stackHeight": 2,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0006",
+            "redacted-0007",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token",
+          "instructionName": "transfer",
+          "decoded": {
+            "args": {
+              "amount": "2240887"
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 1,
+          "stackHeight": 2,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0007",
+            "redacted-0010",
+            "redacted-0005"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token",
+          "instructionName": "transfer",
+          "decoded": {
+            "args": {
+              "amount": "2240887"
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0010",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0005",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 2,
+          "stackHeight": 2,
+          "programId": "redacted-0035",
+          "rawAccounts": [
+            "redacted-0036"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "swap_orchestrator",
+          "instructionName": "FeeEvent",
+          "decoded": {
+            "args": {
+              "account": "redacted-0010",
+              "amount": "2240887",
+              "mint": "redacted-0008"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 3,
+          "stackHeight": 2,
+          "programId": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+          "rawAccounts": [
+            "redacted-0002",
+            "redacted-0003",
+            "redacted-0004",
+            "So11111111111111111111111111111111111111112",
+            "11111111111111111111111111111111",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_token_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "associated_token_account",
+          "instructionName": "create",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0002",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "associated_token_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "wallet_owner",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "system_program",
+                "pubkey": "11111111111111111111111111111111",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_program",
+                "pubkey": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 4,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "So11111111111111111111111111111111111111112"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "get_account_data_size",
+          "decoded": {
+            "args": {
+              "extension_types": [
+                "immutableOwner"
+              ]
+            },
+            "accounts": [
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 5,
+          "stackHeight": 3,
+          "programId": "11111111111111111111111111111111",
+          "rawAccounts": [
+            "redacted-0002",
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "system",
+          "instructionName": "create_account",
+          "decoded": {
+            "args": {
+              "lamports": "1488440",
+              "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "space": "165"
+            },
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0002",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "new_account",
+                "pubkey": "redacted-0003",
+                "isSigner": true,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 6,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "initialize_immutable_owner",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 7,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "So11111111111111111111111111111111111111112"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "initialize_account_3",
+          "decoded": {
+            "args": {
+              "owner": "redacted-0004"
+            },
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 8,
+          "stackHeight": 2,
+          "programId": "redacted-0032",
+          "rawAccounts": [
+            "redacted-0004",
+            "redacted-0011",
+            "redacted-0013",
+            "redacted-0012",
+            "redacted-0003",
+            "redacted-0006",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "redacted-0036",
+            "redacted-0038"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "bison_fi",
+          "instructionName": null,
+          "decoded": null
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 9,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0006",
+            "redacted-0012",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token",
+          "instructionName": "transfer",
+          "decoded": {
+            "args": {
+              "amount": "7467384113"
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0012",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 10,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0013",
+            "redacted-0003",
+            "redacted-0011"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "transfer",
+          "decoded": {
+            "args": {
+              "amount": "62698703649"
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0013",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0011",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 11,
+          "stackHeight": 2,
+          "programId": "redacted-0035",
+          "rawAccounts": [
+            "redacted-0036"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "swap_orchestrator",
+          "instructionName": "SwapEvent",
+          "decoded": {
+            "args": {
+              "amm": "redacted-0032",
+              "input_amount": "7467384113",
+              "input_mint": "redacted-0008",
+              "output_amount": "62698703649",
+              "output_mint": "So11111111111111111111111111111111111111112"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 12,
+          "stackHeight": 2,
+          "programId": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+          "rawAccounts": [
+            "redacted-0014",
+            "redacted-0004",
+            "redacted-0045",
+            "redacted-0017",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0016",
+            "redacted-0003",
+            "redacted-0015",
+            "redacted-0018",
+            "redacted-0019",
+            "redacted-0020",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "11111111111111111111111111111111",
+            "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+            "redacted-0046",
+            "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+            "redacted-0022",
+            "redacted-0021",
+            "redacted-0050",
+            "redacted-0051",
+            "redacted-0047",
+            "redacted-0048",
+            "redacted-0049",
+            "redacted-0023",
+            "redacted-0024"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "swap",
+            "description": null,
+            "parsedData": {
+              "type": "swap",
+              "protocol": "pump_fun_amm",
+              "kind": "buy",
+              "in_amount": "32745768843",
+              "actual_out_amount": "284542947298",
+              "input_mint": "So11111111111111111111111111111111111111112",
+              "output_mint": "redacted-0017",
+              "inner_swaps": []
+            }
+          },
+          "programName": "pump_amm",
+          "instructionName": "buy",
+          "decoded": {
+            "args": {
+              "base_amount_out": "284542947298",
+              "max_quote_amount_in": "32745768843",
+              "track_volume": null
+            },
+            "accounts": [
+              {
+                "name": "pool",
+                "pubkey": "redacted-0014",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "user",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "global_config",
+                "pubkey": "redacted-0045",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "base_mint",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "quote_mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "user_base_token_account",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "user_quote_token_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "pool_base_token_account",
+                "pubkey": "redacted-0015",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "pool_quote_token_account",
+                "pubkey": "redacted-0018",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "protocol_fee_recipient",
+                "pubkey": "redacted-0019",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "protocol_fee_recipient_token_account",
+                "pubkey": "redacted-0020",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "base_token_program",
+                "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "quote_token_program",
+                "pubkey": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "system_program",
+                "pubkey": "11111111111111111111111111111111",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "associated_token_program",
+                "pubkey": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "event_authority",
+                "pubkey": "redacted-0046",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "program",
+                "pubkey": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "coin_creator_vault_ata",
+                "pubkey": "redacted-0022",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "coin_creator_vault_authority",
+                "pubkey": "redacted-0021",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "global_volume_accumulator",
+                "pubkey": "redacted-0050",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "user_volume_accumulator",
+                "pubkey": "redacted-0051",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "fee_config",
+                "pubkey": "redacted-0047",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "fee_program",
+                "pubkey": "redacted-0048",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount1",
+                "pubkey": "redacted-0049",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount2",
+                "pubkey": "redacted-0023",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount3",
+                "pubkey": "redacted-0024",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 13,
+          "stackHeight": 3,
+          "programId": "redacted-0048",
+          "rawAccounts": [
+            "redacted-0047",
+            "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "pump_fees",
+          "instructionName": null,
+          "decoded": null
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 14,
+          "stackHeight": 3,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0015",
+            "redacted-0017",
+            "redacted-0016",
+            "redacted-0014"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "284542947298",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0015",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0014",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 15,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0018",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "32713121017",
+              "decimals": 9
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0018",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 16,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0020",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "8161957",
+              "decimals": 9
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0020",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 17,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0022",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "16323913",
+              "decimals": 9
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0022",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 18,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0024",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "8161956",
+              "decimals": 9
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0024",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 19,
+          "stackHeight": 3,
+          "programId": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+          "rawAccounts": [
+            "redacted-0046"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "pump_amm",
+          "instructionName": "BuyEvent",
+          "decoded": {
+            "args": {
+              "base_amount_out": "284542947298",
+              "base_supply": "983387734223398",
+              "buyback_fee": "8161956",
+              "buyback_fee_basis_points": "5000",
+              "can_boost": true,
+              "cashback": "0",
+              "cashback_fee_basis_points": "0",
+              "coin_creator": "redacted-0059",
+              "coin_creator_fee": "16323913",
+              "coin_creator_fee_basis_points": "5",
+              "current_sol_volume": "0",
+              "holder_rewards": "0",
+              "holder_rewards_bps": "0",
+              "ix_name": "buy",
+              "last_update_timestamp": "0",
+              "lp_fee": "65295651",
+              "lp_fee_basis_points": "20",
+              "max_quote_amount_in": "32745768843",
+              "min_base_amount_out": "284542947298",
+              "pool": "redacted-0014",
+              "pool_base_token_reserves": "24465781262965",
+              "pool_quote_token_reserves": "2756901292785",
+              "protocol_fee": "16323913",
+              "protocol_fee_basis_points": "5",
+              "protocol_fee_recipient": "redacted-0019",
+              "protocol_fee_recipient_token_account": "redacted-0020",
+              "quote_amount_in": "32647825366",
+              "quote_amount_in_with_lp_fee": "32713121017",
+              "timestamp": "1790988630",
+              "total_claimed_tokens": "0",
+              "total_unclaimed_tokens": "0",
+              "track_volume": false,
+              "user": "redacted-0004",
+              "user_base_token_account": "redacted-0016",
+              "user_base_token_reserves": "8051141394172",
+              "user_quote_amount_in": "32745768843",
+              "user_quote_token_account": "redacted-0003",
+              "user_quote_token_reserves": "62698703649",
+              "virtual_quote_reserves": "17600247874"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 20,
+          "stackHeight": 2,
+          "programId": "redacted-0035",
+          "rawAccounts": [
+            "redacted-0036"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "swap_orchestrator",
+          "instructionName": "SwapEvent",
+          "decoded": {
+            "args": {
+              "amm": "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+              "input_amount": "32745768843",
+              "input_mint": "So11111111111111111111111111111111111111112",
+              "output_amount": "284542947298",
+              "output_mint": "redacted-0017"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 21,
+          "stackHeight": 2,
+          "programId": "redacted-0033",
+          "rawAccounts": [
+            "redacted-0025",
+            "redacted-0052",
+            "redacted-0027",
+            "redacted-0026",
+            "redacted-0003",
+            "redacted-0016",
+            "redacted-0017",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0053",
+            "redacted-0033",
+            "redacted-0004",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "redacted-0054",
+            "redacted-0055",
+            "redacted-0033",
+            "redacted-0056",
+            "redacted-0057",
+            "redacted-0058"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "swap",
+            "description": null,
+            "parsedData": {
+              "type": "swap",
+              "protocol": "meteora_dlmm",
+              "kind": "swap2",
+              "in_amount": "29952934806",
+              "actual_out_amount": "259510137157",
+              "input_mint": "So11111111111111111111111111111111111111112",
+              "output_mint": "redacted-0017",
+              "inner_swaps": []
+            }
+          },
+          "programName": "lb_clmm",
+          "instructionName": "swap2",
+          "decoded": {
+            "args": {
+              "amount_in": "29952934806",
+              "min_amount_out": "0",
+              "remaining_accounts_info": {
+                "slices": []
+              }
+            },
+            "accounts": [
+              {
+                "name": "lb_pair",
+                "pubkey": "redacted-0025",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "bin_array_bitmap_extension",
+                "pubkey": "redacted-0052",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "reserve_x",
+                "pubkey": "redacted-0027",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "reserve_y",
+                "pubkey": "redacted-0026",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "user_token_in",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "user_token_out",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "token_x_mint",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_y_mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "oracle",
+                "pubkey": "redacted-0053",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "host_fee_in",
+                "pubkey": "redacted-0033",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "user",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              },
+              {
+                "name": "token_x_program",
+                "pubkey": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_y_program",
+                "pubkey": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "memo_program",
+                "pubkey": "redacted-0054",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "event_authority",
+                "pubkey": "redacted-0055",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "program",
+                "pubkey": "redacted-0033",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount1",
+                "pubkey": "redacted-0056",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount2",
+                "pubkey": "redacted-0057",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remainingAccount3",
+                "pubkey": "redacted-0058",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 22,
+          "stackHeight": 3,
+          "programId": "redacted-0033",
+          "rawAccounts": [
+            "redacted-0055"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "lb_clmm",
+          "instructionName": "Swap",
+          "decoded": {
+            "args": {
+              "amount_in": "29952934806",
+              "amount_out": "259510137157",
+              "end_bin_id": -432,
+              "fee": "260499692",
+              "fee_bps": "7226708",
+              "from": "redacted-0004",
+              "host_fee": "0",
+              "lb_pair": "redacted-0025",
+              "protocol_fee": "26049965",
+              "start_bin_id": -437,
+              "swap_for_y": false
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 23,
+          "stackHeight": 3,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0026",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "29952934806",
+              "decimals": 9
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "So11111111111111111111111111111111111111112",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0026",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 24,
+          "stackHeight": 3,
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "rawAccounts": [
+            "redacted-0027",
+            "redacted-0017",
+            "redacted-0016",
+            "redacted-0025"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token_2022",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "259510137157",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0027",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0017",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0016",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0025",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 25,
+          "stackHeight": 3,
+          "programId": "redacted-0033",
+          "rawAccounts": [
+            "redacted-0055"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "lb_clmm",
+          "instructionName": "Swap2Evt",
+          "decoded": {
+            "args": {
+              "amount_in": "29952934806",
+              "amount_left": "0",
+              "amount_out": "259510137157",
+              "end_bin_id": -432,
+              "fee_bps": "7226708",
+              "fees_on_input": true,
+              "fees_on_token_x": false,
+              "from": "redacted-0004",
+              "host_fee": "0",
+              "lb_pair": "redacted-0025",
+              "limit_order_fee": "0",
+              "mm_fee": "234449727",
+              "protocol_fee": "26049965",
+              "start_bin_id": -437,
+              "swap_for_y": false
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 26,
+          "stackHeight": 2,
+          "programId": "redacted-0035",
+          "rawAccounts": [
+            "redacted-0036"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "swap_orchestrator",
+          "instructionName": "SwapEvent",
+          "decoded": {
+            "args": {
+              "amm": "redacted-0033",
+              "input_amount": "29952934806",
+              "input_mint": "So11111111111111111111111111111111111111112",
+              "output_amount": "259510137157",
+              "output_mint": "redacted-0017"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 27,
+          "stackHeight": 2,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0003",
+            "redacted-0004",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "token",
+          "instructionName": "close_account",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "account",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "destination",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": 28,
+          "stackHeight": 2,
+          "programId": "11111111111111111111111111111111",
+          "rawAccounts": [
+            "redacted-0004",
+            "redacted-0002"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "system",
+          "instructionName": "transfer",
+          "decoded": {
+            "args": {
+              "lamports": "1488440"
+            },
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "recipient_account",
+                "pubkey": "redacted-0002",
+                "isSigner": false,
+                "isWritable": true
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 3,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0006",
+            "redacted-0008",
+            "redacted-0029",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "16875000",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0008",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0029",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 4,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0006",
+            "redacted-0008",
+            "redacted-0031",
+            "redacted-0004"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "13500000",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0008",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0031",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0004",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "rawTransaction": {
+      "blockTime": 1790988630,
+      "meta": {
+        "computeUnitsConsumed": 446449,
+        "costUnits": 461570,
+        "err": null,
+        "fee": 2380824,
+        "innerInstructions": [
+          {
+            "index": 2,
+            "instructions": [
+              {
+                "accounts": [
+                  32,
+                  23,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  23,
+                  26,
+                  49
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  42
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 11,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  0,
+                  5,
+                  1,
+                  56,
+                  36,
+                  12
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 44,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  56
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  0,
+                  5
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 36,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5,
+                  56
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  1,
+                  14,
+                  15,
+                  13,
+                  5,
+                  32,
+                  12,
+                  12,
+                  42,
+                  37
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 46,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  32,
+                  13,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  15,
+                  5,
+                  14
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  42
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 11,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  19,
+                  1,
+                  43,
+                  33,
+                  56,
+                  3,
+                  5,
+                  20,
+                  21,
+                  40,
+                  24,
+                  59,
+                  12,
+                  36,
+                  44,
+                  51,
+                  54,
+                  22,
+                  34,
+                  47,
+                  9,
+                  38,
+                  55,
+                  35,
+                  39,
+                  25
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 54,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  38,
+                  54
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 55,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  20,
+                  33,
+                  3,
+                  19
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 59,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5,
+                  56,
+                  21,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5,
+                  56,
+                  24,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5,
+                  56,
+                  22,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5,
+                  56,
+                  25,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  51
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 54,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  42
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 11,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  28,
+                  2,
+                  31,
+                  27,
+                  5,
+                  3,
+                  33,
+                  56,
+                  30,
+                  52,
+                  1,
+                  59,
+                  12,
+                  53,
+                  48,
+                  52,
+                  8,
+                  7,
+                  29
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 52,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  48
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 52,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  5,
+                  56,
+                  27,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  31,
+                  33,
+                  3,
+                  28
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 59,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  48
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 52,
+                "stackHeight": 3
+              },
+              {
+                "accounts": [
+                  42
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 11,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  5,
+                  1,
+                  1
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 12,
+                "stackHeight": 2
+              },
+              {
+                "accounts": [
+                  1,
+                  0
+                ],
+                "data": "[encoded instruction data removed]",
+                "programIdIndex": 36,
+                "stackHeight": 2
+              }
+            ]
+          }
+        ],
+        "loadedAddresses": {
+          "readonly": [
+            "redacted-0017",
+            "redacted-0021",
+            "redacted-0049",
+            "11111111111111111111111111111111",
+            "redacted-0038",
+            "redacted-0047",
+            "redacted-0023",
+            "redacted-0019",
+            "redacted-0040",
+            "redacted-0036",
+            "redacted-0045",
+            "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+            "redacted-0044",
+            "redacted-0032",
+            "redacted-0050",
+            "redacted-0055",
+            "redacted-0005",
+            "redacted-0008",
+            "redacted-0046",
+            "redacted-0033",
+            "redacted-0054",
+            "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+            "redacted-0048",
+            "So11111111111111111111111111111111111111112",
+            "redacted-0037",
+            "redacted-0039",
+            "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "redacted-0034"
+          ],
+          "writable": [
+            "redacted-0012",
+            "redacted-0011",
+            "redacted-0013",
+            "redacted-0042",
+            "redacted-0043",
+            "redacted-0041",
+            "redacted-0014",
+            "redacted-0015",
+            "redacted-0018",
+            "redacted-0022",
+            "redacted-0007",
+            "redacted-0020",
+            "redacted-0024",
+            "redacted-0010",
+            "redacted-0026",
+            "redacted-0025",
+            "redacted-0058",
+            "redacted-0053",
+            "redacted-0027",
+            "redacted-0006"
+          ]
+        },
+        "logMessages": null,
+        "postBalances": [
+          1618250717132,
+          8109478005,
+          8656320,
+          1513840,
+          2039280,
+          0,
+          2039280,
+          52141120,
+          52141120,
+          1346200,
+          1,
+          13326447,
+          200653906,
+          2039285,
+          16032294,
+          20331905955882,
+          49117055460067,
+          2696342,
+          9688332,
+          2179320,
+          1513840,
+          2789615907383,
+          6377264622,
+          2039280,
+          1156596774099,
+          981712474,
+          4583049,
+          2599391940919,
+          5242560,
+          52141120,
+          17068800,
+          1488440,
+          2068281,
+          2748272449,
+          0,
+          0,
+          1,
+          1503360,
+          33103977,
+          2543385955,
+          11636748978452,
+          76149801,
+          1244010,
+          9272822,
+          3388612899,
+          15144960,
+          25305375,
+          28668918,
+          5987435,
+          959581987,
+          535325803497,
+          4641093,
+          72027466,
+          523015235,
+          1178687650,
+          6046721,
+          1848941201361,
+          0,
+          36534678,
+          70228638,
+          0
+        ],
+        "postTokenBalances": [
+          {
+            "accountIndex": 3,
+            "mint": "redacted-0017",
+            "owner": "redacted-0004",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "8595194478627",
+              "decimals": 6,
+              "uiAmount": 8595194.478627,
+              "uiAmountString": "8595194.478627"
+            }
+          },
+          {
+            "accountIndex": 4,
+            "mint": "redacted-0008",
+            "owner": "redacted-0030",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "97553145109",
+              "decimals": 6,
+              "uiAmount": 97553.145109,
+              "uiAmountString": "97553.145109"
+            }
+          },
+          {
+            "accountIndex": 6,
+            "mint": "redacted-0008",
+            "owner": "redacted-0028",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "573336161999",
+              "decimals": 6,
+              "uiAmount": 573336.161999,
+              "uiAmountString": "573336.161999"
+            }
+          },
+          {
+            "accountIndex": 13,
+            "mint": "redacted-0008",
+            "owner": "redacted-0011",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "2425467356839",
+              "decimals": 6,
+              "uiAmount": 2425467.356839,
+              "uiAmountString": "2425467.356839"
+            }
+          },
+          {
+            "accountIndex": 15,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0011",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "20331894778616",
+              "decimals": 9,
+              "uiAmount": 20331.894778616,
+              "uiAmountString": "20331.894778616"
+            }
+          },
+          {
+            "accountIndex": 16,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0040",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "49117049571977",
+              "decimals": 9,
+              "uiAmount": 49117.049571977,
+              "uiAmountString": "49117.049571977"
+            }
+          },
+          {
+            "accountIndex": 17,
+            "mint": "redacted-0008",
+            "owner": "redacted-0040",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "4690891114381",
+              "decimals": 6,
+              "uiAmount": 4690891.114381,
+              "uiAmountString": "4690891.114381"
+            }
+          },
+          {
+            "accountIndex": 20,
+            "mint": "redacted-0017",
+            "owner": "redacted-0014",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "24181238315667",
+              "decimals": 6,
+              "uiAmount": 24181238.315667,
+              "uiAmountString": "24181238.315667"
+            }
+          },
+          {
+            "accountIndex": 21,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0014",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "2789614413802",
+              "decimals": 9,
+              "uiAmount": 2789.614413802,
+              "uiAmountString": "2789.614413802"
+            }
+          },
+          {
+            "accountIndex": 22,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0021",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "6375776182",
+              "decimals": 9,
+              "uiAmount": 6.375776182,
+              "uiAmountString": "6.375776182"
+            }
+          },
+          {
+            "accountIndex": 23,
+            "mint": "redacted-0008",
+            "owner": "redacted-0005",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "303018",
+              "decimals": 6,
+              "uiAmount": 0.303018,
+              "uiAmountString": "0.303018"
+            }
+          },
+          {
+            "accountIndex": 24,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0019",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "1156595285659",
+              "decimals": 9,
+              "uiAmount": 1156.595285659,
+              "uiAmountString": "1156.595285659"
+            }
+          },
+          {
+            "accountIndex": 25,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0023",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "979673194",
+              "decimals": 9,
+              "uiAmount": 0.979673194,
+              "uiAmountString": "0.979673194"
+            }
+          },
+          {
+            "accountIndex": 26,
+            "mint": "redacted-0008",
+            "owner": "redacted-0009",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "1132586798624",
+              "decimals": 6,
+              "uiAmount": 1132586.798624,
+              "uiAmountString": "1132586.798624"
+            }
+          },
+          {
+            "accountIndex": 27,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0025",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "2599390352479",
+              "decimals": 9,
+              "uiAmount": 2599.390352479,
+              "uiAmountString": "2599.390352479"
+            }
+          },
+          {
+            "accountIndex": 31,
+            "mint": "redacted-0017",
+            "owner": "redacted-0025",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "1756845859279",
+              "decimals": 6,
+              "uiAmount": 1756845.859279,
+              "uiAmountString": "1756845.859279"
+            }
+          },
+          {
+            "accountIndex": 32,
+            "mint": "redacted-0008",
+            "owner": "redacted-0004",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "57889662302",
+              "decimals": 6,
+              "uiAmount": 57889.662302,
+              "uiAmountString": "57889.662302"
+            }
+          }
+        ],
+        "preBalances": [
+          1618253097956,
+          8109478005,
+          8656320,
+          1513840,
+          2039280,
+          0,
+          2039280,
+          52141120,
+          52141120,
+          1346200,
+          1,
+          13326447,
+          200653906,
+          2039285,
+          16032294,
+          20394604659531,
+          49117055460067,
+          2696342,
+          9688332,
+          2179320,
+          1513840,
+          2756902786366,
+          6360940709,
+          2039280,
+          1156588612142,
+          973550518,
+          4583049,
+          2569439006113,
+          5242560,
+          52141120,
+          17068800,
+          1488440,
+          2068281,
+          2748272449,
+          0,
+          0,
+          1,
+          1503360,
+          33103977,
+          2543385955,
+          11636748978452,
+          76149801,
+          1244010,
+          9272822,
+          3388612899,
+          15144960,
+          25305375,
+          28668918,
+          5987435,
+          959581987,
+          535325803497,
+          4641093,
+          72027466,
+          523015235,
+          1178687650,
+          6046721,
+          1848941201361,
+          0,
+          36534678,
+          70228638,
+          0
+        ],
+        "preTokenBalances": [
+          {
+            "accountIndex": 3,
+            "mint": "redacted-0017",
+            "owner": "redacted-0004",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "8051141394172",
+              "decimals": 6,
+              "uiAmount": 8051141.394172,
+              "uiAmountString": "8051141.394172"
+            }
+          },
+          {
+            "accountIndex": 4,
+            "mint": "redacted-0008",
+            "owner": "redacted-0030",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "97539645109",
+              "decimals": 6,
+              "uiAmount": 97539.645109,
+              "uiAmountString": "97539.645109"
+            }
+          },
+          {
+            "accountIndex": 6,
+            "mint": "redacted-0008",
+            "owner": "redacted-0028",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "573319286999",
+              "decimals": 6,
+              "uiAmount": 573319.286999,
+              "uiAmountString": "573319.286999"
+            }
+          },
+          {
+            "accountIndex": 13,
+            "mint": "redacted-0008",
+            "owner": "redacted-0011",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "2417999972726",
+              "decimals": 6,
+              "uiAmount": 2417999.972726,
+              "uiAmountString": "2417999.972726"
+            }
+          },
+          {
+            "accountIndex": 15,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0011",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "20394593482265",
+              "decimals": 9,
+              "uiAmount": 20394.593482265,
+              "uiAmountString": "20394.593482265"
+            }
+          },
+          {
+            "accountIndex": 16,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0040",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "49117049571977",
+              "decimals": 9,
+              "uiAmount": 49117.049571977,
+              "uiAmountString": "49117.049571977"
+            }
+          },
+          {
+            "accountIndex": 17,
+            "mint": "redacted-0008",
+            "owner": "redacted-0040",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "4690891114381",
+              "decimals": 6,
+              "uiAmount": 4690891.114381,
+              "uiAmountString": "4690891.114381"
+            }
+          },
+          {
+            "accountIndex": 20,
+            "mint": "redacted-0017",
+            "owner": "redacted-0014",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "24465781262965",
+              "decimals": 6,
+              "uiAmount": 24465781.262965,
+              "uiAmountString": "24465781.262965"
+            }
+          },
+          {
+            "accountIndex": 21,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0014",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "2756901292785",
+              "decimals": 9,
+              "uiAmount": 2756.901292785,
+              "uiAmountString": "2756.901292785"
+            }
+          },
+          {
+            "accountIndex": 22,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0021",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "6359452269",
+              "decimals": 9,
+              "uiAmount": 6.359452269,
+              "uiAmountString": "6.359452269"
+            }
+          },
+          {
+            "accountIndex": 23,
+            "mint": "redacted-0008",
+            "owner": "redacted-0005",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "303018",
+              "decimals": 6,
+              "uiAmount": 0.303018,
+              "uiAmountString": "0.303018"
+            }
+          },
+          {
+            "accountIndex": 24,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0019",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "1156587123702",
+              "decimals": 9,
+              "uiAmount": 1156.587123702,
+              "uiAmountString": "1156.587123702"
+            }
+          },
+          {
+            "accountIndex": 25,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0023",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "971511238",
+              "decimals": 9,
+              "uiAmount": 0.971511238,
+              "uiAmountString": "0.971511238"
+            }
+          },
+          {
+            "accountIndex": 26,
+            "mint": "redacted-0008",
+            "owner": "redacted-0009",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "1132584557737",
+              "decimals": 6,
+              "uiAmount": 1132584.557737,
+              "uiAmountString": "1132584.557737"
+            }
+          },
+          {
+            "accountIndex": 27,
+            "mint": "So11111111111111111111111111111111111111112",
+            "owner": "redacted-0025",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "2569437417673",
+              "decimals": 9,
+              "uiAmount": 2569.437417673,
+              "uiAmountString": "2569.437417673"
+            }
+          },
+          {
+            "accountIndex": 31,
+            "mint": "redacted-0017",
+            "owner": "redacted-0025",
+            "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "uiTokenAmount": {
+              "amount": "2016355996436",
+              "decimals": 6,
+              "uiAmount": 2016355.996436,
+              "uiAmountString": "2016355.996436"
+            }
+          },
+          {
+            "accountIndex": 32,
+            "mint": "redacted-0008",
+            "owner": "redacted-0004",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "65389662302",
+              "decimals": 6,
+              "uiAmount": 65389.662302,
+              "uiAmountString": "65389.662302"
+            }
+          }
+        ],
+        "rewards": [],
+        "status": {
+          "Ok": null
+        }
+      },
+      "slot": 452776492,
+      "transaction": {
+        "message": {
+          "accountKeys": [
+            "redacted-0002",
+            "redacted-0004",
+            "redacted-0052",
+            "redacted-0016",
+            "redacted-0031",
+            "redacted-0003",
+            "redacted-0029",
+            "redacted-0057",
+            "redacted-0056",
+            "redacted-0051",
+            "ComputeBudget111111111111111111111111111111",
+            "redacted-0035",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          ],
+          "addressTableLookups": [
+            {
+              "accountKey": "redacted-0060",
+              "readonlyIndexes": [],
+              "writableIndexes": [
+                18,
+                10,
+                17
+              ]
+            },
+            {
+              "accountKey": "redacted-0061",
+              "readonlyIndexes": [],
+              "writableIndexes": [
+                223,
+                23,
+                219
+              ]
+            },
+            {
+              "accountKey": "redacted-0062",
+              "readonlyIndexes": [
+                124,
+                135,
+                139
+              ],
+              "writableIndexes": [
+                123,
+                131,
+                128,
+                122
+              ]
+            },
+            {
+              "accountKey": "redacted-0063",
+              "readonlyIndexes": [
+                0,
+                173,
+                94,
+                128,
+                97,
+                171,
+                10,
+                95,
+                7,
+                172,
+                45,
+                93,
+                65,
+                218,
+                185,
+                62,
+                27,
+                8,
+                30,
+                90,
+                184,
+                1,
+                33,
+                6
+              ],
+              "writableIndexes": [
+                227,
+                105,
+                136,
+                250
+              ]
+            },
+            {
+              "accountKey": "redacted-0064",
+              "readonlyIndexes": [],
+              "writableIndexes": [
+                29,
+                27,
+                65,
+                32,
+                31
+              ]
+            },
+            {
+              "accountKey": "redacted-0065",
+              "readonlyIndexes": [
+                61
+              ],
+              "writableIndexes": [
+                183
+              ]
+            }
+          ],
+          "header": {
+            "numReadonlySignedAccounts": 0,
+            "numReadonlyUnsignedAccounts": 3,
+            "numRequiredSignatures": 2
+          },
+          "instructions": [
+            {
+              "accounts": [
+                60
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 10,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 10,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                12,
+                44,
+                36,
+                1,
+                42,
+                11,
+                49,
+                57,
+                59,
+                11,
+                33,
+                0,
+                32,
+                26,
+                1,
+                23,
+                1,
+                32,
+                5,
+                50,
+                56,
+                57,
+                46,
+                14,
+                15,
+                13,
+                37,
+                58,
+                41,
+                18,
+                16,
+                17,
+                45,
+                37,
+                54,
+                19,
+                1,
+                43,
+                33,
+                56,
+                3,
+                5,
+                20,
+                21,
+                40,
+                24,
+                51,
+                22,
+                34,
+                38,
+                55,
+                35,
+                47,
+                9,
+                39,
+                25,
+                28,
+                2,
+                31,
+                27,
+                5,
+                3,
+                33,
+                56,
+                30,
+                52,
+                1,
+                53,
+                48,
+                52,
+                8,
+                7,
+                29
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 11,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                32,
+                50,
+                6,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 12,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                32,
+                50,
+                4,
+                1
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 12,
+              "stackHeight": 1
+            }
+          ],
+          "recentBlockhash": "redacted-0066"
+        },
+        "signatures": [
+          "redacted-0001",
+          "redacted-0067"
+        ]
+      },
+      "transactionIndex": 304
+    }
+  }
+}

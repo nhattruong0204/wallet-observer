@@ -1,0 +1,305 @@
+{
+  "review_status": "reviewed",
+  "runs": [
+    {
+      "run": "20261003T041425572625Z",
+      "report": {
+        "status": "captured_requires_review",
+        "wallet_count": 2,
+        "history": [
+          {
+            "rows": 200,
+            "exhausted": false
+          },
+          {
+            "rows": 27,
+            "exhausted": true
+          }
+        ],
+        "interval": {
+          "lower_slot": 452822360,
+          "upper_slot": 452823064,
+          "gap_start_slot": 452822678,
+          "gap_end_slot": 452822751,
+          "capture_seconds": [
+            90.948,
+            90.811
+          ],
+          "intentional_gap_seconds": 20
+        },
+        "live_notifications": 1,
+        "live_duplicate_count": 0,
+        "recovery": [
+          {
+            "reference_count": 1,
+            "history_count": 1,
+            "missing_from_history": 0,
+            "history_not_streamed": 0,
+            "live_history_overlap": 1,
+            "history_exhausted": true,
+            "result": "pass",
+            "gap_reference_count": 0,
+            "gap_recovered_count": 0,
+            "disconnect_result": "inconclusive"
+          },
+          {
+            "reference_count": 0,
+            "history_count": 0,
+            "missing_from_history": 0,
+            "history_not_streamed": 0,
+            "live_history_overlap": 0,
+            "history_exhausted": true,
+            "result": "inconclusive",
+            "gap_reference_count": 0,
+            "gap_recovered_count": 0,
+            "disconnect_result": "inconclusive"
+          }
+        ],
+        "block_to_arrival_seconds": [
+          1.362
+        ],
+        "estimated_credits": 78,
+        "http_requests": 14,
+        "client_credit_limit": 500,
+        "observed_live_count": 1
+      },
+      "private_report_sha256": "fc74ef377112c530a6844c45cac759992badf8a00cfd35fa2ef74119517027c1",
+      "http_counts": {
+        "parsed_history": 7,
+        "rpc": 7
+      },
+      "request_observations": [
+        {
+          "file": "http-001.json",
+          "captured_at": "2026-10-03T04:14:27.688450+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "782c0e27aec2df72fb333ad8b92f972ff6de44e81cc8eb2224e31246e0940ebd"
+        },
+        {
+          "file": "http-002.json",
+          "captured_at": "2026-10-03T04:14:28.482157+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "696b7422606eea0640249f44bf4fe0344651ef1d7b7475b9b1dd65c618a817c1"
+        },
+        {
+          "file": "http-003.json",
+          "captured_at": "2026-10-03T04:14:29.087556+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "9920d23a32d0de386b680deac87e02f676ede0c0fee3ba75a013b5f6abd3f9ec"
+        },
+        {
+          "file": "http-004.json",
+          "captured_at": "2026-10-03T04:14:29.779157+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "f91d873a50e44a6e85b35bf145d9e8722a8a290811e55b14c5fdfec14f6489af"
+        },
+        {
+          "file": "http-005.json",
+          "captured_at": "2026-10-03T04:14:30.028712+00:00",
+          "method": "getSlot",
+          "capture_sha256": "2bc9c4e8d04d2e7cb3de7880151591610795bbb819c96b1e5ecc12ed24718712"
+        },
+        {
+          "file": "http-006.json",
+          "captured_at": "2026-10-03T04:15:54.240376+00:00",
+          "method": "getSlot",
+          "capture_sha256": "bddcaa634798fe774be8e4815858540c828e679ba1639bb71f6c8fd317b12be3"
+        },
+        {
+          "file": "http-007.json",
+          "captured_at": "2026-10-03T04:16:22.737426+00:00",
+          "method": "getSlot",
+          "capture_sha256": "705dd648d009252b74ec813855e3bfba7f1899bbc9f076a452ae3216c2d5441e"
+        },
+        {
+          "file": "http-008.json",
+          "captured_at": "2026-10-03T04:17:37.590738+00:00",
+          "method": "getSlot",
+          "capture_sha256": "8c5a3be43f004f69fe865214110f89f6843c49ac416c5fba5f49f58594f3380d"
+        },
+        {
+          "file": "http-009.json",
+          "captured_at": "2026-10-03T04:17:38.615792+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "7f9fd5c477e181b3d6097e53650234ce9fe59c187ab9f10f4b4fd14ecceac09f"
+        },
+        {
+          "file": "http-010.json",
+          "captured_at": "2026-10-03T04:17:38.963713+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "e210bfbeefd49a9eaf81b8ed4ffbcb452d6085ba3a8df0ddc18c7379f4675383"
+        },
+        {
+          "file": "http-011.json",
+          "captured_at": "2026-10-03T04:17:40.162676+00:00",
+          "method": "getSignaturesForAddress",
+          "capture_sha256": "580657701c0a5c792a0aefa98efc91841a480189a7d6b508321c02c2dca785ed"
+        },
+        {
+          "file": "http-012.json",
+          "captured_at": "2026-10-03T04:17:40.512405+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "a6738112ef8cfe8b6ff67ea6accd3d3d271f3a19227e3ff4af0c1487d8acc3a5"
+        },
+        {
+          "file": "http-013.json",
+          "captured_at": "2026-10-03T04:17:41.133840+00:00",
+          "method": "getSignaturesForAddress",
+          "capture_sha256": "149dc3c811cdd16acf58e62c45ab0f487cf9ba53b5f14838835e1d566a6ca38a"
+        },
+        {
+          "file": "http-014.json",
+          "captured_at": "2026-10-03T04:17:41.743187+00:00",
+          "method": "getBlockTime",
+          "capture_sha256": "d61e298c8c95c71a451aeb8a49cef75b962f4a7c098b518b958daeecc938cb67"
+        }
+      ]
+    },
+    {
+      "run": "20261003T041952625964Z",
+      "report": {
+        "status": "captured_requires_review",
+        "wallet_count": 2,
+        "history": [
+          {
+            "rows": 200,
+            "exhausted": false
+          },
+          {
+            "rows": 27,
+            "exhausted": true
+          }
+        ],
+        "interval": {
+          "lower_slot": 452823590,
+          "upper_slot": 452824867,
+          "gap_start_slot": 452823706,
+          "gap_end_slot": 452824760,
+          "capture_seconds": [
+            30.789,
+            31.06
+          ],
+          "intentional_gap_seconds": 300
+        },
+        "live_notifications": 0,
+        "live_duplicate_count": 0,
+        "recovery": [
+          {
+            "reference_count": 1,
+            "history_count": 1,
+            "missing_from_history": 0,
+            "history_not_streamed": 1,
+            "live_history_overlap": 0,
+            "history_exhausted": true,
+            "result": "pass",
+            "gap_reference_count": 1,
+            "gap_recovered_count": 1,
+            "disconnect_result": "pass"
+          },
+          {
+            "reference_count": 0,
+            "history_count": 0,
+            "missing_from_history": 0,
+            "history_not_streamed": 0,
+            "live_history_overlap": 0,
+            "history_exhausted": true,
+            "result": "inconclusive",
+            "gap_reference_count": 0,
+            "gap_recovered_count": 0,
+            "disconnect_result": "inconclusive"
+          }
+        ],
+        "block_to_arrival_seconds": [],
+        "estimated_credits": 76,
+        "http_requests": 13,
+        "client_credit_limit": 500,
+        "observed_live_count": 0
+      },
+      "private_report_sha256": "7280b3917a9c1c51c9e989b0de46f480db40f68e4148b8ca8006180e8016e3cf",
+      "http_counts": {
+        "parsed_history": 7,
+        "rpc": 6
+      },
+      "request_observations": [
+        {
+          "file": "http-001.json",
+          "captured_at": "2026-10-03T04:19:54.366987+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "b15fc351a876123379bb97000dd2bae585d1e861d57c67c8b8622b889d979438"
+        },
+        {
+          "file": "http-002.json",
+          "captured_at": "2026-10-03T04:19:55.416038+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "f7c93e122bf3dd7d825e621c0ad3b855c9ad3bf70e13fc6941501702c1a2c13f"
+        },
+        {
+          "file": "http-003.json",
+          "captured_at": "2026-10-03T04:19:55.990400+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "3377f7abd0dc81c05e0ae09b355f831e673697d7b28afc4713bd36bfd705b226"
+        },
+        {
+          "file": "http-004.json",
+          "captured_at": "2026-10-03T04:19:56.656994+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "6de537c5b1b1d13a833b3f1483b18559604d714da7f89974718ee0dc8fc44390"
+        },
+        {
+          "file": "http-005.json",
+          "captured_at": "2026-10-03T04:19:56.912760+00:00",
+          "method": "getSlot",
+          "capture_sha256": "3be39fe06e72ac435f67383d4a62baf3cff3ef46863ad8b611918af9f1752e50"
+        },
+        {
+          "file": "http-006.json",
+          "captured_at": "2026-10-03T04:20:27.985196+00:00",
+          "method": "getSlot",
+          "capture_sha256": "a9f335fff93286a40eaff633b936b6e8931dbac3cf51fefde423621c0f6fb16b"
+        },
+        {
+          "file": "http-007.json",
+          "captured_at": "2026-10-03T04:25:09.225891+00:00",
+          "method": "getSlot",
+          "capture_sha256": "43eb559a4ae7dd1eae0a110fb917c73aa159c64704a9953bebb7c384a03c86b8"
+        },
+        {
+          "file": "http-008.json",
+          "captured_at": "2026-10-03T04:25:38.431898+00:00",
+          "method": "getSlot",
+          "capture_sha256": "560a0f28a1dd85442a7434046d7c842277f841ac9be48a944f99517449078477"
+        },
+        {
+          "file": "http-009.json",
+          "captured_at": "2026-10-03T04:25:48.832918+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "400e22ed9ed3664313615b75e28419e66830d876350373c5a822305e9bd78eee"
+        },
+        {
+          "file": "http-010.json",
+          "captured_at": "2026-10-03T04:25:39.397626+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "36ee2c49ef67c5545c52cafa3da1e894507d5a2457fbfc44bca38938f12a04d8"
+        },
+        {
+          "file": "http-011.json",
+          "captured_at": "2026-10-03T04:25:40.477520+00:00",
+          "method": "getSignaturesForAddress",
+          "capture_sha256": "73da5ad05bdce1ca987357ce917a39d00cb451699a27e8ee1cc79d7cfb477e88"
+        },
+        {
+          "file": "http-012.json",
+          "captured_at": "2026-10-03T04:25:40.840794+00:00",
+          "method": "parsed_events_history",
+          "capture_sha256": "842a9caa7ac4db6df19f780174960af1e5d98578eebe41fdf50961cbc695c07c"
+        },
+        {
+          "file": "http-013.json",
+          "captured_at": "2026-10-03T04:25:41.484475+00:00",
+          "method": "getSignaturesForAddress",
+          "capture_sha256": "ea99f71acc7ca994905233d34a268eb69645192318277068b7b1867d19c39ead"
+        }
+      ]
+    }
+  ]
+}

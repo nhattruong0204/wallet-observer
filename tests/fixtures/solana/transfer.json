@@ -1,0 +1,374 @@
+{
+  "provenance": {
+    "provider": "Helius",
+    "network": "solana-mainnet-beta",
+    "endpoint": "/v1/parsed-events/transaction-history",
+    "captured_at": "2026-10-03T04:14:27.688450+00:00",
+    "private_capture": "http-001.json",
+    "row_index": 1,
+    "original_record_sha256": "14af1f0edc3746a36a8236a16d6130bf4befb441bb293d325ee9b420cee7c66c",
+    "sanitization": "aliases-v1; free text and encoded instruction data removed"
+  },
+  "expected": {
+    "classification": "transfer.in",
+    "transaction_status": "OK",
+    "chain_confirmation": "confirmed",
+    "order_status": null,
+    "actor": "redacted-0003",
+    "watched_account": "redacted-0003",
+    "watched_account_is_actor": true,
+    "reason": "One token transfer adds 1000 raw units to the watched owner balance. No swap instruction or counter-asset debit exists; this is not a buy.",
+    "balance_checks": [
+      {
+        "account_index": 1,
+        "pre_raw": "44247090913",
+        "post_raw": "44247091913"
+      }
+    ]
+  },
+  "payload": {
+    "signature": "redacted-0001",
+    "parserStatus": "OK",
+    "parsed": {
+      "slot": 452816784,
+      "blockTime": 1790999383,
+      "fee": 5050,
+      "feePayer": "redacted-0002",
+      "transactionStatus": "OK",
+      "error": null,
+      "decodedError": null,
+      "nativeTransfers": [],
+      "tokenTransfers": [
+        {
+          "fromUserAccount": "redacted-0002",
+          "toUserAccount": "redacted-0003",
+          "fromTokenAccount": "redacted-0004",
+          "toTokenAccount": "redacted-0005",
+          "rawTokenAmount": 1000,
+          "decimals": 6,
+          "tokenStandard": "Fungible",
+          "mint": "redacted-0006"
+        }
+      ],
+      "summary": {
+        "type": "transfer",
+        "description": null,
+        "parsedData": null
+      },
+      "instructions": [
+        {
+          "instructionIndex": 0,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "rawAccounts": [],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "compute_budget",
+          "instructionName": "set_compute_unit_limit",
+          "decoded": null
+        },
+        {
+          "instructionIndex": 1,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ComputeBudget111111111111111111111111111111",
+          "rawAccounts": [],
+          "rawData": "[encoded instruction data removed]",
+          "summary": null,
+          "programName": "compute_budget",
+          "instructionName": "set_compute_unit_price",
+          "decoded": {
+            "args": {
+              "micro_lamports": "50"
+            },
+            "accounts": []
+          }
+        },
+        {
+          "instructionIndex": 2,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+          "rawAccounts": [
+            "redacted-0002",
+            "redacted-0005",
+            "redacted-0003",
+            "redacted-0006",
+            "11111111111111111111111111111111",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "redacted-0007"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "create_token_account",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "associated_token_account",
+          "instructionName": "create_idempotent",
+          "decoded": {
+            "args": {},
+            "accounts": [
+              {
+                "name": "funding_account",
+                "pubkey": "redacted-0002",
+                "isSigner": true,
+                "isWritable": true
+              },
+              {
+                "name": "associated_token_account",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "wallet_owner",
+                "pubkey": "redacted-0003",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_mint",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "system_program",
+                "pubkey": "11111111111111111111111111111111",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "token_program",
+                "pubkey": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "remaining_account_1",
+                "pubkey": "redacted-0007",
+                "isSigner": false,
+                "isWritable": false
+              }
+            ]
+          }
+        },
+        {
+          "instructionIndex": 3,
+          "innerInstructionIndex": null,
+          "stackHeight": 1,
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "rawAccounts": [
+            "redacted-0004",
+            "redacted-0006",
+            "redacted-0005",
+            "redacted-0002"
+          ],
+          "rawData": "[encoded instruction data removed]",
+          "summary": {
+            "type": "transfer",
+            "description": null,
+            "parsedData": null
+          },
+          "programName": "token",
+          "instructionName": "transfer_checked",
+          "decoded": {
+            "args": {
+              "amount": "1000",
+              "decimals": 6
+            },
+            "accounts": [
+              {
+                "name": "source_account",
+                "pubkey": "redacted-0004",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "mint",
+                "pubkey": "redacted-0006",
+                "isSigner": false,
+                "isWritable": false
+              },
+              {
+                "name": "destination_account",
+                "pubkey": "redacted-0005",
+                "isSigner": false,
+                "isWritable": true
+              },
+              {
+                "name": "owner_or_delegate",
+                "pubkey": "redacted-0002",
+                "isSigner": true,
+                "isWritable": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "rawTransaction": {
+      "blockTime": 1790999383,
+      "meta": {
+        "computeUnitsConsumed": 8023,
+        "costUnits": 9706,
+        "err": null,
+        "fee": 5050,
+        "innerInstructions": [],
+        "loadedAddresses": {
+          "readonly": [],
+          "writable": []
+        },
+        "logMessages": null,
+        "postBalances": [
+          1289900,
+          2068281,
+          1488440,
+          1,
+          8109478005,
+          3388612899,
+          1,
+          535325803497,
+          1009200,
+          200653906
+        ],
+        "postTokenBalances": [
+          {
+            "accountIndex": 1,
+            "mint": "redacted-0006",
+            "owner": "redacted-0003",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "44247091913",
+              "decimals": 6,
+              "uiAmount": 44247.091913,
+              "uiAmountString": "44247.091913"
+            }
+          },
+          {
+            "accountIndex": 2,
+            "mint": "redacted-0006",
+            "owner": "redacted-0002",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "18900",
+              "decimals": 6,
+              "uiAmount": 0.0189,
+              "uiAmountString": "0.0189"
+            }
+          }
+        ],
+        "preBalances": [
+          1294950,
+          2068281,
+          1488440,
+          1,
+          8109478005,
+          3388612899,
+          1,
+          535325803497,
+          1009200,
+          200653906
+        ],
+        "preTokenBalances": [
+          {
+            "accountIndex": 1,
+            "mint": "redacted-0006",
+            "owner": "redacted-0003",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "44247090913",
+              "decimals": 6,
+              "uiAmount": 44247.090913,
+              "uiAmountString": "44247.090913"
+            }
+          },
+          {
+            "accountIndex": 2,
+            "mint": "redacted-0006",
+            "owner": "redacted-0002",
+            "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "uiTokenAmount": {
+              "amount": "19900",
+              "decimals": 6,
+              "uiAmount": 0.0199,
+              "uiAmountString": "0.0199"
+            }
+          }
+        ],
+        "rewards": [],
+        "status": {
+          "Ok": null
+        }
+      },
+      "slot": 452816784,
+      "transaction": {
+        "message": {
+          "accountKeys": [
+            "redacted-0002",
+            "redacted-0005",
+            "redacted-0004",
+            "11111111111111111111111111111111",
+            "redacted-0003",
+            "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+            "ComputeBudget111111111111111111111111111111",
+            "redacted-0006",
+            "redacted-0007",
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          ],
+          "header": {
+            "numReadonlySignedAccounts": 0,
+            "numReadonlyUnsignedAccounts": 7,
+            "numRequiredSignatures": 1
+          },
+          "instructions": [
+            {
+              "accounts": [],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 6,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 6,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                0,
+                1,
+                4,
+                7,
+                3,
+                9,
+                8
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 5,
+              "stackHeight": 1
+            },
+            {
+              "accounts": [
+                2,
+                7,
+                1,
+                0
+              ],
+              "data": "[encoded instruction data removed]",
+              "programIdIndex": 9,
+              "stackHeight": 1
+            }
+          ],
+          "recentBlockhash": "redacted-0008"
+        },
+        "signatures": [
+          "redacted-0001"
+        ]
+      },
+      "transactionIndex": 1052
+    }
+  }
+}
