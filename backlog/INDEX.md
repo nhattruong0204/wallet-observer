@@ -1,6 +1,6 @@
 # Implementation backlog
 
-28 prepared work items: **18 First live**, **10 Personal expansion**. All 28 GitHub issues are published and open; actual numbers and URLs are recorded in [github-issues.json](github-issues.json).
+28 prepared work items: **18 First live**, **10 Personal expansion**. All 28 GitHub issues are published; actual numbers and URLs are recorded in [github-issues.json](github-issues.json). GitHub issue state records progress; [WO-001 acceptance evidence](../docs/acceptance/WO-001.md) documents the development environment.
 
 Read the [build plan](../BUILD_PLAN.md) and follow dependencies. WO IDs are stable planning IDs, not GitHub issue numbers.
 

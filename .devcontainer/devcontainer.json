@@ -1,0 +1,28 @@
+{
+  "name": "Wallet Observer development",
+  "dockerComposeFile": "../compose.dev.yml",
+  "service": "dev",
+  "runServices": ["dev", "db"],
+  "workspaceFolder": "/workspaces/wallet-observer",
+  "remoteUser": "developer",
+  "updateRemoteUserUID": true,
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [8000, 5173],
+  "portsAttributes": {
+    "8000": { "label": "API (introduced in WO-003)", "onAutoForward": "silent" },
+    "5173": { "label": "Frontend (introduced in WO-003)", "onAutoForward": "silent" }
+  },
+  "otherPortsAttributes": { "onAutoForward": "ignore" },
+  "postCreateCommand": "make bootstrap",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

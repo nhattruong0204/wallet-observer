@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "bootstrap", "type": "shell", "command": "make bootstrap", "problemMatcher": [] },
+    {
+      "label": "lint",
+      "type": "shell",
+      "command": "make lint",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "make test",
+      "problemMatcher": [],
+      "group": "test"
+    }
+  ]
+}

@@ -13,7 +13,7 @@ The original Windows package was moved into `/home/truong/market_observer`. The 
 - [backlog/issues.json](backlog/issues.json) contains the complete published titles and bodies.
 - [backlog/github-issues.json](backlog/github-issues.json) records actual GitHub numbers and URLs for all 28 stable WO identifiers.
 - [backlog/INDEX.md](backlog/INDEX.md) links each issue and retains phase and dependency information.
-- Issue bodies link dependencies to their actual GitHub issues while retaining WO identifiers. All issues remain open with unchecked definitions of done.
+- Issue bodies link dependencies to their actual GitHub issues while retaining WO identifiers. Issues were initially published open with unchecked definitions of done; their GitHub state now records implementation progress.
 
 ## Future updates
 
