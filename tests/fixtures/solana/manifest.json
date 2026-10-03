@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "issue": 2,
+  "source": "real Helius mainnet captures; no documentation examples",
+  "fixtures": [
+    {
+      "file": "buy.json",
+      "sha256": "2315ae20c3220c12c3dadc0ff4268aef3c78d0c74baefa7b655d116db4cce835",
+      "cases": [
+        "buy"
+      ]
+    },
+    {
+      "file": "sell.json",
+      "sha256": "c3e5c95cacaebeeb6462661da100e81f57e3eeeae19bceaca4e87723e1c2a124",
+      "cases": [
+        "sell"
+      ]
+    },
+    {
+      "file": "transfer.json",
+      "sha256": "a32f2c0400a4160a59b6b0fe023a4cf070264882c8b2cc8160aa331cdc408e41",
+      "cases": [
+        "ordinary_transfer"
+      ]
+    },
+    {
+      "file": "failed.json",
+      "sha256": "be454c55ea921a865901cb6bf0539a5d064183d8906b6aa533185b5edb310d12",
+      "cases": [
+        "failed_transaction"
+      ]
+    },
+    {
+      "file": "routed-unknown.json",
+      "sha256": "82c298b901ca182788f3475700a0d385519fb1eae2a78b82f9a02bbd77676cd4",
+      "cases": [
+        "multi_leg_swap",
+        "wrapped_sol",
+        "unsupported_route"
+      ]
+    },
+    {
+      "file": "overlap-duplicate.json",
+      "sha256": "177a3a1aa8e2cafabed794448809b3d874e7deb15dfb21f7b29969b2d34aa443",
+      "cases": [
+        "duplicate_delivery"
+      ]
+    },
+    {
+      "file": "recovered-after-outage.json",
+      "sha256": "3dd7d731cd4264af83f5a39a2cf65734a759f3d3945d34aba1ea1299f20c1c7a",
+      "cases": [
+        "disconnect_recovery"
+      ]
+    }
+  ],
+  "coverage": {
+    "buy": {
+      "status": "captured",
+      "file": "buy.json"
+    },
+    "sell": {
+      "status": "captured",
+      "file": "sell.json"
+    },
+    "ordinary_transfer": {
+      "status": "captured",
+      "file": "transfer.json"
+    },
+    "failed_transaction": {
+      "status": "captured",
+      "file": "failed.json"
+    },
+    "multi_leg_swap": {
+      "status": "captured",
+      "file": "routed-unknown.json"
+    },
+    "wrapped_sol": {
+      "status": "captured",
+      "file": "routed-unknown.json"
+    },
+    "unsupported_route": {
+      "status": "captured",
+      "file": "routed-unknown.json"
+    },
+    "duplicate_delivery": {
+      "status": "captured_overlap",
+      "file": "overlap-duplicate.json"
+    }
+  }
+}

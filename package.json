@@ -11,8 +11,8 @@
   "packageManager": "npm@11.21.0",
   "scripts": {
     "lint": "eslint eslint.config.mjs 'frontend/**/*.ts' 'frontend/**/*.tsx' --no-error-on-unmatched-pattern",
-    "format:check": "prettier --check package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/WO-001.md",
-    "format": "prettier --write package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/WO-001.md"
+    "format:check": "prettier --check package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/*.md docs/data-source-contract.md docs/decisions/*.md tests/fixtures/solana/README.md",
+    "format": "prettier --write package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/*.md docs/data-source-contract.md docs/decisions/*.md tests/fixtures/solana/README.md"
   },
   "devDependencies": {
     "eslint": "10.12.0",

@@ -1,4 +1,4 @@
-.PHONY: help bootstrap doctor lint format test provider-check db-shell dev migrate build fixtures
+.PHONY: help bootstrap doctor lint format test provider-check db-shell dev migrate build fixtures qualify-solana
 
 help:
 	@printf '%s\n' 'Run inside the devcontainer:' \
@@ -6,6 +6,8 @@ help:
 	  '  make doctor          Verify pinned tools, workspace access, and database' \
 	  '  make lint / format   Check / apply Python and JavaScript formatting' \
 	  '  make test            Test development tooling' \
+	  '  make fixtures        Verify sanitized source evidence offline' \
+	  '  make qualify-solana  Opt-in bounded live Helius probe (consumes credits)' \
 	  '  make provider-check  Report missing configuration without network calls' \
 	  '  make db-shell        Open the development database'
 
@@ -35,6 +37,12 @@ test:
 db-shell:
 	psql
 
-dev migrate build fixtures:
+fixtures:
+	uv run --locked python scripts/solana_fixtures.py check
+
+qualify-solana:
+	uv run --locked --group qualification python scripts/qualify_solana.py --live
+
+dev migrate build:
 	@printf '%s\n' '$@ is not implemented yet. See docs/development.md and the issue dependencies.' >&2
 	@exit 2
