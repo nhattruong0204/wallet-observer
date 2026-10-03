@@ -3,21 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Repository tooling; frontend application follows in WO-003",
+  "description": "Wallet Observer workspace tooling",
   "engines": {
     "node": "24.21.0",
     "npm": "11.21.0"
   },
   "packageManager": "npm@11.21.0",
   "scripts": {
-    "lint": "eslint eslint.config.mjs 'frontend/**/*.ts' 'frontend/**/*.tsx' --no-error-on-unmatched-pattern",
-    "format:check": "prettier --check package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/*.md docs/data-source-contract.md docs/decisions/*.md tests/fixtures/solana/README.md",
-    "format": "prettier --write package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/*.md docs/data-source-contract.md docs/decisions/*.md tests/fixtures/solana/README.md"
+    "lint": "eslint eslint.config.mjs 'frontend/**/*.ts' 'frontend/**/*.tsx' 'tests/ui/**/*.ts' playwright.config.ts && npm run typecheck --workspace frontend",
+    "format:check": "prettier --check package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/*.md docs/data-source-contract.md docs/decisions/*.md tests/fixtures/solana/README.md README.md docs/configuration.md frontend/package.json frontend/tsconfig.json frontend/index.html 'frontend/src/**/*.{ts,tsx,css}' frontend/vite.config.ts playwright.config.ts 'tests/ui/**/*.ts'",
+    "format": "prettier --write package.json eslint.config.mjs .prettierrc.json compose.dev.yml .devcontainer/devcontainer.json .vscode scripts/toolchain.json docs/development.md docs/acceptance/*.md docs/data-source-contract.md docs/decisions/*.md tests/fixtures/solana/README.md README.md docs/configuration.md frontend/package.json frontend/tsconfig.json frontend/index.html 'frontend/src/**/*.{ts,tsx,css}' frontend/vite.config.ts playwright.config.ts 'tests/ui/**/*.ts'",
+    "test": "npm run test --workspace frontend",
+    "test:ui": "playwright test"
   },
   "devDependencies": {
     "eslint": "10.12.0",
     "prettier": "3.9.9",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.71.0"
-  }
+    "typescript-eslint": "8.71.0",
+    "@playwright/test": "1.63.0"
+  },
+  "workspaces": [
+    "frontend"
+  ]
 }

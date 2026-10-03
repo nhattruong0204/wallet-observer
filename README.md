@@ -2,15 +2,24 @@
 
 Personal, read-only Solana wallet monitoring with a path to source-backed FOMO research.
 
-**Current status: development environment implemented; application not implemented.**
+**Current status: API, worker and frontend foundations run locally in fixture mode. Live collection, persistence and trade normalization are not implemented yet.**
 
 ## Start here
 
-Development setup: [docs/development.md](docs/development.md). Use the devcontainer and run `make doctor`, `make lint`, and `make test`; application services follow in WO-003.
+Development setup: [docs/development.md](docs/development.md). Open the devcontainer, then run from the repository root:
+
+```bash
+make bootstrap
+make doctor
+make config-check
+make dev
+```
+
+Open <http://localhost:5173>. The default fixture mode uses local PostgreSQL and requires no provider or Telegram credentials. Ctrl-C stops API, worker and frontend together. Run `make lint test fixtures` for offline checks, or `make build` followed by `make api` to serve built assets at <http://localhost:8000>. See the [configuration contract](docs/configuration.md) for health and feature-flag behavior.
 
 1. Read [BUILD_PLAN.md](BUILD_PLAN.md).
 2. Follow the dependency order in [backlog/INDEX.md](backlog/INDEX.md).
-3. Open the [development environment](docs/development.md), then qualify the data source with WO-002.
+3. Open the [development environment](docs/development.md), then read the [qualified source contract](docs/data-source-contract.md) from WO-002.
 4. Complete the 18 first-live work items before the first personal beta.
 5. Add the 10 expansion items only when their source and feature prerequisites are met.
 
@@ -22,7 +31,7 @@ Development setup: [docs/development.md](docs/development.md). Use the devcontai
 - [PUBLISHING.md](PUBLISHING.md) for creating the GitHub project and recording real issue links.
 - [backlog/issues.json](backlog/issues.json) containing the published issue titles, bodies, and dependencies.
 
-## Planned stack
+## Stack
 
 React/TypeScript, Python/FastAPI, one worker, PostgreSQL, Docker Compose, qualified Solana data, and one outbound Telegram chat.
 
@@ -41,7 +50,6 @@ Provider keys, Telegram tokens, private watchlists, and raw private data must st
 Planning targets: first useful private deployment in roughly 5–10 focused working days after data access is proved; broader scope takes longer. Estimated first-live operations: USD 20–30/month on free data, or USD 70–80/month with the selected paid data tier, before model access and unknown FOMO/multi-chain feed costs. See the build plan for assumptions.
 
 This is an independent implementation plan, not Wind source code or a claim about its private backend.
-
 
 ## GitHub
 

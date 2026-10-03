@@ -9,10 +9,18 @@
   "shutdownAction": "stopCompose",
   "forwardPorts": [8000, 5173],
   "portsAttributes": {
-    "8000": { "label": "API (introduced in WO-003)", "onAutoForward": "silent" },
-    "5173": { "label": "Frontend (introduced in WO-003)", "onAutoForward": "silent" }
+    "8000": {
+      "label": "Wallet Observer API",
+      "onAutoForward": "silent"
+    },
+    "5173": {
+      "label": "Wallet Observer frontend",
+      "onAutoForward": "silent"
+    }
   },
-  "otherPortsAttributes": { "onAutoForward": "ignore" },
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
   "postCreateCommand": "make bootstrap",
   "customizations": {
     "vscode": {

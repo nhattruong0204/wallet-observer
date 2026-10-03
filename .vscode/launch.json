@@ -10,7 +10,17 @@
       "justMyCode": true
     },
     {
-      "name": "Browser: frontend (after WO-003)",
+      "name": "Python: API",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "wallet_observer",
+      "args": ["api", "--host", "0.0.0.0"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Browser: frontend",
       "type": "pwa-chrome",
       "request": "launch",
       "url": "http://localhost:5173",

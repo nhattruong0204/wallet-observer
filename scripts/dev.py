@@ -95,7 +95,7 @@ def main() -> int:
         )
         created = create_env(ROOT)
         print("Created private .env placeholders." if created else "Preserved existing .env.")
-        print("Development tools installed. Run make doctor; application work begins in WO-003.")
+        print("Development tools installed. Run make doctor, make config-check, then make dev.")
         return 0
     except RuntimeError as error:
         print(str(error), file=sys.stderr)
