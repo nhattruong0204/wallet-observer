@@ -2,13 +2,15 @@
 
 Personal, read-only Solana wallet monitoring with a path to source-backed FOMO research.
 
-**Current status: planning package published; application not implemented.**
+**Current status: development environment implemented; application not implemented.**
 
 ## Start here
 
+Development setup: [docs/development.md](docs/development.md). Use the devcontainer and run `make doctor`, `make lint`, and `make test`; application services follow in WO-003.
+
 1. Read [BUILD_PLAN.md](BUILD_PLAN.md).
 2. Follow the dependency order in [backlog/INDEX.md](backlog/INDEX.md).
-3. Implement [WO-001: devcontainer](backlog/issues/WO-001.md), then qualify the data source with WO-002.
+3. Open the [development environment](docs/development.md), then qualify the data source with WO-002.
 4. Complete the 18 first-live work items before the first personal beta.
 5. Add the 10 expansion items only when their source and feature prerequisites are met.
 
@@ -45,4 +47,4 @@ This is an independent implementation plan, not Wind source code or a claim abou
 
 Repository: [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) (public, as created by the owner).
 
-All [28 implementation issues](https://github.com/nhattruong0204/wallet-observer/issues) are published and open. Start with [WO-001 / #1](https://github.com/nhattruong0204/wallet-observer/issues/1). The [backlog index](backlog/INDEX.md) links every issue; [github-issues.json](backlog/github-issues.json) records the actual issue numbers and URLs.
+All [28 implementation issues](https://github.com/nhattruong0204/wallet-observer/issues) are published. See [WO-001 / #1](https://github.com/nhattruong0204/wallet-observer/issues/1) for the development environment and its [acceptance evidence](docs/acceptance/WO-001.md). The [backlog index](backlog/INDEX.md) links every issue; [github-issues.json](backlog/github-issues.json) records the actual issue numbers and URLs.

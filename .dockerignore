@@ -1,0 +1,4 @@
+# The development image contains tooling only; workspace files are bind-mounted.
+**
+!.devcontainer/
+!.devcontainer/Dockerfile

@@ -1,0 +1,39 @@
+# Development only. No application services or host database port yet.
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        LOCAL_UID: ${LOCAL_UID:-1000}
+        LOCAL_GID: ${LOCAL_GID:-1000}
+    init: true
+    volumes:
+      - .:/workspaces/wallet-observer
+    environment:
+      PGHOST: db
+      PGPORT: "5432"
+      PGUSER: observer
+      PGPASSWORD: observer-dev-only
+      PGDATABASE: wallet_observer
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16.15-bookworm@sha256:efedf3595f1d6f415c08568ba171029bf54052e754cc9f030e3f2412b21f3d67
+    environment:
+      POSTGRES_USER: observer
+      POSTGRES_PASSWORD: observer-dev-only
+      POSTGRES_DB: wallet_observer
+    volumes:
+      - postgres-dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U observer -d wallet_observer"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+
+volumes:
+  postgres-dev:
