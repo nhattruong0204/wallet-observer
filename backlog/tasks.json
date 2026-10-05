@@ -726,7 +726,8 @@
       "Record source provenance, permission requirements, rate limits, historical coverage, monthly costs, replay/edit semantics, and representative sanitized payloads.",
       "Verify an identity link against explicit source evidence; a similar name or shared funding is not enough.",
       "Document unsupported data as blocked. Keep manual wallet labels and wallet-only monitoring available.",
-      "Do not scrape private endpoints without access, bypass sign-in, reuse Wind's backend, or assume a trading SDK exposes social metadata."
+      "Do not scrape private endpoints without access, bypass sign-in, reuse Wind's backend, or assume a trading SDK exposes social metadata.",
+      "Evaluate RayBot beta FOMO username resolution as a candidate for wallet mappings, following RayBot qualification #34 for account experiments. No public mapping endpoint is documented; require an authorized structured export/API and explicit identity evidence. Aliases, funding links and matching balances do not verify identity. Thesis, clan and order capabilities remain separately gated; no inbound Telegram monitoring or private-endpoint scraping."
     ],
     "done": [
       "Each capability is marked verified, partial, unavailable, or unresolved with evidence.",
@@ -904,5 +905,266 @@
     ],
     "conditionalDependencies": ["WO-024", "WO-025", "WO-026", "WO-027"],
     "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
+  },
+  {
+    "id": "WO-029",
+    "title": "Qualify RayBot access, payload semantics, and delivery guarantees",
+    "phase": "Optional RayBot",
+    "dependencies": ["WO-001", "WO-002", "WO-004"],
+    "conditionalDependencies": [],
+    "why": "RayBot offers a documented secondary notification source, but account entitlement and evidence quality must be proven before enabling it alongside Helius.",
+    "what": [
+      "Produce a capability-by-capability GO / PARTIAL / BLOCKED decision for wallet import, Solana webhooks, metadata, positions, and aggregate signals.",
+      "Keep Helius as the qualified chain/recovery path; this optional qualification must not block the first website release."
+    ],
+    "how": [
+      "Read the RayBot assessment and current Helius source contract. The owner reports Pro 200; the custom-webhook documentation lists 3 slots for that tier. Verify the actual entitlement, API access, webhook limit/used slots and applicable notification caps using owner-provided configuration. Do not infer the tier from payment amount or confuse Discord webhook limits with custom HTTPS callbacks.",
+      "Use server-side API credentials from ignored local configuration. Start with read-only list calls. A later live capture must be explicitly opted in: propose at most 3 existing watched Solana wallets, 10 minutes, 100 accepted events and 30 control-plane requests, paced below the documented API limit. Record provider limits separately from client bounds. No upgrade, purchase, overage or unrelated destination changes.",
+      "Use an isolated temporary HTTPS receiver for the bounded experiment; document and clean up only its own destination. Preserve raw captures privately and sanitize approved fixtures with provenance. Documentation examples are vendor examples, not our live captures; placeholder signatures cannot serve as independently verified transactions.",
+      "Resolve signature-versus-UUID delivery headers, ID stability across retries/destinations, verification timeout differences, retry schedule/retention and event ordering. Determine slot/commitment, timestamp meaning, execution/instruction identity, actor attribution and parser failures. Do not synthesize missing fields.",
+      "Compare actual raw token quantities/decimals, SOL versus WSOL representation, fee-inclusive owner deltas versus trade legs, price timestamps and position units against qualified chain responses. Record rounding/conflicts, missing opening history and corrections. Confirm signal schemas and identities separately.",
+      "Record the destination and global/per-wallet filter configuration, burst grouping, signal-only settings, auto-pause and expiry behavior. Deliberate silence is not complete coverage. Test repeat delivery and a bounded interruption only on the isolated destination; report unrecoverable RayBot gaps honestly.",
+      "Verify whether a supported history/export path exists and what personal storage/use is allowed. No public history/replay API was found in this docs review. Preserve unanswered questions as capability blockers, not an assumed negative provider answer."
+    ],
+    "done": [
+      "Account access, limits, incremental cost and live-probe bounds are evidenced or explicitly unresolved.",
+      "Each proposed capability has its own decision, evidence and downstream gate; partial qualification cannot enable unrelated features.",
+      "Sanitized real captures and chain comparisons cover the enabled event families; absent cases remain blocked.",
+      "Delivery identity, precision, confirmation, filter scope and recovery limitations are documented.",
+      "No secret, personal watchlist, raw private payload or personal billing information is published; no trading or mobile features added."
+    ],
+    "files": [
+      "docs/raybot-source-contract.md",
+      "docs/acceptance/raybot-qualification.md",
+      "tests/fixtures/raybot/",
+      "scripts/qualification/"
+    ],
+    "references": [
+      ["API", "https://docs.raybot.app/start/dev/api"],
+      ["Webhooks", "https://docs.raybot.app/start/dev/webhooks"],
+      ["Webhooks API", "https://docs.raybot.app/start/dev/webhooks-api"],
+      ["Payload examples", "https://docs.raybot.app/start/dev/webhooks-api/example-payloads"]
+    ],
+    "delivery_scope": "Website first: desktop-browser website and supporting services; native mobile, PWA, device push and mobile acceptance deferred. Read-only monitoring; no execution, signing keys, extra chains or subscription upgrades."
+  },
+  {
+    "id": "WO-030",
+    "title": "Import RayBot wallet lists into the personal watchlist",
+    "phase": "Optional RayBot",
+    "dependencies": ["WO-005", "WO-029"],
+    "conditionalDependencies": [],
+    "why": "The existing RayBot watchlist can seed Wallet Observer without rebuilding it or changing the operator’s RayBot setup.",
+    "what": [
+      "Extend the existing bulk-import workflow with a RayBot CSV format and an optional server-side read-only API import.",
+      "Reuse aliases/groups from #5 and apply only reviewed changes; no continuous bidirectional synchronization."
+    ],
+    "how": [
+      "Qualify the CSV header variants using an owner-supplied export or a vendor example. The documented export includes address, name, network, status and tag; balance and historical date columns are source annotations, not ledger facts. Never commit the personal export.",
+      "For API import, use the documented paginated wallet-list operation for explicitly selected destinations. A webhook destination uses its ID as user_id and bot 0. Ordinary bot destinations retain their selected bot number. Do not scan other users or assume all web-app fields are exposed by this API.",
+      "Share a bounded, redacting server-side API client with later RayBot work: throttle all public API operations together, handle 401/403/429 and truncated/repeating pagination, refuse redirects and redact credential-bearing query strings.",
+      "Preview new wallets, duplicate addresses, conflicting aliases, tags, skipped networks and source statuses before an atomic local apply. Preserve Solana case and deduplicate by chain/address across destinations. Default to preserving existing local labels and pause state.",
+      "Import only supported Solana watches; generic evm does not identify a chain. Report skipped/unsupported rows explicitly. Retain remote limit/pause/expired states as provenance, never silently activate every row. Missing labels/tags remain missing.",
+      "Keep remote state untouched: do not invoke add/delete/settings or create destinations as part of import. Imported names and tags are operator labels, not proof of identity or shared ownership."
+    ],
+    "done": [
+      "CSV preview/apply and qualified API pagination reproduce the selected source list without leaking it.",
+      "Repeated imports are idempotent, alias conflicts are visible, and partial downloads cannot remove local watches.",
+      "Invalid, unsupported-chain, paused, duplicate and malicious CSV/text cases have meaningful tests.",
+      "Existing watches and RayBot destinations remain unchanged unless explicitly selected local changes are applied."
+    ],
+    "files": [
+      "backend/src/wallet_observer/providers/raybot/",
+      "frontend/src/",
+      "tests/integration/test_raybot_import.py",
+      "docs/raybot-import.md"
+    ],
+    "references": [
+      ["Wallet API", "https://docs.raybot.app/start/dev/api"],
+      ["CSV export", "https://docs.raybot.app/start/web-app/web/destinations"],
+      ["Labels", "https://docs.raybot.app/start/web-app/web/my-labels"]
+    ],
+    "delivery_scope": "Website first: desktop-browser website and supporting services; native mobile, PWA, device push and mobile acceptance deferred. Read-only monitoring; no execution, signing keys, extra chains or subscription upgrades."
+  },
+  {
+    "id": "WO-031",
+    "title": "Persist authenticated RayBot webhooks with source health controls",
+    "phase": "Optional RayBot",
+    "dependencies": ["WO-004", "WO-006", "WO-029"],
+    "conditionalDependencies": [],
+    "why": "RayBot callbacks must survive restarts and retries without exposing the private dashboard or trusting unverified event facts.",
+    "what": [
+      "Add one optional authenticated HTTPS ingestion route on the existing API and durable processing in the existing worker/PostgreSQL.",
+      "Expose RayBot destination health and an operator runbook; deployment activation uses #17’s private-access boundary."
+    ],
+    "how": [
+      "Keep RayBot disabled by default. Require an independent high-entropy callback secret, HTTPS and constant-time authorization validation. User-Agent is diagnostic only. Do not invent HMAC signatures, trusted IP ranges or provider certificates absent a verified contract.",
+      "Accept the verified test event separately without creating a trade. For accepted activity, atomically persist the source envelope, payload representation and job before returning 2xx. Bound body size, parse depth and work; target an acknowledgement below one second and process heavy work asynchronously.",
+      "Keep delivery attempt ID, destination, chain transaction ID and payload hash distinct. A signature may carry multiple wallet/event representations, while a retry may have a different transport ID. Preserve distinct evidence and make duplicate processing harmless according to the qualified contract.",
+      "Return retryable failure for temporary persistence failures. Persist bounded quarantine for authenticated unknown schemas where possible, then alert on incompatibility. Define permanent rejection deliberately because documented 4xx responses are not retried; include overload and disk-full behavior.",
+      "Reuse existing source-health/retention mechanisms from #16. Record receipts, duplicate counts, queue age, rejected/quarantined events, destination send/pause/expired status and failure count. Silence alone cannot prove a fault or completeness; reconcile health with a paced control-plane status read.",
+      "Provide reviewed provisioning/rotation/pause/removal instructions for a dedicated destination. Pause/resume affects attached wallet state; do not automatically resume after repeated failure. Register only the selected watch subset, respect shared API budgets, and isolate the public callback route from all private app/admin endpoints."
+    ],
+    "done": [
+      "Valid authorized callbacks persist and enqueue atomically; unauthorized and oversized requests fail without leaking payloads or credentials.",
+      "Duplicate, out-of-order and unknown inputs plus worker/API crashes have deterministic PostgreSQL tests.",
+      "A live bounded acceptance records acknowledgement latency, retry behavior and recovery after restart; no fabricated provider SLA.",
+      "Private routes remain inaccessible from the public callback surface and disabling RayBot leaves Helius operating.",
+      "Auto-pause/expiry, rotation, retention and unresolved gaps are observable and documented; no automatic trading or external sends."
+    ],
+    "files": [
+      "backend/src/wallet_observer/api/",
+      "backend/src/wallet_observer/providers/raybot/",
+      "backend/src/wallet_observer/worker/",
+      "tests/integration/test_raybot_webhook.py",
+      "docs/raybot-operations.md"
+    ],
+    "references": [
+      ["Webhook delivery", "https://docs.raybot.app/start/dev/webhooks"],
+      ["Destination lifecycle", "https://docs.raybot.app/start/dev/webhooks-api"],
+      ["Filter behavior", "https://docs.raybot.app/start/telegram/interface-navigation/settings"]
+    ],
+    "delivery_scope": "Website first: desktop-browser website and supporting services; native mobile, PWA, device push and mobile acceptance deferred. Read-only monitoring; no execution, signing keys, extra chains or subscription upgrades."
+  },
+  {
+    "id": "WO-032",
+    "title": "Reconcile RayBot observations with canonical Solana executions",
+    "phase": "Optional RayBot",
+    "dependencies": ["WO-007", "WO-008", "WO-029", "WO-031"],
+    "conditionalDependencies": [],
+    "why": "The same trade observed by Helius and RayBot must contribute once to the website and alerts, while disagreements remain inspectable.",
+    "what": [
+      "Attach RayBot evidence to verified canonical executions through the existing revision and outbox model.",
+      "Keep unmatched or conflicting observations visible as source evidence without creating unsupported trades."
+    ],
+    "how": [
+      "Match by chain/transaction, watched actor, qualified instruction identity and verified owner/token flows. RayBot’s documented transaction-level envelope lacks instruction indices; fetch qualified chain detail when needed. Never assign index 0 or match only amounts/time/fee payer to satisfy the schema.",
+      "Separate delivery identity from execution identity and classify each wallet independently. Handle multiple swaps in a signature, incidental watched accounts, multiple destinations, changed payloads and retried deliveries.",
+      "Use exact raw integer strings plus verified decimals and chain/address identity. Parse numeric enrichment lexemes as Decimal; preserving their text does not repair upstream rounding. Quarantine contradictory raw quantities and do not rebuild raw values from rounded display amounts.",
+      "Keep RayBot balance deltas, economic trade legs, rent/fees and native SOL/WSOL separate. Failed transactions, ordinary transfers, liquidity and fee claims cannot become successful buys. Missing parser detail remains unknown.",
+      "Verify success, slot and confirmation via the qualified chain path; failed:false is not finalization. Preserve both source observations on disagreement and append canonical corrections transactionally. RayBot delivery must not advance a Helius safe checkpoint.",
+      "Use #8’s bounded chain backfill for canonical coverage. Track RayBot filter/receipt gaps separately: recovery of chain transactions does not reconstruct RayBot-only prices, positions or signals. Keep ambiguous events out of position totals, consensus and notifications.",
+      "Corroboration should add provenance without sending a second trade alert. #14 must key delivery intent to canonical identity and apply correction policy, not provider arrival count."
+    ],
+    "done": [
+      "The same real trade from both providers creates one execution and at most one trade alert intent.",
+      "Different same-amount swaps and multiple instructions remain distinct; unsupported identity matches remain unresolved.",
+      "Tests cover either arrival order, retries, multi-wallet envelopes, failed transfers, conflicting quantities, corrections and restarts.",
+      "Confirmed/finalized/unknown, source coverage and RayBot-only enrichment gaps remain separately queryable."
+    ],
+    "files": [
+      "backend/src/wallet_observer/providers/raybot/",
+      "backend/src/wallet_observer/trades/",
+      "backend/src/wallet_observer/recovery/",
+      "tests/integration/test_raybot_reconciliation.py",
+      "docs/raybot-source-contract.md"
+    ],
+    "references": [
+      ["Solana buy", "https://docs.raybot.app/start/dev/webhooks-api/example-payloads/solana-buy"],
+      [
+        "Solana sell",
+        "https://docs.raybot.app/start/dev/webhooks-api/example-payloads/solana-sell"
+      ],
+      [
+        "Token transfer",
+        "https://docs.raybot.app/start/dev/webhooks-api/example-payloads/solana-token-transfer"
+      ],
+      [
+        "EVM precision example",
+        "https://docs.raybot.app/start/dev/webhooks-api/example-payloads/evm-buy"
+      ]
+    ],
+    "delivery_scope": "Website first: desktop-browser website and supporting services; native mobile, PWA, device push and mobile acceptance deferred. Read-only monitoring; no execution, signing keys, extra chains or subscription upgrades."
+  },
+  {
+    "id": "WO-033",
+    "title": "Show qualified RayBot metadata and position observations on the website",
+    "phase": "Optional RayBot",
+    "dependencies": ["WO-009", "WO-013", "WO-019", "WO-029", "WO-032"],
+    "conditionalDependencies": [],
+    "why": "RayBot can add context already available in webhook payloads, but its reported prices and positions have different provenance from our observed ledger.",
+    "what": [
+      "Add optional RayBot metadata and position panels to existing wallet/token views after their individual qualification gates pass.",
+      "Preserve the local observed-position computation and existing market-data selection rules."
+    ],
+    "how": [
+      "Store source, receipt time, source timestamp where defined, currency, coverage and qualification version for each observation. Do not assume token.created is on-chain mint creation, receipt time is quote time, or a missing value is zero.",
+      "Use the existing metadata/quote cache with explicit freshness and conflict policy. RayBot payload prices are event-associated observations; they do not establish a streaming quote service or historical pricing API. Never choose a price merely because its webhook arrived last.",
+      "Treat RayBot position fields as source-reported snapshots. The payload examples describe native-currency positions while UI settings can show USD: qualify actual units and fee basis before displaying totals. If units or association to a wallet/token are missing, keep the value unavailable.",
+      "Handle pre-existing holdings, missing cost basis, transfers, corrections and partial history. Preserve negative PnL and nulls in a suitable signed observation model rather than forcing them into nonnegative execution amount fields. A first-buy flag does not prove complete lifetime history.",
+      "Display source/freshness/coverage next to qualified values and keep them separate from locally reconstructed PnL. Sanitize token names/links; disable fields when the capability loses qualification. No social-feed ingestion, new chains or external image fetches without the existing policy."
+    ],
+    "done": [
+      "Website displays qualified fields with explicit provenance and unit/freshness information; unavailable fields stay unavailable.",
+      "Native versus USD, signed PnL, missing basis, stale quotes and conflicting observations have deterministic tests.",
+      "Local positions and canonical execution quantities remain unchanged by source snapshots.",
+      "Desktop keyboard/accessibility, loading/partial/error states and disabled-provider behavior pass existing website acceptance."
+    ],
+    "files": [
+      "backend/src/wallet_observer/market/",
+      "backend/src/wallet_observer/positions/",
+      "frontend/src/",
+      "tests/integration/test_raybot_enrichment.py",
+      "docs/raybot-enrichment.md"
+    ],
+    "references": [
+      [
+        "Position payload contract",
+        "https://docs.raybot.app/start/dev/webhooks-api/example-payloads"
+      ],
+      [
+        "Native-currency position example",
+        "https://docs.raybot.app/start/dev/webhooks-api/example-payloads/solana-sell"
+      ],
+      [
+        "Unknown opening basis",
+        "https://docs.raybot.app/start/dev/webhooks-api/example-payloads/evm-sell"
+      ],
+      ["Display currency setting", "https://docs.raybot.app/start/help-and-support/faq"]
+    ],
+    "delivery_scope": "Website first: desktop-browser website and supporting services; native mobile, PWA, device push and mobile acceptance deferred. Read-only monitoring; no execution, signing keys, extra chains or subscription upgrades."
+  },
+  {
+    "id": "WO-034",
+    "title": "Compare RayBot Multi Wallet and Accumulation signals with local research",
+    "phase": "Optional RayBot",
+    "dependencies": ["WO-020", "WO-029", "WO-031", "WO-032"],
+    "conditionalDependencies": [],
+    "why": "Provider-generated signals can complement our personal consensus engine without being mistaken for additional executions or identical algorithms.",
+    "what": [
+      "Store and display qualified multi_buy and accumulation observations as an optional research comparison.",
+      "Support a reviewed manual signal CSV import only if a real export format is qualified; never scrape Telegram messages or RayBot private web endpoints."
+    ],
+    "how": [
+      "Capture real signal payloads and identities first. Public docs describe aggregate blocks without a complete field contract. Record preset, destination, grouping scope, participants, window, source time, units and rule version when available; unknown fields stay unknown.",
+      "Distinguish independent wallets from tag/bot groupings and repeated buys. An aggregate contains references to activity, not extra executions. Do not infer person-level consensus from a tag or funding link.",
+      "Compare with #20 only when participant scope, time basis, thresholds, prices, holding definition and lateness policy are compatible. Show differing or incomparable outcomes without rewriting the local signal algorithm to imitate an undocumented implementation.",
+      "Keep provider signal IDs and delivery IDs separate; qualify stable deduplication for retries, multiple presets and corrections. Replays/imports must not trigger alert storms. Default to website-only observations; any optional #14 alert path must use expiry/cooldown and explicit settings.",
+      "Review actual CSV field units, time zone, duplicate keys and aggregation scope. ATH-based potential gain is hindsight, not realized PnL or an executable backtest result. No Bloom auto-buy, signing key, private endpoint, public KOL-universe expansion or runtime AI dependency.",
+      "Document burst grouping, non-signal suppression and filter settings. Unusual Behavior, token-price/migration alerts and other families remain disabled until their delivery schemas are separately qualified."
+    ],
+    "done": [
+      "Real qualified examples cover each enabled aggregate family; undocumented families remain blocked.",
+      "Duplicates and overlapping members never inflate executions, wallet counts or local consensus.",
+      "Website makes source, scope, comparability, units and missing evidence clear.",
+      "CSV replay, preset overlap, late/corrected inputs and notification suppression are tested; no execution features are added."
+    ],
+    "files": [
+      "backend/src/wallet_observer/signals/",
+      "frontend/src/",
+      "tests/integration/test_raybot_signals.py",
+      "docs/raybot-signals.md"
+    ],
+    "references": [
+      [
+        "Multi Wallet rules and CSV",
+        "https://docs.raybot.app/start/telegram/interface-navigation/signals/multi-wallet"
+      ],
+      [
+        "Accumulation rules",
+        "https://docs.raybot.app/start/telegram/interface-navigation/signals/accumulation"
+      ],
+      ["Website signal history", "https://docs.raybot.app/start/web-app/web/signals/multi-wallet"]
+    ],
+    "delivery_scope": "Website first: desktop-browser website and supporting services; native mobile, PWA, device push and mobile acceptance deferred. Read-only monitoring; no execution, signing keys, extra chains or subscription upgrades."
   }
 ]

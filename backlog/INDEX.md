@@ -1,6 +1,6 @@
 # Implementation backlog
 
-28 prepared work items: **18 First live**, **10 Personal expansion**. All 28 GitHub issues are published; actual numbers and URLs are recorded in [github-issues.json](github-issues.json). GitHub issue state records progress; [WO-001 acceptance evidence](../docs/acceptance/WO-001.md) documents the development environment. [WO-004 acceptance evidence](../docs/acceptance/WO-004.md) records persistence, migration and recovery verification.
+34 prepared work items: **18 First live**, **10 Personal expansion**, **6 Optional RayBot**. All 34 GitHub issues are published; actual numbers and URLs are recorded in [github-issues.json](github-issues.json). GitHub issue state records progress; [WO-001 acceptance evidence](../docs/acceptance/WO-001.md) documents the development environment. [WO-004 acceptance evidence](../docs/acceptance/WO-004.md) records persistence, migration and recovery verification.
 
 Read the [build plan](../BUILD_PLAN.md) and follow dependencies. WO IDs are stable planning IDs, not GitHub issue numbers.
 
@@ -35,9 +35,24 @@ Read the [build plan](../BUILD_PLAN.md) and follow dependencies. WO IDs are stab
 | [WO-027](https://github.com/nhattruong0204/wallet-observer/issues/27) | Extend to selected additional chains through qualified adapters | Personal expansion | WO-002, WO-007, WO-008, WO-009, WO-018 |
 | [WO-028](https://github.com/nhattruong0204/wallet-observer/issues/28) | Verify the expanded website release and complete the operator guide | Personal expansion | WO-018, WO-019, WO-020, WO-021, WO-022, WO-023; conditional: WO-024, WO-025, WO-026, WO-027 |
 
+## Optional RayBot integration
+
+Documentation feasibility is recorded in the [RayBot assessment](../docs/raybot-integration-assessment.md), with a [76-page review inventory](../docs/raybot-documentation-inventory.md). These six issues do not gate WO-018. Start with per-capability qualification; the owner reports Pro 200 but account access and available callback slots are unverified. Helius remains the qualified chain/recovery path.
+
+| ID | Work item | Dependencies |
+|---|---|---|
+| [WO-029](https://github.com/nhattruong0204/wallet-observer/issues/34) | Qualify RayBot access, payload semantics, and delivery guarantees | WO-001, WO-002, WO-004 |
+| [WO-030](https://github.com/nhattruong0204/wallet-observer/issues/35) | Import RayBot wallet lists into the personal watchlist | WO-005, WO-029 |
+| [WO-031](https://github.com/nhattruong0204/wallet-observer/issues/36) | Persist authenticated RayBot webhooks with source health controls | WO-004, WO-006, WO-029 |
+| [WO-032](https://github.com/nhattruong0204/wallet-observer/issues/37) | Reconcile RayBot observations with canonical Solana executions | WO-007, WO-008, WO-029, WO-031 |
+| [WO-033](https://github.com/nhattruong0204/wallet-observer/issues/38) | Show qualified RayBot metadata and position observations on the website | WO-009, WO-013, WO-019, WO-029, WO-032 |
+| [WO-034](https://github.com/nhattruong0204/wallet-observer/issues/39) | Compare RayBot Multi Wallet and Accumulation signals with local research | WO-020, WO-029, WO-031, WO-032 |
+
+The RayBot FOMO username feature is recorded as a candidate in existing [WO-023 / #23](https://github.com/nhattruong0204/wallet-observer/issues/23); it does not qualify identities, theses, clans or off-chain order states.
+
 ## Website-first scope
 
-Desktop-browser website delivery is the current target for all 28 issues. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred until an explicit future scope decision. Existing responsive behavior can remain; it does not create a mobile deliverable. Telegram alerts and the existing data/recovery gates remain in scope. See [decision 0003](../docs/decisions/0003-website-first.md).
+Desktop-browser website delivery is the current target for all 34 issues. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred until an explicit future scope decision. Existing responsive behavior can remain; it does not create a mobile deliverable. Telegram alerts and the existing data/recovery gates remain in scope. See [decision 0003](../docs/decisions/0003-website-first.md).
 
 ## First-live boundary
 
