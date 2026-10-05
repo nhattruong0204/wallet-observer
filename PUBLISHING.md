@@ -4,16 +4,18 @@ Repository: [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/w
 
 ## Current state
 
-The owner created the repository as **public**. The default branch is **main**, issues are enabled, and the planning package and all 28 backlog issues are published. Issues #1–#4 are complete; the API, worker and website foundation run locally in fixture mode, with deliberate PostgreSQL migrations and persistence primitives. Live collection and the full monitoring product remain unimplemented.
+The owner created the repository as **public**. The default branch is **main**, issues are enabled, and the planning package and all 34 backlog issues are published. Issues #1–#4 are complete; the API, worker and website foundation run locally in fixture mode, with deliberate PostgreSQL migrations and persistence primitives. Live collection and the full monitoring product remain unimplemented.
 
 The original Windows package was moved into `/home/truong/market_observer`. The pre-existing `build_plan.md` was preserved alongside the imported `BUILD_PLAN.md`.
 
 All backlog work now targets the desktop-browser website first, with mobile work deferred under [decision 0003](docs/decisions/0003-website-first.md). Planning updates preserve issue states, dependency links and historical completion evidence.
 
+Six optional RayBot issues (#34–#39, stable IDs WO-029–WO-034) are published after a documentation-only feasibility review. They do not block the first-live website. Existing #23 now includes RayBot as a candidate FOMO mapping source; no capability is marked qualified or implemented.
+
 ## Published backlog
 
 - [backlog/issues.json](backlog/issues.json) contains the complete published titles and bodies.
-- [backlog/github-issues.json](backlog/github-issues.json) records actual GitHub numbers and URLs for all 28 stable WO identifiers.
+- [backlog/github-issues.json](backlog/github-issues.json) records actual GitHub numbers and URLs for all 34 stable WO identifiers.
 - [backlog/INDEX.md](backlog/INDEX.md) links each issue and retains phase and dependency information.
 - Issue bodies link dependencies to their actual GitHub issues while retaining WO identifiers. Issues were initially published open with unchecked definitions of done; their GitHub state now records implementation progress.
 

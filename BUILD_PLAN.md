@@ -2,7 +2,7 @@
 
 Prepared for **nhattruong0204** on **2 October 2026**.
 
-**Status (5 October 2026):** all 28 issues are published in the public repository `nhattruong0204/wallet-observer`, default branch `main`. Issues #1–#4 are complete: the development environment, bounded source qualification, API/worker/website foundation, and PostgreSQL persistence primitives. Live collection and the full monitoring product remain unimplemented. This plan targets website delivery first.
+**Status (5 October 2026):** all 34 issues are published in the public repository `nhattruong0204/wallet-observer`, default branch `main`. Issues #1–#4 are complete: the development environment, bounded source qualification, API/worker/website foundation, and PostgreSQL persistence primitives. Live collection and the full monitoring product remain unimplemented. This plan targets website delivery first.
 
 ## 1. Outcome and scope
 
@@ -168,6 +168,14 @@ If the stream lacks a usable recovery mechanism, prove an independent historical
 
 FOMO qualification is separate in WO-023. Wallet mappings, theses, clans and orders may each have different availability. No source must be treated as present merely because a Wind UI control existed.
 
+### Optional RayBot source (reviewed 2026-10-05)
+
+The owner reports an existing Pro 200 subscription. [The documentation assessment](docs/raybot-integration-assessment.md) identifies supported wallet-list/export and webhook surfaces, with six bounded optional issues WO-029–WO-034 ([#34](https://github.com/nhattruong0204/wallet-observer/issues/34) through [#39](https://github.com/nhattruong0204/wallet-observer/issues/39)). Account access, exact payload semantics and delivery guarantees still require qualification. RayBot can contribute source observations and research context alongside Helius; Helius remains the qualified chain verification and bounded recovery path. No RayBot implementation is shipped by this planning update.
+
+A future callback exposes only a separately authenticated public HTTPS ingestion route on the existing API. The website/admin surface remains private. API credentials and personal exports stay server-side and untracked. No new service, paid upgrade, trading feature, Telegram message ingestion or mobile deliverable is added. FOMO username resolution is a candidate in WO-023, not verified identity access.
+
+These items do not add dependencies to WO-018. Qualify each capability separately; import can use an approved CSV even when live webhook access is blocked. Position and signal extensions retain their existing foundation dependencies.
+
 ## 7. Persistence and canonical contracts
 
 ### Logical entities
@@ -284,7 +292,7 @@ Use original design/assets. Core website flows must work at desktop browser widt
 
 ## 11. Build and issue execution order
 
-There are **28 detailed work items**: 18 first-live issues and 10 expansion issues. See [backlog/INDEX.md](backlog/INDEX.md) and the individual Markdown issue drafts for the complete why/what/how/definition-of-done sections.
+There are **34 detailed work items**: 18 first-live issues, 10 expansion issues and 6 optional RayBot integration issues. See [backlog/INDEX.md](backlog/INDEX.md) and the individual Markdown issue drafts for the complete why/what/how/definition-of-done sections.
 
 The stable IDs (WO-001 etc.) are planning identifiers. Actual GitHub issue numbers and URLs are recorded in [backlog/github-issues.json](backlog/github-issues.json).
 
@@ -408,6 +416,6 @@ Exact vendor behavior must be checked during the relevant qualification issue. T
 
 ## 17. Publication status
 
-The owner created [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) as a public repository. The plan and all 28 issues are published, with actual dependency links and the mapping in [backlog/github-issues.json](backlog/github-issues.json). Issues #1–#4 are completed with linked acceptance evidence; remaining issues retain their implementation and source gates.
+The owner created [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) as a public repository. The plan and all 34 issues are published, with actual dependency links and the mapping in [backlog/github-issues.json](backlog/github-issues.json). Issues #1–#4 are completed with linked acceptance evidence; remaining issues retain their implementation and source gates.
 
 Keep GitHub issue bodies, local Markdown, payload JSON and the index aligned when changing scope. Preserve issue states and completion evidence during planning-only updates. [PUBLISHING.md](PUBLISHING.md) describes the update procedure.

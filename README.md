@@ -29,10 +29,12 @@ Open <http://localhost:5173>. The default fixture mode uses local PostgreSQL and
 ## Included
 
 - A full build plan covering scope, architecture, schema, APIs, recovery, UI, deployment, acceptance, and costs.
-- 28 published issues with why, what, how, expected files, dependencies, and definition of done.
+- 34 published issues (18 first-live, 10 expansion and 6 optional RayBot items) with why, what, how, expected files, dependencies, and definition of done.
 - [AGENTS.md](AGENTS.md) for bounded AI-assisted implementation.
 - [PUBLISHING.md](PUBLISHING.md) for creating the GitHub project and recording real issue links.
 - [backlog/issues.json](backlog/issues.json) containing the published issue titles, bodies, and dependencies.
+
+The [RayBot assessment](docs/raybot-integration-assessment.md) covers a possible secondary source using the existing paid plan. Its six optional issues start at [#34](https://github.com/nhattruong0204/wallet-observer/issues/34); live access remains unqualified and Helius remains the current source path.
 
 ## Stack
 
@@ -58,4 +60,4 @@ This is an independent implementation plan, not Wind source code or a claim abou
 
 Repository: [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) (public, as created by the owner).
 
-All [28 implementation issues](https://github.com/nhattruong0204/wallet-observer/issues) are published. See [WO-001 / #1](https://github.com/nhattruong0204/wallet-observer/issues/1) for the development environment and its [acceptance evidence](docs/acceptance/WO-001.md). The [backlog index](backlog/INDEX.md) links every issue; [github-issues.json](backlog/github-issues.json) records the actual issue numbers and URLs.
+All [34 implementation issues](https://github.com/nhattruong0204/wallet-observer/issues) are published. See [WO-001 / #1](https://github.com/nhattruong0204/wallet-observer/issues/1) for the development environment and its [acceptance evidence](docs/acceptance/WO-001.md). The [backlog index](backlog/INDEX.md) links every issue; [github-issues.json](backlog/github-issues.json) records the actual issue numbers and URLs.
