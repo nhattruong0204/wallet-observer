@@ -2,11 +2,17 @@
 
 Prepared for **nhattruong0204** on **2 October 2026**.
 
-**Status:** implementation specification and issue drafts. This package does not contain a completed application. GitHub publication is pending repository creation. Proposed repository: `nhattruong0204/wallet-observer`, private, default branch `main`.
+**Status (5 October 2026):** all 28 issues are published in the public repository `nhattruong0204/wallet-observer`, default branch `main`. Issues #1–#3 are complete: the development environment, bounded source qualification, and API/worker/website foundation. Live collection and the full monitoring product remain unimplemented. This plan targets website delivery first.
 
 ## 1. Outcome and scope
 
-Build a personal, read-only monitoring application inspired by Wind's useful wallet/FOMO research workflows. One operator owns one watchlist. Start with a small Solana release, then add the retained personal features only when the necessary data is available.
+Build a personal, read-only monitoring website inspired by Wind's useful wallet/FOMO research workflows. One operator owns one watchlist. Start with a small Solana website release, then add the retained personal features only when the necessary data is available.
+
+### Website-first delivery
+
+The current delivery target is the desktop-browser website and its supporting API, worker and database. Native iOS/Android apps, app-store packaging, installable PWA/offline-app features, device push, mobile-specific layouts/touch flows and mobile-device acceptance are deferred until an explicit future scope decision. They are not prerequisites for either planned website release.
+
+Existing responsive styling and small-viewport checks may remain as incidental coverage. New mobile work is not required to complete an issue. Desktop accessibility, loading/offline states, browser reconnect, server recovery, private deployment and outbound Telegram alerts remain required where specified. See [decision 0003](docs/decisions/0003-website-first.md).
 
 The desired first-live flow is:
 
@@ -26,7 +32,7 @@ A familiar UI is optional. Correct data, readable history, and recoverability ma
 | Watch scope | 10–25 manual Solana wallets, alias, note, groups, pause/remove | 25–100 only when measured demand and cost justify it; verified FOMO identity links |
 | Collection | Qualified Solana transaction source | FOMO theses and order metadata; selected additional chains |
 | Trade semantics | Supported buys/sells/swaps, confirmation, fees, unknown cases | Observed position ledger, first/add/re-entry, trim/exit; source-backed off-chain states |
-| UI | Feed, Watchlist, Settings, wallet/token details, responsive layout | Research/rankings, saved views, pins/ignore, richer personal controls |
+| UI | Desktop website Feed, Watchlist, Settings and wallet/token details | Website research/rankings, saved views, pins/ignore, richer personal controls |
 | Research | Current quotes, available market fields, collected history, exact search | Local heat, movers, consensus, clan resonance where supported |
 | Delivery | One outbound Telegram bot/chat | Existing delivery path reused for additional signals |
 | Operations | Private single-host deployment, bounded recovery, backups, status | Broader coverage and more refined usage/retention controls |
@@ -91,7 +97,7 @@ A single-host design accepts a host outage as a collection interruption. Recover
 
 ## 4. Repository layout to implement
 
-Only planning/backlog files exist in this prepared package. The paths below are targets for the implementation issues.
+The development environment, source qualification tooling and application foundation now exist. The paths below describe the intended full layout; see [the current directory map](docs/development.md#directory-map) for implemented modules.
 
 | Path | Purpose |
 |---|---|
@@ -274,13 +280,13 @@ Use consistent DTOs and filter semantics across views. Paginated history must sp
 7. After first live, add positions, signals, research and saved views.
 8. Enable FOMO/chain-specific controls only when their capability gates pass.
 
-Use original design/assets. At minimum, core flows should work at desktop and roughly 390px mobile width, with keyboard focus and readable loading/stale/unknown states. Do not hide data-quality limitations behind decorative UI.
+Use original design/assets. Core website flows must work at desktop browser widths with mouse and keyboard, visible focus and readable loading/stale/unknown states. Mobile-width layouts and acceptance are deferred. Existing responsive behavior can remain without expanding the delivery target. Do not hide data-quality limitations behind decorative UI.
 
 ## 11. Build and issue execution order
 
 There are **28 detailed work items**: 18 first-live issues and 10 expansion issues. See [backlog/INDEX.md](backlog/INDEX.md) and the individual Markdown issue drafts for the complete why/what/how/definition-of-done sections.
 
-The stable IDs (WO-001 etc.) are planning identifiers, not invented GitHub issue numbers. Actual issue numbers must be recorded after publication.
+The stable IDs (WO-001 etc.) are planning identifiers. Actual GitHub issue numbers and URLs are recorded in [backlog/github-issues.json](backlog/github-issues.json).
 
 Recommended order:
 
@@ -327,7 +333,7 @@ CI should run without paid credentials, using deterministic fixtures and disposa
 - Telegram retries, stale expiry and replay suppression.
 - Expanded positions/signals with corrections.
 
-Use browser checks for core reading/watchlist/detail flows. Avoid tests that merely duplicate the implementation or require live APIs on every commit.
+Use desktop-browser checks for core website reading/watchlist/detail flows. Mobile-device matrices, native app builds and mobile-specific acceptance do not gate the website releases. Existing small-viewport checks can remain as incidental coverage. Avoid tests that merely duplicate the implementation or require live APIs on every commit.
 
 First-live gate:
 
@@ -402,8 +408,6 @@ Exact vendor behavior must be checked during the relevant qualification issue. T
 
 ## 17. Publication status
 
-The GitHub connection was verified as `nhattruong0204`. The available plugin can create files/issues in accessible repositories, but does not expose repository creation. No authenticated GitHub CLI or environment token was available.
+The owner created [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) as a public repository. The plan and all 28 issues are published, with actual dependency links and the mapping in [backlog/github-issues.json](backlog/github-issues.json). Issues #1–#3 are completed with linked acceptance evidence; remaining issues retain their implementation and source gates.
 
-All 28 issue bodies and the repository documents are prepared. **No repository or GitHub issues have been created by this package yet.** Once a private `wallet-observer` repository exists, publish the files, create the issues, replace stable-ID dependency references with actual issue links, record the mapping, and verify the resulting repository.
-
-This section must be updated after successful publication.
+Keep GitHub issue bodies, local Markdown, payload JSON and the index aligned when changing scope. Preserve issue states and completion evidence during planning-only updates. [PUBLISHING.md](PUBLISHING.md) describes the update procedure.

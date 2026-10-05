@@ -1,5 +1,7 @@
 # Wallet Observer — implementation plan
 
+> Historical planning snapshot, retained from the original package. The current [BUILD_PLAN.md](BUILD_PLAN.md) and [website-first decision](docs/decisions/0003-website-first.md) supersede this snapshot, including its mobile-width requirement and publication status. Use those current documents for implementation.
+
 Prepared for **nhattruong0204** on **2 October 2026**.
 
 **Status:** implementation specification and issue drafts. This package does not contain a completed application. GitHub publication is pending repository creation. Proposed repository: `nhattruong0204/wallet-observer`, private, default branch `main`.

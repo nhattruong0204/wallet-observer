@@ -8,6 +8,7 @@ Read BUILD_PLAN.md, backlog/INDEX.md, the current issue body, and any existing s
 
 - Implement one bounded issue at a time. Respect its dependencies and source qualification gates.
 - Preserve the explicit exclusions in BUILD_PLAN.md. Do not add execution, private-key handling, commercial features, or extra platforms.
+- Deliver the desktop-browser website first. Defer native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates until explicitly brought back into scope; see docs/decisions/0003-website-first.md.
 - Add the devcontainer before application implementation. Pin selected toolchains and lock dependencies.
 - Inspect existing files before modifying them. Keep unrelated work intact.
 - Prefer one API service, one worker and PostgreSQL. Add infrastructure only to resolve a measured limitation.
@@ -28,4 +29,3 @@ Monitoring is read-only. No trading wallet or signing keys are required. Runtime
 ## Branches and review
 
 Use a small implementation branch/PR per issue when GitHub is available. Reference the actual issue number after publication; WO identifiers are stable planning IDs. Do not invent checks, measurements, issue IDs, or deployment success.
-
