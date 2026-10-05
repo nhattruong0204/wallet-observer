@@ -6,6 +6,8 @@ import sys
 from datetime import UTC, datetime
 
 EVENTS = {
+    "migration_complete",
+    "migration_failed",
     "service_starting",
     "service_stopped",
     "database_ready",

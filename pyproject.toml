@@ -26,5 +26,5 @@ line-length = 100
 select = ["E", "F", "I", "B", "UP"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests/tooling", "backend/tests"]
+testpaths = ["tests/tooling", "backend/tests", "tests/integration"]
 addopts = "-ra"

@@ -1,6 +1,6 @@
 # Development environment
 
-The repository has a pinned devcontainer, FastAPI service, independent asynchronous worker, React frontend and PostgreSQL. Issue #3 adds the application foundation; migrations, collection and trade normalization remain later work. The default fixture mode needs no provider or Telegram credentials. See the [configuration contract](configuration.md).
+The repository has a pinned devcontainer, FastAPI service, independent asynchronous worker, React frontend and PostgreSQL. Issues #3–#4 provide the application and persistence foundations; collection and trade normalization remain later work. The default fixture mode needs no provider or Telegram credentials. See the [configuration contract](configuration.md).
 
 ## Pinned tools
 
@@ -75,7 +75,7 @@ The development Compose file binds the repository at `/workspaces/wallet-observe
 | `make doctor`                              | Check tool versions, non-root workspace write access, and an authenticated PostgreSQL `SELECT 1`                               |
 | `make lint`                                | Ruff checks/format checks, ESLint, and Prettier checks                                                                         |
 | `make format`                              | Apply Ruff and Prettier formatting to development files                                                                        |
-| `make test`                                | Run offline Python service/tooling tests and frontend state tests                                                              |
+| `make test`                                | Run offline Python/frontend tests; PostgreSQL checks run only with explicit TEST_DATABASE_URL                                  |
 | `make provider-check`                      | Report missing optional setting names; exit 2 when incomplete; make no live request                                            |
 | `make db-shell`                            | Connect with psql using container-local development credentials                                                                |
 | `make dev`                                 | Supervise API, worker and Vite; Ctrl-C stops their process groups                                                              |
@@ -83,7 +83,8 @@ The development Compose file binds the repository at `/workspaces/wallet-observe
 | `make config-check`                        | Validate startup settings with redacted errors; no network calls                                                               |
 | `make build`                               | Type-check and build React assets; build the backend wheel/sdist                                                               |
 | `make test-ui`                             | Run Chromium desktop/mobile checks against real local services; requires browser install below                                 |
-| `make migrate`                             | Exit 2; schema migrations belong to WO-004                                                                                     |
+| `make test-integration`                    | Run isolated PostgreSQL correctness/recovery checks; requires TEST_DATABASE_URL                                                |
+| `make migrate`                             | Apply checksummed PostgreSQL migrations atomically; safe to repeat                                                             |
 | `make fixtures`                            | Verify sanitized real Solana captures and reviewed balance evidence offline                                                    |
 | `make qualify-solana`                      | Explicit bounded live Helius qualification probe; consumes provider credits; see the source contract                           |
 
@@ -97,6 +98,7 @@ From the repository root inside the devcontainer:
 make bootstrap
 make doctor
 make config-check
+make migrate
 make dev
 ```
 
@@ -144,19 +146,24 @@ commit the project to mobile functionality. New mobile-specific flows, device
 matrices and app builds are deferred under the
 [website-first decision](decisions/0003-website-first.md).
 
+For schema, migration upgrades and the explicit PostgreSQL test command, see the
+[persistence contract](data-model.md).
+
 ## Directory map
 
-| Path                                                       | Responsibility                                             |
-| ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `backend/src/wallet_observer/settings.py`                  | Typed server-only configuration and safe errors            |
-| `backend/src/wallet_observer/api.py`                       | API liveness/readiness/status and built frontend serving   |
-| `backend/src/wallet_observer/worker.py`                    | Async worker lifecycle, dependency checks and local health |
-| `backend/src/wallet_observer/database.py`                  | Bounded authenticated PostgreSQL readiness probe           |
-| `backend/src/wallet_observer/logging.py`                   | Allowlisted JSON logs without raw URLs or exception text   |
-| `frontend/src/`                                            | Minimal React workspace with empty/offline/retry states    |
-| `scripts/run_dev.py`                                       | Local process supervision                                  |
-| `backend/tests/`, `frontend/src/App.test.tsx`, `tests/ui/` | Service/privacy, UI state and browser verification         |
-| `tests/fixtures/solana/`                                   | Reviewed source evidence; not runtime fake activity        |
+| Path                                                       | Responsibility                                                          |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `backend/migrations/`, `backend/src/wallet_observer/db/`   | Checksummed schema, transactional persistence, jobs and delivery cursor |
+| `tests/integration/test_persistence.py`                    | Isolated PostgreSQL correctness, concurrency and recovery checks        |
+| `backend/src/wallet_observer/settings.py`                  | Typed server-only configuration and safe errors                         |
+| `backend/src/wallet_observer/api.py`                       | API liveness/readiness/status and built frontend serving                |
+| `backend/src/wallet_observer/worker.py`                    | Async worker lifecycle, dependency checks and local health              |
+| `backend/src/wallet_observer/database.py`                  | Bounded authenticated PostgreSQL readiness probe                        |
+| `backend/src/wallet_observer/logging.py`                   | Allowlisted JSON logs without raw URLs or exception text                |
+| `frontend/src/`                                            | Minimal React workspace with empty/offline/retry states                 |
+| `scripts/run_dev.py`                                       | Local process supervision                                               |
+| `backend/tests/`, `frontend/src/App.test.tsx`, `tests/ui/` | Service/privacy, UI state and browser verification                      |
+| `tests/fixtures/solana/`                                   | Reviewed source evidence; not runtime fake activity                     |
 
 ## Local configuration
 

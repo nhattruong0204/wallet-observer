@@ -1,4 +1,4 @@
-"""Bounded authenticated readiness check; schema and persistence belong to WO-004."""
+"""Bounded authenticated readiness check; deliberate migrations live in db/migrations.py."""
 
 import asyncio
 

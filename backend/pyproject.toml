@@ -19,3 +19,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/wallet_observer"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"migrations" = "wallet_observer/db/migrations"

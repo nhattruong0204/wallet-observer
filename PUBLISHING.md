@@ -4,7 +4,7 @@ Repository: [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/w
 
 ## Current state
 
-The owner created the repository as **public**. The default branch is **main**, issues are enabled, and the planning package and all 28 backlog issues are published. Issues #1–#3 are complete; the API, worker and website foundation run locally in fixture mode. Live collection and the full monitoring product remain unimplemented.
+The owner created the repository as **public**. The default branch is **main**, issues are enabled, and the planning package and all 28 backlog issues are published. Issues #1–#4 are complete; the API, worker and website foundation run locally in fixture mode, with deliberate PostgreSQL migrations and persistence primitives. Live collection and the full monitoring product remain unimplemented.
 
 The original Windows package was moved into `/home/truong/market_observer`. The pre-existing `build_plan.md` was preserved alongside the imported `BUILD_PLAN.md`.
 
