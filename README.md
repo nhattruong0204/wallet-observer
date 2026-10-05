@@ -2,6 +2,8 @@
 
 Personal, read-only Solana wallet monitoring with a path to source-backed FOMO research.
 
+**Website first:** the current target is a desktop-browser website. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior can remain. See the [scope decision](docs/decisions/0003-website-first.md).
+
 **Current status: API, worker and frontend foundations run locally in fixture mode. Live collection, persistence and trade normalization are not implemented yet.**
 
 ## Start here

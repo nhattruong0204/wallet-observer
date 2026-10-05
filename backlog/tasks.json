@@ -28,15 +28,14 @@
       "compose.dev.yml",
       ".env.example",
       "docs/development.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-002",
     "title": "Qualify the Solana data source and capture representative fixtures",
     "phase": "First live",
-    "dependencies": [
-      "WO-001"
-    ],
+    "dependencies": ["WO-001"],
     "why": "First-live estimates depend on a feed that actually covers the watched wallets, supported swap routes, and reconnect recovery. Writing the UI before proving this can leave a convincing but unusable application.",
     "what": [
       "Evaluate one primary Solana provider and its decoded stream plus historical lookup capabilities.",
@@ -59,15 +58,14 @@
       "docs/data-source-contract.md",
       "docs/decisions/0001-solana-source.md",
       "tests/fixtures/solana/"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-003",
     "title": "Bootstrap the API, worker, frontend, and configuration contract",
     "phase": "First live",
-    "dependencies": [
-      "WO-001"
-    ],
+    "dependencies": ["WO-001"],
     "why": "One codebase with explicit service boundaries keeps a personal deployment manageable while allowing collection to run independently of browser requests.",
     "what": [
       "Create a Python backend package with API and worker entrypoints, plus a React/TypeScript frontend.",
@@ -92,16 +90,14 @@
       "frontend/package.json",
       "frontend/src/",
       "docs/development.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-004",
     "title": "Implement PostgreSQL migrations, canonical identities, and durable jobs",
     "phase": "First live",
-    "dependencies": [
-      "WO-002",
-      "WO-003"
-    ],
+    "dependencies": ["WO-002", "WO-003"],
     "why": "Stable identities and transactional persistence prevent duplicated trades, mismatched tokens, and lost work when the collector or API restarts.",
     "what": [
       "Create the initial relational schema and migrations for watches, identities, source records, events, executions, quotes, checkpoints, jobs, and notifications.",
@@ -127,15 +123,14 @@
       "backend/src/wallet_observer/db/",
       "docs/data-model.md",
       "tests/integration/test_persistence.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-005",
     "title": "Implement personal watchlists, aliases, groups, and bulk import",
     "phase": "First live",
-    "dependencies": [
-      "WO-004"
-    ],
+    "dependencies": ["WO-004"],
     "why": "The collector needs one unambiguous watch scope, and you need to adjust it without editing source code or creating a product account.",
     "what": [
       "Provide add/list/edit/pause/remove operations for wallet watches, notes, aliases, and groups.",
@@ -158,17 +153,14 @@
       "backend/src/wallet_observer/watches/",
       "tests/integration/test_watches.py",
       "docs/watchlist-format.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-006",
     "title": "Build the provider adapter and live collection worker",
     "phase": "First live",
-    "dependencies": [
-      "WO-002",
-      "WO-004",
-      "WO-005"
-    ],
+    "dependencies": ["WO-002", "WO-004", "WO-005"],
     "why": "Always-on ingestion is the source of the live feed. The browser must not be responsible for keeping collection running.",
     "what": [
       "Implement the qualified outbound stream adapter and persist raw source events.",
@@ -193,16 +185,14 @@
       "backend/src/wallet_observer/providers/",
       "backend/src/wallet_observer/worker/",
       "tests/integration/test_collector.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-007",
     "title": "Normalize swaps and reconcile transaction confirmation",
     "phase": "First live",
-    "dependencies": [
-      "WO-004",
-      "WO-006"
-    ],
+    "dependencies": ["WO-004", "WO-006"],
     "why": "A decoded instruction or incoming transfer does not necessarily mean the watched wallet bought a token. Incorrect attribution would contaminate every downstream view and alert.",
     "what": [
       "Convert supported source records into canonical economic executions and explicit unknown/unsupported events.",
@@ -226,17 +216,14 @@
       "backend/src/wallet_observer/trades/",
       "tests/unit/test_trade_normalization.py",
       "tests/integration/test_reconciliation.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-008",
     "title": "Implement durable recovery, bounded backfill, and gap reporting",
     "phase": "First live",
-    "dependencies": [
-      "WO-004",
-      "WO-006",
-      "WO-007"
-    ],
+    "dependencies": ["WO-004", "WO-006", "WO-007"],
     "why": "A tracker that loses activity whenever the VPS or provider disconnects cannot support dependable histories or signals.",
     "what": [
       "Recover missed source activity using persisted checkpoints and the qualified history endpoint.",
@@ -261,17 +248,14 @@
       "backend/src/wallet_observer/recovery/",
       "tests/integration/test_recovery.py",
       "docs/recovery.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-009",
     "title": "Add token metadata, quote caching, and market-data provenance",
     "phase": "First live",
-    "dependencies": [
-      "WO-002",
-      "WO-004",
-      "WO-007"
-    ],
+    "dependencies": ["WO-002", "WO-004", "WO-007"],
     "why": "Useful trade cards need decimals, names, and available market context, but stale or missing prices must not become fabricated execution values.",
     "what": [
       "Resolve token metadata and cache current quotes for tokens in the watch scope.",
@@ -295,18 +279,14 @@
       "backend/src/wallet_observer/market/",
       "tests/unit/test_quotes.py",
       "docs/market-data.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-010",
     "title": "Build feed, history, wallet/token queries, and search APIs",
     "phase": "First live",
-    "dependencies": [
-      "WO-004",
-      "WO-005",
-      "WO-007",
-      "WO-009"
-    ],
+    "dependencies": ["WO-004", "WO-005", "WO-007", "WO-009"],
     "why": "One consistent read contract keeps feed, detail pages, and future analytics aligned and prevents duplicated business rules in the frontend.",
     "what": [
       "Expose read APIs for event history, wallets, tokens, source health, and exact/alias search.",
@@ -330,17 +310,14 @@
       "backend/src/wallet_observer/api/",
       "docs/api-contract.md",
       "tests/integration/test_read_api.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-011",
     "title": "Implement live updates with a committed replay cursor",
     "phase": "First live",
-    "dependencies": [
-      "WO-004",
-      "WO-008",
-      "WO-010"
-    ],
+    "dependencies": ["WO-004", "WO-008", "WO-010"],
     "why": "Network changes and browser suspension must not create missing cards, duplicate rows, or stale event states.",
     "what": [
       "Add WebSocket delivery of new events, revisions, source status, and reconnect catch-up.",
@@ -365,34 +342,31 @@
       "frontend/src/lib/live.ts",
       "tests/integration/test_live_replay.py",
       "docs/live-protocol.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-012",
-    "title": "Build the responsive live feed and watchlist interface",
+    "title": "Build the desktop website live feed and watchlist interface",
     "phase": "First live",
-    "dependencies": [
-      "WO-005",
-      "WO-010",
-      "WO-011"
-    ],
+    "dependencies": ["WO-005", "WO-010", "WO-011"],
     "why": "The first release should let you follow activity in one place without the complexity of Wind's commercial workspace.",
     "what": [
-      "Build fixed Feed, Watchlist, and Settings navigation with responsive trade cards.",
+      "Build desktop website Feed, Watchlist, and Settings navigation with readable trade cards.",
       "Add watch editing, filters, connection/coverage states, and stable reading behavior."
     ],
     "how": [
       "Use reusable typed components and a small state layer. Render the API's data rather than recomputing trade semantics in the browser.",
       "Implement a virtualized or otherwise bounded feed, cursor loading, a new-event counter, and jump-to-latest while preserving the user's scroll position.",
       "Support copy wallet/token address, explorer links, group/direction/amount filters, and visible unknown/stale fields.",
-      "Provide accessible controls, keyboard focus, mobile-width layouts, and explicit loading, empty, partial, offline, and error states.",
+      "Provide accessible desktop-browser controls, keyboard focus, and explicit loading, empty, partial, offline, and error states. Defer mobile-specific layouts and touch interactions.",
       "Use original styling and assets. No audio, account login, Pro upsell, or drag/resize workspace is required."
     ],
     "done": [
       "A real subscribed event appears, updates in place, and remains in history after reload.",
       "Adding/pausing a wallet changes the backend watch state and shows the result.",
       "New events do not repeatedly pull the reader away from older cards.",
-      "Core flows work at desktop and approximately 390px mobile width.",
+      "Core website flows work at desktop browser widths with mouse and keyboard; mobile-width acceptance is deferred.",
       "No source keys or Telegram token appear in the browser bundle or network responses."
     ],
     "files": [
@@ -400,20 +374,17 @@
       "frontend/src/components/",
       "frontend/src/lib/",
       "tests/e2e/feed.spec.ts"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-013",
     "title": "Add wallet and token drill-down views",
     "phase": "First live",
-    "dependencies": [
-      "WO-009",
-      "WO-010",
-      "WO-012"
-    ],
+    "dependencies": ["WO-009", "WO-010", "WO-012"],
     "why": "An alert becomes useful when you can immediately see the observed wallet/token history and the limits of the available evidence.",
     "what": [
-      "Build wallet detail and token detail using the shared read contracts.",
+      "Build desktop website wallet detail and token detail using the shared read contracts.",
       "Show filtered trade history, available quote fields, exact identities, and source links."
     ],
     "how": [
@@ -427,23 +398,20 @@
       "Wallet-token queries agree with the same filtered events in the feed.",
       "Incomplete history is labelled and no complete P&L or platform-wide holdings claim appears.",
       "Empty and unavailable token data produce useful states.",
-      "A link can be refreshed or opened directly without losing its identity."
+      "A website URL can be refreshed or opened directly in a desktop browser without losing its identity."
     ],
     "files": [
       "frontend/src/pages/WalletDetail.tsx",
       "frontend/src/pages/TokenDetail.tsx",
       "tests/e2e/details.spec.ts"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-014",
     "title": "Deliver alerts to one Telegram chat with durable retries",
     "phase": "First live",
-    "dependencies": [
-      "WO-004",
-      "WO-007",
-      "WO-009"
-    ],
+    "dependencies": ["WO-004", "WO-007", "WO-009"],
     "why": "One outbound channel lets you use the tracker without keeping its dashboard open. Reliability requires more than a direct send inside the collector.",
     "what": [
       "Implement one server-configured bot token and destination chat.",
@@ -468,16 +436,14 @@
       "backend/src/wallet_observer/notifications/",
       "tests/integration/test_telegram_outbox.py",
       "docs/telegram.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-015",
     "title": "Add CI and meaningful fixture-based regression gates",
     "phase": "First live",
-    "dependencies": [
-      "WO-003",
-      "WO-004"
-    ],
+    "dependencies": ["WO-003", "WO-004"],
     "why": "Fast AI-assisted iteration needs executable checks for data correctness and recovery, without making every CI run dependent on paid providers.",
     "what": [
       "Set up GitHub Actions for Python/TypeScript checks, builds, migrations, and targeted integration tests.",
@@ -494,7 +460,7 @@
       "A clean CI run passes without private keys, provider accounts, or Telegram access.",
       "A deliberate supported-trade regression and a duplicate/replay regression fail the appropriate tests.",
       "Database migrations are exercised on disposable PostgreSQL.",
-      "Frontend builds and representative browser flows are checked.",
+      "Frontend builds and representative desktop-browser website flows are checked; mobile-device coverage and app builds are not release gates.",
       "Workflow permissions are minimal and failed checks are not hidden by unconditional success."
     ],
     "files": [
@@ -502,18 +468,14 @@
       ".github/PULL_REQUEST_TEMPLATE.md",
       "tests/",
       "docs/testing.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-016",
     "title": "Expose source health, usage budgets, and retention controls",
     "phase": "First live",
-    "dependencies": [
-      "WO-006",
-      "WO-008",
-      "WO-009",
-      "WO-014"
-    ],
+    "dependencies": ["WO-006", "WO-008", "WO-009", "WO-014"],
     "why": "A low-cost personal system must show when its data is stale or its provider/storage usage is growing unexpectedly.",
     "what": [
       "Add health/status APIs and a compact dashboard status view.",
@@ -538,24 +500,18 @@
       "frontend/src/pages/Settings.tsx",
       "docs/operations.md",
       "docs/costs.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-017",
     "title": "Prepare private VPS deployment, backups, and rollback",
     "phase": "First live",
-    "dependencies": [
-      "WO-003",
-      "WO-004",
-      "WO-012",
-      "WO-014",
-      "WO-015",
-      "WO-016"
-    ],
+    "dependencies": ["WO-003", "WO-004", "WO-012", "WO-014", "WO-015", "WO-016"],
     "why": "The first live release needs an always-on deployment that can restart and recover without exposing a personal control panel.",
     "what": [
       "Create a small production Compose deployment for API/frontend, worker, and PostgreSQL.",
-      "Document private access, secret provisioning, restart behavior, backup/restore, and version rollback."
+      "Document private website access from a desktop browser, secret provisioning, restart behavior, backup/restore, and version rollback."
     ],
     "how": [
       "Use reproducible container builds and explicit image/version tags. Build frontend assets in a build stage and serve them through the application or a small proxy.",
@@ -580,11 +536,12 @@
       "scripts/restore.sh",
       "docs/deployment.md",
       "docs/runbook.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-018",
-    "title": "Validate real traffic and release the first personal beta",
+    "title": "Validate real traffic and release the first website beta",
     "phase": "First live",
     "dependencies": [
       "WO-002",
@@ -604,39 +561,31 @@
     "why": "The first-live milestone should be based on observed operation and correctness, not only a successful build or a screenshot.",
     "what": [
       "Run the deployed tool with 10–25 selected wallets and publish a concise acceptance report.",
-      "Release a tagged first beta after the launch gate passes; keep unsupported features visibly disabled."
+      "Release a tagged first website beta after the desktop-browser launch gate passes; keep unsupported features visibly disabled."
     ],
     "how": [
       "Observe at least 24 hours of operation, extending the interval if insufficient representative activity occurs. Record event counts, source coverage, errors, lag, and provider usage.",
       "Verify a sample of supported buys/sells against source transactions. Use recorded fixtures for edge cases not observed during the trial.",
       "Exercise source disconnect, worker restart, browser reconnect, provider throttling, quote outage, duplicate delivery, and backup restore.",
       "Confirm private access and inspect frontend artifacts/logs for accidental credentials. Review notification volume with the user.",
-      "Document limitations and remaining defects; do not mark partial-history positions, FOMO metadata, or unsupported routes complete."
+      "Document limitations and remaining defects; do not mark partial-history positions, FOMO metadata, or unsupported routes complete. Record mobile apps and mobile-specific acceptance as deferred; they do not block the website release."
     ],
     "done": [
       "All first-live dependencies are complete and CI passes.",
-      "Feed, history, watch management, details, and Telegram work with real data.",
+      "Website feed, history, watch management and details work with real data in a desktop browser, and server-side Telegram alerts work.",
       "Critical duplicate, missing-event recovery, and transfer-as-buy defects are resolved.",
       "A written acceptance report distinguishes measured results from assumptions.",
       "The repository contains a release tag and a runnable operator guide.",
       "The user can stop/start the host and understand resulting recovery/coverage behavior."
     ],
-    "files": [
-      "docs/acceptance/first-live.md",
-      "docs/runbook.md",
-      "CHANGELOG.md"
-    ]
+    "files": ["docs/acceptance/first-live.md", "docs/runbook.md", "CHANGELOG.md"],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-019",
     "title": "Add observed positions and first/add/re-entry/exit semantics",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-007",
-      "WO-008",
-      "WO-013",
-      "WO-018"
-    ],
+    "dependencies": ["WO-007", "WO-008", "WO-013", "WO-018"],
     "why": "Position context makes wallet activity easier to understand, but incomplete history must not produce false first-buy, exit, or P&L claims.",
     "what": [
       "Build a per-wallet/token observed quantity ledger with explicit opening-balance provenance and coverage.",
@@ -661,19 +610,14 @@
       "backend/src/wallet_observer/positions/",
       "tests/unit/test_positions.py",
       "docs/position-semantics.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-020",
     "title": "Implement personal multi-wallet consensus signals",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-007",
-      "WO-008",
-      "WO-014",
-      "WO-016",
-      "WO-018"
-    ],
+    "dependencies": ["WO-007", "WO-008", "WO-014", "WO-016", "WO-018"],
     "why": "Aggregating eligible trades can reduce alert noise and show several watched wallets acting on the same token.",
     "what": [
       "Add one versioned configurable signal engine over the personal watch scope.",
@@ -699,18 +643,14 @@
       "tests/unit/test_signals.py",
       "frontend/src/components/SignalCard.tsx",
       "docs/signal-rules.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-021",
     "title": "Build local rankings, mover history, and research summaries",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-009",
-      "WO-010",
-      "WO-018",
-      "WO-020"
-    ],
+    "dependencies": ["WO-009", "WO-010", "WO-018", "WO-020"],
     "why": "Stored trade history can show concentration of activity without paying for a separate global ranking product.",
     "what": [
       "Add local token heat, unique-buyer/seller boards, directional volumes, net flow, and mover history.",
@@ -720,7 +660,7 @@
       "Write metric definitions with event eligibility, USD-price coverage, window boundaries, and distinct-wallet/person semantics.",
       "Start with indexed SQL and bounded materialized rollups only if measurement requires them; no separate analytics database.",
       "Keep any heat formula transparent and versioned. Do not present a proposed formula as Wind's unpublished score.",
-      "Allow drill-down from each score or mover to its source executions and participant list.",
+      "Allow desktop website drill-down from each score or mover to its source executions and participant list.",
       "For incomplete windows, show partial coverage. Add FOMO-thesis counts only after the thesis adapter exists."
     ],
     "done": [
@@ -735,22 +675,18 @@
       "frontend/src/pages/Research.tsx",
       "docs/metrics.md",
       "tests/integration/test_rollups.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-022",
     "title": "Add personal settings, saved views, and configuration portability",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-005",
-      "WO-012",
-      "WO-016",
-      "WO-018"
-    ],
+    "dependencies": ["WO-005", "WO-012", "WO-016", "WO-018"],
     "why": "Personal convenience should not require the account, subscription, and multi-device synchronization systems removed from scope.",
     "what": [
       "Provide single-user filter and threshold settings, saved views, pins/ignore with undo, and configuration export/import.",
-      "Support useful display preferences without reproducing the commercial workspace."
+      "Support useful desktop website display preferences without reproducing the commercial workspace or adding mobile-device settings."
     ],
     "how": [
       "Version the configuration schema and separate server settings from browser-local presentation choices.",
@@ -772,16 +708,14 @@
       "frontend/src/pages/Settings.tsx",
       "docs/configuration.md",
       "tests/integration/test_config_import.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-023",
     "title": "Qualify FOMO identity, thesis, clan, and order data access",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-002",
-      "WO-018"
-    ],
+    "dependencies": ["WO-002", "WO-018"],
     "why": "FOMO-specific behavior cannot be reconstructed solely from blockchain transactions. This gate prevents fake identity mappings or nonfunctional feature promises.",
     "what": [
       "Identify a documented/authorized acquisition path for each needed FOMO capability.",
@@ -805,18 +739,14 @@
       "docs/fomo-capabilities.md",
       "docs/decisions/0002-fomo-access.md",
       "tests/fixtures/fomo/"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-024",
     "title": "Integrate verified FOMO identities and token theses",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-005",
-      "WO-010",
-      "WO-013",
-      "WO-023"
-    ],
+    "dependencies": ["WO-005", "WO-010", "WO-013", "WO-023"],
     "why": "FOMO account and thesis context is valuable only when source identities and token references remain attributable and up to date.",
     "what": [
       "Implement the verified identity and thesis capabilities from the source qualification gate.",
@@ -842,18 +772,14 @@
       "backend/src/wallet_observer/theses/",
       "frontend/src/components/ThesisCard.tsx",
       "tests/integration/test_fomo_identity.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-025",
     "title": "Reconcile FOMO order attempts with on-chain executions",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-007",
-      "WO-008",
-      "WO-023",
-      "WO-024"
-    ],
+    "dependencies": ["WO-007", "WO-008", "WO-023", "WO-024"],
     "why": "Preview, pending, refund, failure, and revocation describe source order state; they are not interchangeable with blockchain confirmation.",
     "what": [
       "Implement a source-evidenced order lifecycle only for capabilities proved in WO-023.",
@@ -877,17 +803,14 @@
       "backend/src/wallet_observer/orders/",
       "tests/integration/test_fomo_orders.py",
       "docs/order-state-machine.md"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-026",
     "title": "Implement clan membership snapshots and resonance",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-020",
-      "WO-023",
-      "WO-024"
-    ],
+    "dependencies": ["WO-020", "WO-023", "WO-024"],
     "why": "Clan participation is meaningful only with a known membership denominator and historical membership context.",
     "what": [
       "Persist source-backed clan membership snapshots and calculate versioned participation signals.",
@@ -911,19 +834,14 @@
       "backend/src/wallet_observer/clans/",
       "tests/unit/test_clan_signals.py",
       "frontend/src/components/ClanSignalCard.tsx"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-027",
     "title": "Extend to selected additional chains through qualified adapters",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-002",
-      "WO-007",
-      "WO-008",
-      "WO-009",
-      "WO-018"
-    ],
+    "dependencies": ["WO-002", "WO-007", "WO-008", "WO-009", "WO-018"],
     "why": "Multi-chain support should reuse the product model while acknowledging that receipts, routes, confirmation, and provider coverage differ by network.",
     "what": [
       "Select the next genuinely needed network and document a per-chain capability/cost decision.",
@@ -949,23 +867,17 @@
       "docs/chains/",
       "tests/fixtures/chains/",
       "tests/integration/test_multichain.py"
-    ]
+    ],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   },
   {
     "id": "WO-028",
-    "title": "Verify the expanded personal release and complete the operator guide",
+    "title": "Verify the expanded website release and complete the operator guide",
     "phase": "Personal expansion",
-    "dependencies": [
-      "WO-018",
-      "WO-019",
-      "WO-020",
-      "WO-021",
-      "WO-022",
-      "WO-023"
-    ],
+    "dependencies": ["WO-018", "WO-019", "WO-020", "WO-021", "WO-022", "WO-023"],
     "why": "The expanded release should have an honest feature/capability report and remain maintainable by one person.",
     "what": [
-      "Run a final acceptance pass over all enabled personal features and publish a release/runbook update.",
+      "Run a final desktop-browser website acceptance pass over all enabled personal features and publish a release/runbook update.",
       "Resolve or explicitly defer source-blocked capabilities without pretending they shipped."
     ],
     "how": [
@@ -976,7 +888,7 @@
       "Tag the release and link all completed issues and known limitations. No arbitrary algorithm is called an exact Wind reproduction."
     ],
     "done": [
-      "All enabled features have source-backed behavior and recorded validation evidence.",
+      "All enabled website features have source-backed behavior and recorded desktop-browser or backend validation evidence; deferred mobile work is not a release gate.",
       "Each unavailable FOMO/chain capability has an explicit documented decision; blocked issues are not marked implemented.",
       "Recovery and restore are tested with the enabled feature set.",
       "README and runbook commands match the actual application.",
@@ -990,11 +902,7 @@
       "README.md",
       "CHANGELOG.md"
     ],
-    "conditionalDependencies": [
-      "WO-024",
-      "WO-025",
-      "WO-026",
-      "WO-027"
-    ]
+    "conditionalDependencies": ["WO-024", "WO-025", "WO-026", "WO-027"],
+    "delivery_scope": "**Website first (2026-10-05):** Deliver the desktop-browser website and its supporting services. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior may remain. See the [scope decision](https://github.com/nhattruong0204/wallet-observer/blob/main/docs/decisions/0003-website-first.md)."
   }
 ]

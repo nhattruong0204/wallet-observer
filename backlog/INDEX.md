@@ -17,13 +17,13 @@ Read the [build plan](../BUILD_PLAN.md) and follow dependencies. WO IDs are stab
 | [WO-009](https://github.com/nhattruong0204/wallet-observer/issues/9) | Add token metadata, quote caching, and market-data provenance | First live | WO-002, WO-004, WO-007 |
 | [WO-010](https://github.com/nhattruong0204/wallet-observer/issues/10) | Build feed, history, wallet/token queries, and search APIs | First live | WO-004, WO-005, WO-007, WO-009 |
 | [WO-011](https://github.com/nhattruong0204/wallet-observer/issues/11) | Implement live updates with a committed replay cursor | First live | WO-004, WO-008, WO-010 |
-| [WO-012](https://github.com/nhattruong0204/wallet-observer/issues/12) | Build the responsive live feed and watchlist interface | First live | WO-005, WO-010, WO-011 |
+| [WO-012](https://github.com/nhattruong0204/wallet-observer/issues/12) | Build the desktop website live feed and watchlist interface | First live | WO-005, WO-010, WO-011 |
 | [WO-013](https://github.com/nhattruong0204/wallet-observer/issues/13) | Add wallet and token drill-down views | First live | WO-009, WO-010, WO-012 |
 | [WO-014](https://github.com/nhattruong0204/wallet-observer/issues/14) | Deliver alerts to one Telegram chat with durable retries | First live | WO-004, WO-007, WO-009 |
 | [WO-015](https://github.com/nhattruong0204/wallet-observer/issues/15) | Add CI and meaningful fixture-based regression gates | First live | WO-003, WO-004 |
 | [WO-016](https://github.com/nhattruong0204/wallet-observer/issues/16) | Expose source health, usage budgets, and retention controls | First live | WO-006, WO-008, WO-009, WO-014 |
 | [WO-017](https://github.com/nhattruong0204/wallet-observer/issues/17) | Prepare private VPS deployment, backups, and rollback | First live | WO-003, WO-004, WO-012, WO-014, WO-015, WO-016 |
-| [WO-018](https://github.com/nhattruong0204/wallet-observer/issues/18) | Validate real traffic and release the first personal beta | First live | WO-002, WO-005, WO-007, WO-008, WO-009, WO-010, WO-011, WO-012, WO-013, WO-014, WO-015, WO-016, WO-017 |
+| [WO-018](https://github.com/nhattruong0204/wallet-observer/issues/18) | Validate real traffic and release the first website beta | First live | WO-002, WO-005, WO-007, WO-008, WO-009, WO-010, WO-011, WO-012, WO-013, WO-014, WO-015, WO-016, WO-017 |
 | [WO-019](https://github.com/nhattruong0204/wallet-observer/issues/19) | Add observed positions and first/add/re-entry/exit semantics | Personal expansion | WO-007, WO-008, WO-013, WO-018 |
 | [WO-020](https://github.com/nhattruong0204/wallet-observer/issues/20) | Implement personal multi-wallet consensus signals | Personal expansion | WO-007, WO-008, WO-014, WO-016, WO-018 |
 | [WO-021](https://github.com/nhattruong0204/wallet-observer/issues/21) | Build local rankings, mover history, and research summaries | Personal expansion | WO-009, WO-010, WO-018, WO-020 |
@@ -33,7 +33,11 @@ Read the [build plan](../BUILD_PLAN.md) and follow dependencies. WO IDs are stab
 | [WO-025](https://github.com/nhattruong0204/wallet-observer/issues/25) | Reconcile FOMO order attempts with on-chain executions | Personal expansion | WO-007, WO-008, WO-023, WO-024 |
 | [WO-026](https://github.com/nhattruong0204/wallet-observer/issues/26) | Implement clan membership snapshots and resonance | Personal expansion | WO-020, WO-023, WO-024 |
 | [WO-027](https://github.com/nhattruong0204/wallet-observer/issues/27) | Extend to selected additional chains through qualified adapters | Personal expansion | WO-002, WO-007, WO-008, WO-009, WO-018 |
-| [WO-028](https://github.com/nhattruong0204/wallet-observer/issues/28) | Verify the expanded personal release and complete the operator guide | Personal expansion | WO-018, WO-019, WO-020, WO-021, WO-022, WO-023; conditional: WO-024, WO-025, WO-026, WO-027 |
+| [WO-028](https://github.com/nhattruong0204/wallet-observer/issues/28) | Verify the expanded website release and complete the operator guide | Personal expansion | WO-018, WO-019, WO-020, WO-021, WO-022, WO-023; conditional: WO-024, WO-025, WO-026, WO-027 |
+
+## Website-first scope
+
+Desktop-browser website delivery is the current target for all 28 issues. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred until an explicit future scope decision. Existing responsive behavior can remain; it does not create a mobile deliverable. Telegram alerts and the existing data/recovery gates remain in scope. See [decision 0003](../docs/decisions/0003-website-first.md).
 
 ## First-live boundary
 

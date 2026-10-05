@@ -138,6 +138,12 @@ PostgreSQL. The first browser installation downloads Chromium and OS libraries;
 ordinary `make test` does not require a browser or a running database. Screenshots
 and browser results are ignored under `test-results/`.
 
+The current delivery target is the desktop-browser website. The existing
+small-viewport browser check is retained as incidental coverage; it does not
+commit the project to mobile functionality. New mobile-specific flows, device
+matrices and app builds are deferred under the
+[website-first decision](decisions/0003-website-first.md).
+
 ## Directory map
 
 | Path                                                       | Responsibility                                             |
