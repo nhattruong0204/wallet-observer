@@ -4,7 +4,7 @@ Personal, read-only Solana wallet monitoring with a path to source-backed FOMO r
 
 **Website first:** the current target is a desktop-browser website. Native mobile apps, installable PWA features, device push, mobile-specific UX and mobile acceptance gates are deferred. Existing responsive behavior can remain. See the [scope decision](docs/decisions/0003-website-first.md).
 
-**Current status: API, worker and frontend foundations run locally in fixture mode. Live collection, persistence and trade normalization are not implemented yet.**
+**Current status: API, worker and frontend foundations run locally in fixture mode. PostgreSQL migrations and persistence primitives are implemented. Live collection and trade normalization remain future work.**
 
 ## Start here
 
@@ -14,10 +14,11 @@ Development setup: [docs/development.md](docs/development.md). Open the devconta
 make bootstrap
 make doctor
 make config-check
+make migrate
 make dev
 ```
 
-Open <http://localhost:5173>. The default fixture mode uses local PostgreSQL and requires no provider or Telegram credentials. Ctrl-C stops API, worker and frontend together. Run `make lint test fixtures` for offline checks, or `make build` followed by `make api` to serve built assets at <http://localhost:8000>. See the [configuration contract](docs/configuration.md) for health and feature-flag behavior.
+Open <http://localhost:5173>. The default fixture mode uses local PostgreSQL and requires no provider or Telegram credentials. Ctrl-C stops API, worker and frontend together. Run `make lint test fixtures` for offline checks, or `make build` followed by `make api` to serve built assets at <http://localhost:8000>. See the [persistence and migration contract](docs/data-model.md) and [configuration contract](docs/configuration.md) for health and feature-flag behavior.
 
 1. Read [BUILD_PLAN.md](BUILD_PLAN.md).
 2. Follow the dependency order in [backlog/INDEX.md](backlog/INDEX.md).

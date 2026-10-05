@@ -2,7 +2,7 @@
 
 Prepared for **nhattruong0204** on **2 October 2026**.
 
-**Status (5 October 2026):** all 28 issues are published in the public repository `nhattruong0204/wallet-observer`, default branch `main`. Issues #1–#3 are complete: the development environment, bounded source qualification, and API/worker/website foundation. Live collection and the full monitoring product remain unimplemented. This plan targets website delivery first.
+**Status (5 October 2026):** all 28 issues are published in the public repository `nhattruong0204/wallet-observer`, default branch `main`. Issues #1–#4 are complete: the development environment, bounded source qualification, API/worker/website foundation, and PostgreSQL persistence primitives. Live collection and the full monitoring product remain unimplemented. This plan targets website delivery first.
 
 ## 1. Outcome and scope
 
@@ -408,6 +408,6 @@ Exact vendor behavior must be checked during the relevant qualification issue. T
 
 ## 17. Publication status
 
-The owner created [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) as a public repository. The plan and all 28 issues are published, with actual dependency links and the mapping in [backlog/github-issues.json](backlog/github-issues.json). Issues #1–#3 are completed with linked acceptance evidence; remaining issues retain their implementation and source gates.
+The owner created [nhattruong0204/wallet-observer](https://github.com/nhattruong0204/wallet-observer) as a public repository. The plan and all 28 issues are published, with actual dependency links and the mapping in [backlog/github-issues.json](backlog/github-issues.json). Issues #1–#4 are completed with linked acceptance evidence; remaining issues retain their implementation and source gates.
 
 Keep GitHub issue bodies, local Markdown, payload JSON and the index aligned when changing scope. Preserve issue states and completion evidence during planning-only updates. [PUBLISHING.md](PUBLISHING.md) describes the update procedure.

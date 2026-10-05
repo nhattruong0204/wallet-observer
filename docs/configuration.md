@@ -33,7 +33,7 @@ watchlists remain outside the application status response and browser bundle.
 One API, one independent worker process, and PostgreSQL remain the architecture.
 Vite is an additional development server; the API can serve its built static
 assets after `make build`. Worker HTTP endpoints are only a local health surface,
-not a separate business API. No Redis, broker or persistence schema is introduced.
+not a separate business API. PostgreSQL schema and transaction primitives are provided by issue #4; see the [persistence contract](data-model.md). No Redis or broker is required.
 
 | Endpoint            | API (`8000`)                                                          | Worker (`8001`, container loopback only)                                  |
 | ------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ Database recovery restores readiness without a process restart.
 
 The API does not claim the worker is healthy; its readiness covers its own database
 dependency. This worker runs a lifecycle/dependency loop only. Durable jobs,
-ingestion, checkpoints and migrations belong to subsequent issues. SIGTERM/SIGINT
+ingestion and worker scheduling belong to subsequent issues. Checkpoint primitives and deliberate migrations are available through the persistence layer. SIGTERM/SIGINT
 stop the server and let the worker finish its bounded check and exit.
 
 The status response contains only:
