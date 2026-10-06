@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Literal
 
 from fastapi import FastAPI
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -12,6 +13,8 @@ from pydantic import BaseModel
 from wallet_observer.database import check_database
 from wallet_observer.logging import event
 from wallet_observer.settings import Settings
+from wallet_observer.watches.models import validation_details
+from wallet_observer.watches.router import watch_router
 
 
 class ApplicationStatus(BaseModel):
@@ -31,6 +34,31 @@ def create_app(settings: Settings, database_check=check_database, frontend_dir=N
     app = FastAPI(
         title="Wallet Observer", version="0.1.0", lifespan=lifespan, docs_url=None, redoc_url=None
     )
+
+    @app.middleware("http")
+    async def private_watchlist(request, call_next):
+        private = request.url.path.startswith(("/api/watches", "/api/groups"))
+        if (
+            private
+            and request.method in {"POST", "PATCH"}
+            and (
+                request.headers.get("content-type", "").split(";")[0].lower() != "application/json"
+            )
+        ):
+            response = JSONResponse({"detail": "application_json_required"}, status_code=415)
+        else:
+            response = await call_next(request)
+        if private:
+            response.headers["Cache-Control"] = "no-store"
+        return response
+
+    @app.exception_handler(RequestValidationError)
+    async def invalid_request(request, error):
+        return JSONResponse(
+            {"detail": "invalid_request", "errors": validation_details(error)}, status_code=422
+        )
+
+    app.include_router(watch_router(settings))
 
     @app.get("/health/live")
     async def live():

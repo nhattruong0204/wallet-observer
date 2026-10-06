@@ -6,6 +6,10 @@ Personal, read-only Solana wallet monitoring with a path to source-backed FOMO r
 
 **Current status: API, worker and frontend foundations run locally in fixture mode. PostgreSQL migrations and persistence primitives are implemented. Live collection and trade normalization remain future work.**
 
+The [personal watchlist API](docs/watchlist-format.md) supports manual wallets,
+aliases, notes, groups, pause/removal and atomic import/export. Collection intent
+is saved locally; the collector and watchlist website UI remain later issues.
+
 ## Start here
 
 Development setup: [docs/development.md](docs/development.md). Open the devcontainer, then run from the repository root:
