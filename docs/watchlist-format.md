@@ -130,6 +130,11 @@ is embedded in source, tests, Docker images or acceptance logs. Tests exercise a
 25-row batch of clearly identified synthetic address encodings; those are not an
 approved operational watchlist and are never sent to a provider.
 
+On 2026-10-09 the owner explicitly deferred selecting/importing this list so the
+API issue can finish. The existing first-live trial in
+[#18](https://github.com/nhattruong0204/wallet-observer/issues/18) still requires
+10–25 selected wallets; use this procedure before that trial.
+
 Keep the real versioned file under ignored `local-data/watchlist.json`, directory
 mode 0700 and file mode 0600. In the devcontainer, with `make migrate` and `make api`
 (or `make dev`) running, validate its count without printing addresses:
@@ -180,4 +185,4 @@ TEST_DATABASE_URL=postgresql://observer:observer-dev-only@db/wallet_observer \
 The integration target uses disposable per-test schemas. Default `make test`
 skips database tests if TEST_DATABASE_URL is absent; those skips are not passes.
 See [WO-005 acceptance evidence](acceptance/WO-005.md) for actual results and the
-remaining initial-list prerequisite.
+owner decision to defer the initial list to first-live setup.
