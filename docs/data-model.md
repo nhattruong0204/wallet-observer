@@ -2,8 +2,12 @@
 
 Implemented for [issue #4 / WO-004](https://github.com/nhattruong0204/wallet-observer/issues/4).
 This is a PostgreSQL storage foundation for the desktop website. It does not
-implement a provider collector, a trade normalizer, a watchlist API, live browser
+implement a provider collector, a trade normalizer, live browser
 transport or Telegram sending. Those remain their own issues and source gates.
+
+The [WO-005 watchlist API](watchlist-format.md) now uses the existing watches and
+groups tables for manual scope, soft removal, import/export and collection intent.
+It does not enable provider collection or change historical persistence.
 
 ## Schema and identity
 
